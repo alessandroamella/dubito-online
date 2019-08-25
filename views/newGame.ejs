@@ -1,0 +1,27 @@
+<% include ./partials/header %>
+
+<div class="container d-flex justify-content-center pt-2">
+    <div class="info-container">
+        <div class="text-center" style="width: 300px;">
+            <form method="POST" action="/nuovapartita">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input class="form-control form-control-lg" type="text" name="username" id="username"
+                        placeholder="Inserisci nome utente">
+                </div>
+                <div class="form-group">
+                    <label for="giocatori">Numero di giocatori</label>
+                    <select class="form-control" name="players" id="giocatori">
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary" type="submit">Inizia</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<% include ./partials/footer %>
