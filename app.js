@@ -51,7 +51,7 @@ app.get("/dubito", function(req, res){
     res.render("partita");
 });
 
-var port = process.env.PORT || 3000;
-app.listen(port, function () {
+// var port = process.env.PORT || 3000;
+app.listen(process.env.PORT, process.env.IP, function () {
   console.log("Server Started!");
 });
