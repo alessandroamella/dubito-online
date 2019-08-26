@@ -7,19 +7,14 @@ var passport = require("passport");
 var localStrategy = require("passport-local");
 var passportLocalMongoose = require("passport-local-mongoose");
 var methodOverride = require("method-override");
+var flash = require("connect-flash");
+var User = require("./models/user")
+
+// CONNECT FLASH MESSAGES
+app.use(flash());
 
 // MONGOOSE SETUP
 mongoose.connect("mongodb://localhost:27017/dubito", { useNewUrlParser: true });
-
-// DATABASE SETUP
-var userSchema = new mongoose.Schema({
-    username: String,
-    password: String
-});
-
-userSchema.plugin(passportLocalMongoose);
-
-var User = mongoose.model("User", userSchema);
 
 // BODY PARSER SETUP
 app.use(bodyParser.urlencoded({extended: true}));
@@ -32,6 +27,7 @@ app.use(express.static(__dirname + "/public"));
 
 // METHOD OVERRIDE SETUP
 app.use(methodOverride("_method"));
+
 
 // PASSPORT SETUP
 app.use(require("express-session")({
@@ -48,24 +44,75 @@ passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+app.use(function(req, res, next){
+    res.locals.currentUser = req.user;
+    res.locals.error = req.flash("error");
+    res.locals.success = req.flash("success");
+    next();
+ });
+
 // RESTful Routing
 app.get("/", function(req, res){
     res.render("home");
 });
 
+app.get("/registrazione", function(req, res){
+    res.render("signup");
+});
+
+app.post("/signup", function(req, res){
+    User.register(new User({username: req.body.username, email: req.body.email}), req.body.password, function(err, user){
+        if(err){
+            console.log(err);
+            return res.render('signup');
+        }
+        passport.authenticate("local")(req, res, function(){
+           res.redirect("/");
+        });
+    });
+});
+
+// LOGIN FORM
+app.get("/login", function(req, res){
+    res.render("login");
+})
+
+ //LOGIN LOGIC
+app.post("/login", passport.authenticate("local",
+    {
+        successRedirect: "/",
+        failureRedirect: "/login"
+    }), function(req, res){
+});
+ 
+//  LOGOUT
+ app.get("/logout", function(req, res){
+     req.logout();
+     res.redirect("/");
+ });
+ 
+//  ISLOGGEDIN MIDDLEWARE
+ function isLoggedIn(req, res, next){
+     if(req.isAuthenticated()){
+         return next();
+     }
+     req.flash("error", "Devi fare il login per continuare");
+     res.redirect("/login");
+ }
+
 app.get("/informazioni", function(req, res){
     res.render("info.ejs")
 });
 
-app.get("/nuovapartita", function(req, res){
+app.get("/nuovapartita", isLoggedIn, function(req, res){
     res.render("newGame.ejs");
 });
 
-app.post("/nuovapartita", function(req, res){
+app.post("/nuovapartita", isLoggedIn, function(req, res){
     res.redirect("/dubito");
 });
 
-app.get("/dubito", function(req, res){
+app.get("/dubito", isLoggedIn, function(req, res){
     res.render("partita");
 });
 

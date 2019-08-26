@@ -1,7 +1,7 @@
 <% include ./partials/header %>
 
-<div class="container d-flex justify-content-center pt-2">
-    <div class="info-container">
+<div class="container d-flex justify-content-center pt-5">
+    <div class="info-container p-2">
         <div class="text-center" style="width: 300px;">
             <form method="POST" action="/nuovapartita">
                 <div class="form-group">
@@ -12,10 +12,10 @@
                 <div class="form-group">
                     <label for="giocatori">Numero di giocatori</label>
                     <select class="form-control" name="players" id="giocatori">
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
+                        <option disabled>3</option>
+                        <option selected>4</option>
+                        <option disabled>5</option>
+                        <option disabled>6</option>
                     </select>
                 </div>
                 <button class="btn btn-primary" type="submit">Inizia</button>

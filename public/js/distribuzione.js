@@ -44,13 +44,13 @@ function renderizzaMazzo()
 		var card = document.createElement("div");
 		var icon = '';
 		if (deck[i].Suit == 'coppe')
-		icon='&coppe;';
+		icon=' di coppe';
 		else if (deck[i].Suit == 'denari')
-		icon = '&denari;';
+		icon = ' di denari';
 		else if (deck[i].Suit == 'bastoni')
-		icon = '&bastoni;';
+		icon = ' di bastoni';
 		else
-		icon = '&spade;';
+		icon = ' di spade';
 
 		card.innerHTML = deck[i].Value + '' + icon;
 		card.className = 'card';
@@ -58,11 +58,11 @@ function renderizzaMazzo()
 	}
 }
 
-function load()
+function carica()
 {
 	deck = prendiMazzo();
 	mescola();
 	renderizzaMazzo();
 }
 
-window.onload = load;
+window.onload = carica;

@@ -12,6 +12,7 @@
         href="https://www.googleapis.com/drive/v3/files/1tIMWvn6J8Ftdcbmmpxtg_T0u7mpTDklr?alt=media&key=AIzaSyCzJtUQTqW3tZTuLnq4b8EvfZlZqhaw5Hw">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Rock+Salt&display=swap" rel="stylesheet">
     <title>Dubito Online</title>
 </head>
 
@@ -35,5 +36,31 @@
                     <a class="nav-link" href="/informazioni">Informazioni</a>
                 </li>
             </ul>
+
+            <div class="navbar-nav ml-auto ml-5">
+                <% if(!currentUser){ %>
+                <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="/registrazione">Registrati</a></li>
+                <% } else { %>
+                <li class="nav-item"><a class="nav-link" href="#">Ciao <%= currentUser.username %></a></li>
+                <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+                <% } %>
+            </div>
         </div>
     </nav>
+
+
+<% if(error && error.length > 0){ %>
+    <div class="container alert alert-info mt-3 mx-2" role="alert">
+        <h4 class="alert-heading">Avviso</h4>
+        <p class="mb-0"><%= error %></p>
+    </div>
+<% } %>
+        
+        
+<% if(success && success.length > 0){ %>
+    <div class="container alert alert-success mt-3 mx-2" role="alert">
+        <h4 class="alert-heading">Successo</h4>
+        <p class="mb-0"><%= success %></p>
+    </div>
+<% } %>

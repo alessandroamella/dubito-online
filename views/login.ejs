@@ -1,0 +1,23 @@
+<% include ./partials/header %>
+
+<div class="container info-container mx-2 mt-3 pt-3 mx-auto">
+
+    <form action="/login" method="POST">
+        <div class="form">
+            <div class="form-group">
+                <label for="email">Indirizzo email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="nome@esempio.com">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="123456789">
+            </div>
+            <div class="text-center pb-3">
+                <button type="submit" class="btn btn-outline-primary">Login</button>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+<% include ./partials/footer %>

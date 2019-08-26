@@ -7,7 +7,7 @@
 body {
     background-image: url("/imgs/wallpaper.jpg");
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     padding-bottom: 5rem;
 }
 
@@ -34,4 +34,36 @@ footer {
 
 .container-carte {
     height: 320px;
+}
+
+.pop {
+    animation: pop 5.0s infinite;
+    -webkit-animation: pop 5.0s infinite;
+}
+@keyframes pop {
+    from {
+        transform:scale(0.95)
+    }
+    50% {
+        transform:scale(1)
+    }
+    to {
+        transform:scale(0.95)
+    }
+}
+@-webkit-keyframes pop {
+    from {
+        -webkit-transform:scale(0.95)
+    }
+    50% {
+        -webkit-transform:scale(1)
+    }
+    to {
+        -webkit-transform:scale(0.95)
+    }
+}
+.tilt {
+    -ms-transform: rotate(-10deg);
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg);
 }
