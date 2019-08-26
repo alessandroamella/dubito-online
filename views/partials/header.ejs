@@ -60,16 +60,21 @@
 
 
 <% if(error && error.length > 0){ %>
-    <div class="container alert alert-info mt-3 mx-2" role="alert">
-        <h4 class="alert-heading">Avviso</h4>
-        <p class="mb-0"><%= error %></p>
+    <div class="container">
+        <div class="alert alert-info mt-3 mx-2" role="alert">
+            <h4 class="alert-heading">Hey!</h4>
+            <p class="mb-0"><%= error %></p>
+        </div>
     </div>
+    
 <% } %>
         
         
 <% if(success && success.length > 0){ %>
-    <div class="container alert alert-success mt-3 mx-2" role="alert">
-        <h4 class="alert-heading">Successo</h4>
-        <p class="mb-0"><%= success %></p>
+    <div class="container">
+        <div class="alert alert-success mt-3 mx-2" role="alert">
+            <h4 class="alert-heading">Hey!</h4>
+            <p class="mb-0"><%= success %></p>
+        </div>
     </div>
 <% } %>

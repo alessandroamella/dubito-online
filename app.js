@@ -61,29 +61,32 @@ app.get("/registrazione", function(req, res){
 });
 
 app.post("/signup", function(req, res){
-    User.register(new User({username: req.body.username, email: req.body.email}), req.body.password, function(err, user){
+    var newUser = new User({username: req.body.username});
+    User.register(newUser, req.body.password, function(err, user){
         if(err){
-            console.log(err);
-            return res.render('signup');
-        }
+            req.flash("error", err.message);
+            return res.redirect("/registrazione");
+          }
         passport.authenticate("local")(req, res, function(){
-           res.redirect("/");
+           req.flash("success", "Benvenuto su Dubito Online " + user.username);
+           res.redirect("/"); 
         });
     });
 });
 
+
 // LOGIN FORM
 app.get("/login", function(req, res){
-    res.render("login");
-})
+    res.render("login"); 
+ });
+ 
 
- //LOGIN LOGIC
-app.post("/login", passport.authenticate("local",
-    {
-        successRedirect: "/",
-        failureRedirect: "/login"
-    }), function(req, res){
-});
+ // LOGIN LOGIC
+ app.post("/login", passport.authenticate('local', {
+    successRedirect: "/",
+    failureRedirect: "/login",
+    failureFlash: true
+}), function(req, res){})
  
 //  LOGOUT
  app.get("/logout", function(req, res){
@@ -116,7 +119,7 @@ app.get("/dubito", isLoggedIn, function(req, res){
     res.render("partita");
 });
 
-// var port = process.env.PORT || 3000;
-app.listen(process.env.PORT, process.env.IP, function () {
+var port = process.env.PORT || 3000;
+app.listen(port, function () {
   console.log("Server Started!");
 });
