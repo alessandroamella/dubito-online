@@ -40,8 +40,8 @@ app.use(function(req, res, next){
  });
 
 // CONNECT MONGODB URI
-mongoose.connect("mongodb://localhost:27017/dubito", { useNewUrlParser: true }, function(){
-    console.log("Connected!");
+mongoose.connect(process.env.mongoDBURI, { useNewUrlParser: true }, function(){
+    console.log("Database connected!");
 });
 
 // AUTH ROUTES
@@ -54,7 +54,6 @@ app.use("/profilo", profileRoutes);
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
-// mongoose.connect("mongodb://localhost:27017/dubito", { useNewUrlParser: true });
 
 // BODY PARSER SETUP
 app.use(bodyParser.urlencoded({extended: false }));
