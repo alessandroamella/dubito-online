@@ -47,35 +47,41 @@
             </ul>
 
             <div class="navbar-nav ml-auto ml-5">
-                <li class="nav-item"><a class="nav-link" href="/autenticazione/login">Login</a></li>
-                <li class="nav-item"><a class="nav-link" href="/autenticazione/registrazione">Registrati</a></li>
-                <a class="btn-outline-primary" href="/autenticazione/google" role="button"><img
-                    src="https://icon-library.net/images/google-g-icon/google-g-icon-26.jpg" alt="Sign in with Google"
-                    style="width: 2rem;"></a>
-
-                <li class="nav-item"><a class="nav-link" href="#">Ciao <%= "currentUser" %></a></li>
-                <li class="nav-item"><a class="nav-link" href="/autenticazione/logout">Logout</a></li>
+                
+                <% if(utente) { %>
+                    <% if(utente.nickname != ""){ %>
+                        <li class="nav-item"><a class="nav-link" href="/profilo">Ciao <%= utente.nickname %></a></li>
+                    <% } else { %>
+                        <li class="nav-item"><a class="nav-link" href="/profilo">Bentornato <%= utente.username %></a></li>
+                    <% } %>
+                    
+                    <li class="nav-item"><a class="nav-link"href="/autenticazione/logout">Logout</a></li>
+                <% } else { %>
+                    <li class="nav-item"><a class="nav-link" style="height: 100%;" href="/autenticazione/google">Entra
+                        con <img src="https://icon-library.net/images/google-g-icon/google-g-icon-26.jpg" alt="Sign in with Google"
+                        style="width: 2rem;"> </a></li>
+                <% } %>
             </div>
         </div>
     </nav>
 
 
-<!-- <%= "if(error && error.length > 0){" %>
+    <% if(error && error.length > 0){ %>
     <div class="container">
         <div class="alert alert-info mt-3 mx-2" role="alert">
             <h4 class="alert-heading">Hey!</h4>
-            <p class="mb-0"><%= "error" %></p>
+            <p class="mb-0"><%= error %></p>
         </div>
     </div>
     
-<%= "}" %>
+<% } %>
         
         
-<%= "if(success && success.length > 0){" %>
+<% if(success && success.length > 0){ %>
     <div class="container">
         <div class="alert alert-success mt-3 mx-2" role="alert">
             <h4 class="alert-heading">Hey!</h4>
-            <p class="mb-0"><%= "success" %></p>
+            <p class="mb-0"><%= success %></p>
         </div>
     </div>
-<%= "}" %> -->
+<% } %>

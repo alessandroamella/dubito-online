@@ -63,7 +63,21 @@ footer {
     }
 }
 .tilt {
-    -ms-transform: rotate(-10deg);
-    -webkit-transform: rotate(-10deg);
-    transform: rotate(-10deg);
+    -ms-transform: rotate(-6deg);
+    -webkit-transform: rotate(-6deg);
+    transform: rotate(-6deg);
+}
+
+@font-face {
+    font-family: 'edo_sz';
+    src: url('/fonts/edosz-webfont.woff2') format('woff2'),
+         url('/fonts/edosz-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+#splashText {
+    font-family: "edo_sz";
+    font-size: 20rem;
 }

@@ -1,13 +1,25 @@
 <% include ./partials/header %>
 
+
 <div class="container text-center">
-    <div class="pop">
+    <!-- <div class="pop">
         <img src="https://www.googleapis.com/drive/v3/files/1okT-pGy2D6CyPzDqPdQjTLXJzfda_jrk?alt=media&key=AIzaSyCzJtUQTqW3tZTuLnq4b8EvfZlZqhaw5Hw"
             class="img-fluid pt-5" alt="Subito Splash Screen">
+        
+    </div> -->
+    <div class="tilt">
+        <div class="pop">
+            <h1 class="img-fluid" id="splashText">dubito!</h1>
+        </div>
     </div>
     <div class="pt-5">
         <a class="btn btn-primary btn-lg" href="/nuovapartita" role="button">Nuova partita</a>
     </div>
 </div>
+
+<script src="/js/jquery.fittext.js"></script>
+<script>
+    $("#splashText").fitText(0.35);
+</script>
 
 <% include ./partials/footer %>
