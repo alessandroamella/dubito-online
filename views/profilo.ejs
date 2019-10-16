@@ -15,11 +15,11 @@
                     <p><%= utente.username %></p>
                 </div>
                 <div class="col">
-                    <form action="/profilo/<%= utente._id %>" method="POST">
+                    <form action="/profilo/<%= utente._id %>?_method=PUT" method="POST">
                         <div class="form-group">
                             <label for="nickname"><strong>Nickname:</strong></label>
                             <input type="text" class="form-control" name="nickname" id="nickname"
-                                placeholder="DARKANGELCRAFT" value="<%= utente.nickname %>">
+                                placeholder="DARKANGELCRAFT" value="<%= utente.nickname %>" maxlength="15">
                             <button class="mt-2 btn btn-primary" id="changeNickname" type="submit">Cambia
                                 Nickname</button>
                     </form>
@@ -32,6 +32,9 @@
     <div class="m-3">
         <p class="blockquote-footer">Informazioni private</p>
         <p><strong>Google ID:</strong> <%= utente.googleId %></p>
+    </div>
+    <div class="mb-3 text-center">
+        <a class="btn btn-primary btn-lg" href="/nuovapartita" role="button">Nuova partita</a>
     </div>
 </div>
 </div>

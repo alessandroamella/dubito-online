@@ -1,12 +1,14 @@
 <% include ./partials/header %>
 
-<div class="container info-container pt-3">
+<div class="container info-container pt-2 mt-2">
+    <button type="button" id="resetPlayers" class="btn btn-warning">Reset players</button>
     <div class="avversari"></div>
-    <div class="mazzo text-center">
-        <div class="deck">
-            <div id="deck"></div>
+    <p id="infoMazzo"></p>
+    <div class="mazzo text-center mb-2">
+        <div class="mazzo">
+            <div id="mazzo" class="row d-flex"></div>
         </div>
-        <div class="row container-carte">
+        <!-- <div class="row container-carte">
             <div class="col-4 col-lg-3 text-right">
                 <img alt="Carta 1" id="carta1">
             </div>
@@ -39,10 +41,12 @@
             <div class="col-6 col-lg-3 text-left text-lg-left">
                 <img alt="Carta 10" id="carta10">
             </div>
-        </div>
+        </div> -->
     </div>
+</div>
 
-    
-<script src="/js/distribuzione.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+<script src="/js/partita.js"></script>
 
     <% include ./partials/footer %>
