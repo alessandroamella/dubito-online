@@ -8,12 +8,13 @@ var methodOverride = require("method-override");
 var flash = require("connect-flash");
 var mongoose = require("mongoose");
 var cookieSession = require("cookie-session");
-var socket = require("socket.io")
+var socket = require("socket.io");
 
 // LOAD ROUTES
 var authRoutes = require("./routes/auth-routes");
 var passportSetup = require("./config/passport-setup");
 var profileRoutes = require("./routes/profile");
+var mazzo = require("./models/mazzo");
 const User = require('./models/user');
 var middleware = require("./middleware");
 
@@ -73,11 +74,11 @@ app.get("/", function(req, res){
 });
 
 app.get("/informazioni", function(req, res){
-    res.render("info.ejs")
+    res.render("info")
 });
 
 app.get("/nuovapartita", middleware.controllaAccesso, function(req, res){
-    res.render("newGame.ejs");
+    res.render("newGame");
 });
 
 app.post("/nuovapartita", middleware.controllaAccesso, function(req, res){
@@ -89,7 +90,7 @@ app.get("/dubito", middleware.controllaAccesso, function(req, res){
 });
 
 app.put("/profilo/:id", middleware.controllaAccesso, function(req, res){
-    // find and update the correct campground
+    // Trova e aggiorna nickname
     User.findOneAndUpdate({_id: req.params.id}, {
         nickname: req.body.nickname
     }, function(err, updatedNick){
@@ -115,11 +116,6 @@ var server = app.listen(process.env.PORT, process.env.IP, function () {
   console.log("Server Started!");
 });
 
-// var port = process.env.PORT || 3000;
-// var server = app.listen(port, function () {
-//   console.log("Server Started!");
-// });
-
 // SOCKET SETUP
 var io = socket(server);
 
@@ -128,14 +124,8 @@ var connessioni = 0;
 var ids = [];
 
 io.on("connection", function(socket){
-    connessioni += 1;
-    if(connessioni <= 4){
-        socket.emit("disponibile", {});
-    }
 
-    if(connessioni === 1){
-        socket.emit("primo", {});
-    }
+    connessioni += 1;
 
     console.log("New connection from socket", socket.id);
     ids.push(socket.id);
@@ -143,9 +133,46 @@ io.on("connection", function(socket){
         id: socket.id,
         giocatori: connessioni
     })
+
     if(connessioni === 4){
+        var mazzoTemp = [];
+        var mazzo = require("./models/mazzo");
+        for(var mazzoCount = 0; mazzoCount < mazzo.length; mazzoCount++){
+            if(mazzoCount >= 0 && mazzoCount < 10){
+                mazzoTemp.push(mazzo[mazzoCount]);
+                if(mazzoCount == 9){
+                    io.to(ids[0]).emit("carte", mazzoTemp);
+                    console.log(mazzoTemp);
+                    mazzoTemp = [];
+                };
+            };
+            if(mazzoCount >= 10 && mazzoCount < 20){
+                mazzoTemp.push(mazzo[mazzoCount]);
+                if(mazzoCount == 19){
+                    io.to(ids[1]).emit("carte", mazzoTemp);
+                    console.log(mazzoTemp);
+                    mazzoTemp = [];
+                };
+            }
+            if(mazzoCount >= 20 && mazzoCount < 30){
+                mazzoTemp.push(mazzo[mazzoCount]);
+                if(mazzoCount == 29){
+                    io.to(ids[2]).emit("carte", mazzoTemp);
+                    console.log(mazzoTemp);
+                    mazzoTemp = [];
+                };
+            }
+            if(mazzoCount >= 30 && mazzoCount < 40){
+                mazzoTemp.push(mazzo[mazzoCount]);
+                if(mazzoCount == 39){
+                    io.to(ids[3]).emit("carte", mazzoTemp);
+                    console.log(mazzoTemp);
+                    mazzoTemp = [];
+                };
+            }
+        };
+
         io.sockets.emit("connessioni",{
-            maxPlayers: true,
             id1: ids[0],
             id2: ids[1],
             id3: ids[2],
