@@ -1,5 +1,5 @@
-var carte = ["Asso", "2", "3", "4", "5", "6", "7", "Fante", "Cavallo", "Re"];
-var semi = ["bastoni", "coppe", "denari", "spade"];
+var carte = ["Asso", "2", "3", "4", "5", "6", "7", "Jack", "Donna", "Re"];
+var semi = ["picche", "cuori", "quadri", "fiori"];
 var mazzo = new Array();
 
 function generaMazzo(){

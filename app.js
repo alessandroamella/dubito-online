@@ -126,6 +126,9 @@ var ids = [];
 io.on("connection", function(socket){
 
     connessioni += 1;
+    if(connessioni <= 4){
+        io.sockets.emit("nuovaConnessione", connessioni);
+    }
 
     console.log("New connection from socket", socket.id);
     ids.push(socket.id);

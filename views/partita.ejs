@@ -1,52 +1,16 @@
 <% include ./partials/header %>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
 <div class="container info-container pt-2 mt-2">
     <button type="button" id="resetPlayers" class="btn btn-warning">Reset players</button>
     <div class="avversari"></div>
     <p id="infoMazzo"></p>
-    <div class="mazzo text-center mb-2">
-        <div class="mazzo">
-            <div id="mazzo" class="row d-flex"></div>
-        </div>
-        <!-- <div class="row container-carte">
-            <div class="col-4 col-lg-3 text-right">
-                <img alt="Carta 1" id="carta1">
-            </div>
-            <div class="col-4 col-lg-2">
-                <img alt="Carta 2" id="carta2">
-            </div>
-            <div class="col-4 text-left col-lg-2 text-lg-center">
-                <img alt="Carta 3" id="carta3">
-            </div>
-            <div class="col-6 col-lg-2 text-right text-lg-center">
-                <img alt="Carta 4" id="carta4">
-            </div>
-            <div class="col-6 col-lg-3 text-left text-lg-left">
-                <img alt="Carta 5" id="carta5">
-            </div>
-        </div>
-        <div class="row container-carte">
-            <div class="col-4 col-lg-3 text-right">
-                <img alt="Carta 6" id="carta6">
-            </div>
-            <div class="col-4 col-lg-2">
-                <img alt="Carta 7" id="carta7">
-            </div>
-            <div class="col-4 text-left col-lg-2 text-lg-center">
-                <img alt="Carta 8" id="carta8">
-            </div>
-            <div class="col-6 col-lg-2 text-right text-lg-center">
-                <img alt="Carta 9" id="carta9">
-            </div>
-            <div class="col-6 col-lg-3 text-left text-lg-left">
-                <img alt="Carta 10" id="carta10">
-            </div>
-        </div> -->
-    </div>
+    <div id="mazzo" class="mazzo text-center mb-2 row"></div>
 </div>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
 <script src="/js/distribuzione2.js"></script>
 
-    <% include ./partials/footer %>
+<% include ./partials/footer %>
