@@ -27,7 +27,7 @@ socket.on("id", function(data){
 });
 
 socket.on("nuovaConnessione", function(data){
-    console.log(data);
+    console.log("Giocatori totali: " + data);
     $("#infoMazzo").html("Il tuo ID è <strong>" + userId + "</strong>, sei il giocatore <strong>" + giocatore + "</strong> / 4, totale: <strong>" + data + "</strong> / 4");
 });
 
@@ -39,9 +39,11 @@ $("#resetPlayers").click(function(event){
     location.reload();
 });
 
-function Carta(numero, seme){
-    this.numero = numero;
-    this.seme = seme;
+class Carta {
+    constructor(numero, seme) {
+        this.numero = numero;
+        this.seme = seme;
+    }
 }
 
 var mazzo = [];
@@ -61,6 +63,25 @@ socket.on("carte", function(data){
 
 
 function cartaClick(numero, seme){
-    alert("Hai cliccato la carta " + numero + " di " + seme);
-    console.log(mazzo);
+    console.log("Hai cliccato la carta " + numero + " di " + seme);
+    socket.emit("cartaSend", {
+        numero: numero,
+        seme: seme
+    })
 };
+
+socket.on("cartaReceive", function(data){
+    console.log("Ricevuta la carta " + data.numero + " di " + data.seme);
+});
+
+var turnoAdesso = false;
+
+socket.on("turno", function(data){
+    if(data == giocatore - 1){
+        console.log("È il tuo turno!");
+    };
+});
+
+socket.on("noturno", function(data){
+    console.log("Non è il tuo turno!");
+});

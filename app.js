@@ -123,6 +123,8 @@ var connessioni = 0;
 
 var ids = [];
 
+var turno = 0;
+
 io.on("connection", function(socket){
 
     connessioni += 1;
@@ -137,7 +139,11 @@ io.on("connection", function(socket){
         giocatori: connessioni
     })
 
+    var inGame = false;
+
     if(connessioni === 4){
+        turno = 0;
+        inGame = true;
         var mazzoTemp = [];
         var mazzo = require("./models/mazzo");
         for(var mazzoCount = 0; mazzoCount < mazzo.length; mazzoCount++){
@@ -182,9 +188,34 @@ io.on("connection", function(socket){
             id4: ids[3]
         });
 
-    }
+        io.to(ids[turno]).emit("turno", turno);
+
+    };
     console.log(connessioni + " player");
 
+    socket.on("cartaSend", function (data) {
+        // Solo se è il turno del socket che emette la carta, allora emetti a tutti la carta inviata
+        if (ids[turno] == socket.id) {
+            socket.broadcast.emit("cartaReceive", data);
+            // Aumenta il turno di uno, se il turno è pari al numero del giocatori totali, allora il giro ricomincia
+            if (turno >= 0 && turno < ids.length - 1) {
+                turno = turno + 1;
+            } else if (turno == ids.length - 1) {
+                turno = 0;
+            } else {
+                console.log("ATTENZIONE, numero turno invalido: " + turno);
+                turno = 0;
+            };
+            console.log("Turno del giocatore " + (turno + 1).toString());
+            io.to(ids[turno]).emit("turno", turno);
+        } else {
+            // Se non è il turno del socket che emette la carta, allora emetti "noturno"
+            socket.emit("noturno", true);
+        };
+
+    });
+
+    // Tasto di debug per impostare a 0 il numero di socket connessi
     socket.on("reset", function(data){
         if(data.reset === true){
             connessioni = 0;
