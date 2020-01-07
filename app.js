@@ -1,34 +1,46 @@
 // PACKAGES SETUP
-var express = require("express");
-var app = express();
-var bodyParser = require("body-parser");
-var mongoose = require("mongoose");
-var passport = require("passport");
-var methodOverride = require("method-override");
-var flash = require("connect-flash");
-var mongoose = require("mongoose");
-var cookieSession = require("cookie-session");
-var socket = require("socket.io");
+const express = require("express");
+const app = express();
+const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+const passport = require("passport");
+const methodOverride = require("method-override");
+const flash = require("connect-flash");
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+const socket = require("socket.io");
+require('dotenv').config();
 
 // LOAD ROUTES
-var authRoutes = require("./routes/auth-routes");
-var passportSetup = require("./config/passport-setup");
-var profileRoutes = require("./routes/profile");
-var mazzo = require("./models/mazzo");
+const authRoutes = require("./routes/auth-routes");
+const passportSetup = require("./config/passport-setup");
+const profileRoutes = require("./routes/profile");
+const mazzo = require("./models/mazzo");
 const User = require('./models/user');
-var middleware = require("./middleware");
+const middleware = require("./middleware");
 
 // SET VIEW ENGINE EJS
 app.set("view engine", "ejs");
 
+// CONNECT MONGODB URI
+mongoose.connect(process.env.mongoDBURI, { useNewUrlParser: true }, function(){
+    console.log("Database connected!");
+});
+
+// SETUP EXPRESS SESSION AND CONNECT MONGO
+app.use(session({
+    secret: process.env.cooKey,
+    resave: false,
+    saveUninitialized: true,
+    cookie: {},
+    store: new MongoStore({
+        url: process.env.mongoDBURI,
+        ttl: 24*60*60
+    })
+}));
+
 // CONNECT FLASH MESSAGES
 app.use(flash());
-
-// SETUP COOKIE SESSION
-app.use(cookieSession({
-    maxAge: 24*60*60*1000,
-    keys: [process.env.cooKey]
-}));
 
 // INITIALIZE PASSPORT
 app.use(passport.initialize());
@@ -41,11 +53,6 @@ app.use(function(req, res, next){
     res.locals.success = req.flash("success");
     next();
  });
-
-// CONNECT MONGODB URI
-mongoose.connect(process.env.mongoDBURI, { useNewUrlParser: true }, function(){
-    console.log("Database connected!");
-});
 
 // AUTH ROUTES
 app.use("/autenticazione", authRoutes);
@@ -110,8 +117,6 @@ app.get("*", function(req, res){
     res.render("404");
 });
 
-
-
 var server = app.listen(process.env.PORT, process.env.IP, function () {
   console.log("Server Started!");
 });
@@ -123,7 +128,18 @@ var connessioni = 0;
 
 var ids = [];
 
+var players = [];
+
 var turno = 0;
+
+class Player {
+    constructor(ip_pubblico, socket_id, nickname, mazzo) {
+        this.ip_pubblico = ip_pubblico;
+        this.socket_id = socket_id;
+        this.nickname = nickname;
+        this.mazzo = mazzo;
+    }
+}
 
 io.on("connection", function(socket){
 
@@ -132,7 +148,7 @@ io.on("connection", function(socket){
         io.sockets.emit("nuovaConnessione", connessioni);
     }
 
-    console.log("New connection from socket", socket.id);
+    console.log("Nuova connessione dal socket", socket.id);
     ids.push(socket.id);
     socket.emit("id", {
         id: socket.id,
@@ -151,7 +167,7 @@ io.on("connection", function(socket){
                 mazzoTemp.push(mazzo[mazzoCount]);
                 if(mazzoCount == 9){
                     io.to(ids[0]).emit("carte", mazzoTemp);
-                    console.log(mazzoTemp);
+                    // console.log(mazzoTemp);
                     mazzoTemp = [];
                 };
             };
@@ -159,7 +175,7 @@ io.on("connection", function(socket){
                 mazzoTemp.push(mazzo[mazzoCount]);
                 if(mazzoCount == 19){
                     io.to(ids[1]).emit("carte", mazzoTemp);
-                    console.log(mazzoTemp);
+                    // console.log(mazzoTemp);
                     mazzoTemp = [];
                 };
             }
@@ -167,7 +183,7 @@ io.on("connection", function(socket){
                 mazzoTemp.push(mazzo[mazzoCount]);
                 if(mazzoCount == 29){
                     io.to(ids[2]).emit("carte", mazzoTemp);
-                    console.log(mazzoTemp);
+                    // console.log(mazzoTemp);
                     mazzoTemp = [];
                 };
             }
@@ -175,7 +191,7 @@ io.on("connection", function(socket){
                 mazzoTemp.push(mazzo[mazzoCount]);
                 if(mazzoCount == 39){
                     io.to(ids[3]).emit("carte", mazzoTemp);
-                    console.log(mazzoTemp);
+                    // console.log(mazzoTemp);
                     mazzoTemp = [];
                 };
             }
@@ -207,6 +223,8 @@ io.on("connection", function(socket){
                 turno = 0;
             };
             console.log("Turno del giocatore " + (turno + 1).toString());
+            socket.emit("senderSuccess", "Hai inviato la carta!");
+            io.to(ids[turno]).emit("receiverSuccess", "Hai ricevuto la carta!");
             io.to(ids[turno]).emit("turno", turno);
         } else {
             // Se non è il turno del socket che emette la carta, allora emetti "noturno"

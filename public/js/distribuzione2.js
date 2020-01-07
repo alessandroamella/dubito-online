@@ -85,3 +85,11 @@ socket.on("turno", function(data){
 socket.on("noturno", function(data){
     console.log("Non è il tuo turno!");
 });
+
+socket.on("senderSuccess", function(data){
+    console.log(data);
+});
+
+socket.on("receiverSuccess", function(data){
+    console.log(data);
+});
