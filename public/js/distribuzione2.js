@@ -8,12 +8,12 @@ setTimeout(function(){
     }
 }, 10000)
 
-socket.on("connessioni", function(data){
-    console.log("Gli id collegati sono:");
-    console.log(data.id1);
-    console.log(data.id2);
-    console.log(data.id3);
-    console.log(data.id4);
+socket.on("avversari", function(data){
+    console.log("I tuoi avversari sono:");
+    console.log(data.username1);
+    console.log(data.username2);
+    console.log(data.username3);
+    console.log(data.username4);
     setTimeout(function(){
         $("#infoMazzo").addClass("animated bounceOut");
     }, 1000);
@@ -27,7 +27,7 @@ var userId;
 var giocatore;
 
 socket.on("id", function(data){
-    if(data.id == "undefined" && data.giocatori == "undefined"){
+    if(data.id.toString() == "undefined" && data.giocatori.toString() == "undefined"){
         window.location.href = "/errore";
     } else {
         $("#infoMazzo").html("Il tuo ID è <strong>" + data.id + "</strong>, sei il giocatore <strong>" + data.giocatori + "</strong> / 4, totale: <strong>" + data.giocatori + "</strong> / 4");

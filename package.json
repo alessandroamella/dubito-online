@@ -27,6 +27,7 @@
     "passport.socketio": "^3.7.0",
     "request": "^2.88.0",
     "simple-node-logger": "^18.12.23",
-    "socket.io": "^2.3.0"
+    "socket.io": "^2.3.0",
+    "uuidv4": "^6.0.0"
   }
 }

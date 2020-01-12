@@ -1,328 +1,56 @@
-18:23:34.144 INFO  Server Started! 
-18:23:34.455 INFO  Database connected! 
-18:23:34.540 INFO  
-/========================\
- INIZIO RICERCA GIOCATORI
- 
-18:23:34.540 INFO   FINE RICERCA [NOT FOUND]
-\========================/
- 
-18:23:34.541 INFO  Trovato nuovo giocatore, aggiunto alla lista players. 
-18:23:34.542 INFO  
-******************
-1 player totali
-******************
- 
-18:23:34.727 INFO  
-GIOCATORE 1: 
-18:23:34.727 INFO  Nickname: Bitrey 
-18:23:34.727 INFO  Socket ID: nvFRpSRQZn16Q6fwAAAA 
-18:23:34.727 INFO  User ID: 5d93afc3de69e01da8b64efe 
-18:23:34.727 INFO  inGame: undefined 
-18:23:35.083 INFO  
-/========================\
- INIZIO RICERCA GIOCATORI
- 
-18:23:35.083 INFO  **************************
-ID del giocatore trovato: 5d93afc3de69e01da8b64efe 
-18:23:35.083 INFO  che è diverso da 
-18:23:35.083 INFO  ID corrente: 5d93afc3de69e01da8b64efe
-**************************
- 
-18:23:35.083 INFO   FINE RICERCA [NOT FOUND]
-\========================/
- 
-18:23:35.083 INFO  Trovato nuovo giocatore, aggiunto alla lista players. 
-18:23:35.083 INFO  
-******************
-2 player totali
-******************
- 
-18:23:35.118 INFO  
-GIOCATORE 1: 
-18:23:35.118 INFO  Nickname: Bitrey 
-18:23:35.118 INFO  Socket ID: nvFRpSRQZn16Q6fwAAAA 
-18:23:35.118 INFO  User ID: 5d93afc3de69e01da8b64efe 
-18:23:35.118 INFO  inGame: undefined 
-18:23:35.143 INFO  
-GIOCATORE 2: 
-18:23:35.143 INFO  Nickname: Bitrey 
-18:23:35.143 INFO  Socket ID: nSAL8kpxmf8sDH4sAAAB 
-18:23:35.143 INFO  User ID: 5d93afc3de69e01da8b64efe 
-18:23:35.143 INFO  inGame: undefined 
-18:23:35.273 INFO  
-/========================\
- INIZIO RICERCA GIOCATORI
- 
-18:23:35.273 INFO  **************************
-ID del giocatore trovato: 5d93afc3de69e01da8b64efe 
-18:23:35.273 INFO  che è diverso da 
-18:23:35.273 INFO  ID corrente: 5d93afc3de69e01da8b64efe
-**************************
- 
-18:23:35.273 INFO  **************************
-ID del giocatore trovato: 5d93afc3de69e01da8b64efe 
-18:23:35.273 INFO  che è diverso da 
-18:23:35.273 INFO  ID corrente: 5d93afc3de69e01da8b64efe
-**************************
- 
-18:23:35.273 INFO   FINE RICERCA [NOT FOUND]
-\========================/
- 
-18:23:35.273 INFO  Trovato nuovo giocatore, aggiunto alla lista players. 
-18:23:35.273 INFO  
-******************
-3 player totali
-******************
- 
-18:23:35.309 INFO  
-GIOCATORE 1: 
-18:23:35.309 INFO  Nickname: Bitrey 
-18:23:35.309 INFO  Socket ID: nvFRpSRQZn16Q6fwAAAA 
-18:23:35.309 INFO  User ID: 5d93afc3de69e01da8b64efe 
-18:23:35.309 INFO  inGame: undefined 
-18:23:35.521 INFO  
-GIOCATORE 2: 
-18:23:35.521 INFO  Nickname: Bitrey 
-18:23:35.521 INFO  Socket ID: nSAL8kpxmf8sDH4sAAAB 
-18:23:35.521 INFO  User ID: 5d93afc3de69e01da8b64efe 
-18:23:35.521 INFO  inGame: undefined 
-18:23:35.544 INFO  
-GIOCATORE 3: 
-18:23:35.544 INFO  Nickname: Bitrey 
-18:23:35.544 INFO  Socket ID: 6XfcjiVYsRkrwUhZAAAC 
-18:23:35.544 INFO  User ID: 5d93afc3de69e01da8b64efe 
-18:23:35.544 INFO  inGame: undefined 
-18:26:18.348 INFO  Server Started! 
-18:26:18.650 INFO  Database connected! 
-18:26:18.751 INFO  
-/========================\
- INIZIO RICERCA GIOCATORI
- 
-18:26:18.751 INFO   FINE RICERCA [NOT FOUND]
-\========================/
- 
-18:26:18.751 INFO  Trovato nuovo giocatore, aggiunto alla lista players. 
-18:26:18.752 INFO  
-******************
-1 player totali
-******************
- 
-18:26:18.934 INFO  
-GIOCATORE 1: 
-18:26:18.934 INFO  Nickname: Bitrey 
-18:26:18.934 INFO  Socket ID: PrdK3vm-O0nuYcjHAAAA 
-18:26:18.934 INFO  User ID: 5d93afc3de69e01da8b64efe 
-18:26:18.934 INFO  inGame: undefined 
-18:26:19.083 INFO  
-/========================\
- INIZIO RICERCA GIOCATORI
- 
-18:26:19.083 INFO  **************************
-ID del giocatore trovato: 5d93afc3de69e01da8b64efe 
-18:26:19.083 INFO  che è diverso da 
-18:26:19.083 INFO  ID corrente: 5d93afc3de69e01da8b64efe
-**************************
- 
-18:26:19.083 INFO   FINE RICERCA [NOT FOUND]
-\========================/
- 
-18:26:19.083 INFO  Trovato nuovo giocatore, aggiunto alla lista players. 
-18:26:19.083 INFO  
-******************
-2 player totali
-******************
- 
-18:26:19.124 INFO  
-GIOCATORE 1: 
-18:26:19.124 INFO  Nickname: Bitrey 
-18:26:19.124 INFO  Socket ID: PrdK3vm-O0nuYcjHAAAA 
-18:26:19.124 INFO  User ID: 5d93afc3de69e01da8b64efe 
-18:26:19.124 INFO  inGame: undefined 
-18:26:19.326 INFO  
-GIOCATORE 2: 
-18:26:19.326 INFO  Nickname: Bitrey 
-18:26:19.326 INFO  Socket ID: bqygXu1FtkBuJCD9AAAB 
-18:26:19.326 INFO  User ID: 5d93afc3de69e01da8b64efe 
-18:26:19.326 INFO  inGame: undefined 
-18:26:19.328 INFO  
-/========================\
- INIZIO RICERCA GIOCATORI
- 
-18:26:19.328 INFO  **************************
-ID del giocatore trovato: 5d93afc3de69e01da8b64efe 
-18:26:19.328 INFO  che è diverso da 
-18:26:19.328 INFO  ID corrente: 5d93afc3de69e01da8b64efe
-**************************
- 
-18:26:19.328 INFO  **************************
-ID del giocatore trovato: 5d93afc3de69e01da8b64efe 
-18:26:19.328 INFO  che è diverso da 
-18:26:19.328 INFO  ID corrente: 5d93afc3de69e01da8b64efe
-**************************
- 
-18:26:19.328 INFO   FINE RICERCA [NOT FOUND]
-\========================/
- 
-18:26:19.329 INFO  Trovato nuovo giocatore, aggiunto alla lista players. 
-18:26:19.329 INFO  
-******************
-3 player totali
-******************
- 
-18:26:19.361 INFO  
-GIOCATORE 1: 
-18:26:19.361 INFO  Nickname: Bitrey 
-18:26:19.361 INFO  Socket ID: PrdK3vm-O0nuYcjHAAAA 
-18:26:19.361 INFO  User ID: 5d93afc3de69e01da8b64efe 
-18:26:19.361 INFO  inGame: undefined 
-18:26:19.389 INFO  
-GIOCATORE 2: 
-18:26:19.389 INFO  Nickname: Bitrey 
-18:26:19.389 INFO  Socket ID: bqygXu1FtkBuJCD9AAAB 
-18:26:19.389 INFO  User ID: 5d93afc3de69e01da8b64efe 
-18:26:19.389 INFO  inGame: undefined 
-18:26:19.413 INFO  
-GIOCATORE 3: 
-18:26:19.413 INFO  Nickname: Bitrey 
-18:26:19.413 INFO  Socket ID: GZY8ZP6Mzc1Ef1QSAAAC 
-18:26:19.413 INFO  User ID: 5d93afc3de69e01da8b64efe 
-18:26:19.413 INFO  inGame: undefined 
-18:28:45.431 INFO  Server Started! 
-18:28:45.722 INFO  Database connected! 
-18:28:46.412 INFO  
-/========================\
- INIZIO RICERCA GIOCATORI
- 
-18:28:46.412 INFO   FINE RICERCA [NOT FOUND]
-\========================/
- 
-18:28:46.412 INFO  Trovato nuovo giocatore, aggiunto alla lista players. 
-18:28:46.413 INFO  
-******************
-1 player totali
-******************
- 
-18:28:46.584 INFO  
-GIOCATORE 1: 
-18:28:46.584 INFO  Nickname: Bitrey 
-18:28:46.584 INFO  Socket ID: 3rvsIS52QeiXQ8VVAAAA 
-18:28:46.584 INFO  User ID: 5d93afc3de69e01da8b64efe 
-18:28:46.584 INFO  inGame: undefined 
-18:28:46.587 INFO  
-/========================\
- INIZIO RICERCA GIOCATORI
- 
-18:28:46.587 INFO  **************************
-ID del giocatore trovato: 5d93afc3de69e01da8b64efe 
-18:28:46.587 INFO  che è diverso da 
-18:28:46.587 INFO  ID corrente: 5d93afc3de69e01da8b64efe
-**************************
- 
-18:28:46.587 INFO   FINE RICERCA [NOT FOUND]
-\========================/
- 
-18:28:46.587 INFO  Trovato nuovo giocatore, aggiunto alla lista players. 
-18:28:46.588 INFO  
-******************
-2 player totali
-******************
- 
-18:28:46.751 INFO  
-GIOCATORE 1: 
-18:28:46.751 INFO  Nickname: Bitrey 
-18:28:46.751 INFO  Socket ID: 3rvsIS52QeiXQ8VVAAAA 
-18:28:46.751 INFO  User ID: 5d93afc3de69e01da8b64efe 
-18:28:46.751 INFO  inGame: undefined 
-18:28:46.755 INFO  
-/========================\
- INIZIO RICERCA GIOCATORI
- 
-18:28:46.755 INFO  **************************
-ID del giocatore trovato: 5d93afc3de69e01da8b64efe 
-18:28:46.755 INFO  che è diverso da 
-18:28:46.755 INFO  ID corrente: 5d93afc3de69e01da8b64efe
-**************************
- 
-18:28:46.755 INFO  **************************
-ID del giocatore trovato: 5d93afc3de69e01da8b64efe 
-18:28:46.755 INFO  che è diverso da 
-18:28:46.755 INFO  ID corrente: 5d93afc3de69e01da8b64efe
-**************************
- 
-18:28:46.755 INFO   FINE RICERCA [NOT FOUND]
-\========================/
- 
-18:28:46.755 INFO  Trovato nuovo giocatore, aggiunto alla lista players. 
-18:28:46.755 INFO  
-******************
-3 player totali
-******************
- 
-18:28:46.959 INFO  
-GIOCATORE 1: 
-18:28:46.959 INFO  Nickname: Bitrey 
-18:28:46.959 INFO  Socket ID: 3rvsIS52QeiXQ8VVAAAA 
-18:28:46.959 INFO  User ID: 5d93afc3de69e01da8b64efe 
-18:28:46.959 INFO  inGame: undefined 
-18:28:46.963 INFO  
-GIOCATORE 2: 
-18:28:46.963 INFO  Nickname: Bitrey 
-18:28:46.963 INFO  Socket ID: g9tcdyABV5K-ioxAAAAB 
-18:28:46.963 INFO  User ID: 5d93afc3de69e01da8b64efe 
-18:28:46.963 INFO  inGame: undefined 
-18:28:46.983 INFO  
-GIOCATORE 2: 
-18:28:46.983 INFO  Nickname: Bitrey 
-18:28:46.983 INFO  Socket ID: g9tcdyABV5K-ioxAAAAB 
-18:28:46.983 INFO  User ID: 5d93afc3de69e01da8b64efe 
-18:28:46.983 INFO  inGame: undefined 
-18:28:46.992 INFO  
-GIOCATORE 3: 
-18:28:46.992 INFO  Nickname: Bitrey 
-18:28:46.992 INFO  Socket ID: bbZG8TI-SVDxrGV2AAAC 
-18:28:46.992 INFO  User ID: 5d93afc3de69e01da8b64efe 
-18:28:46.992 INFO  inGame: undefined 
-18:28:47.155 INFO  
-GIOCATORE 3: 
-18:28:47.155 INFO  Nickname: Bitrey 
-18:28:47.155 INFO  Socket ID: bbZG8TI-SVDxrGV2AAAC 
-18:28:47.155 INFO  User ID: 5d93afc3de69e01da8b64efe 
-18:28:47.155 INFO  inGame: undefined 
-18:37:13.240 WARN  4 players hard coded in deck distribution. Remove after debugging. 
-18:43:04.090 WARN  4 players hard coded in deck distribution. Remove after debugging. 
-19:35:32.525 WARN  4 players hard coded in deck distribution. Remove after debugging. 
-19:47:46.580 WARN  4 players hard coded in deck distribution. Remove after debugging. 
-00:15:57.567 WARN  4 players hard coded in deck distribution. Remove after debugging. 
-00:20:10.826 WARN  4 players hard coded in deck distribution. Remove after debugging. 
-00:23:48.134 WARN  4 players hard coded in deck distribution. Remove after debugging. 
-00:25:50.455 WARN  4 players hard coded in deck distribution. Remove after debugging. 
-00:27:07.098 WARN  4 players hard coded in deck distribution. Remove after debugging. 
-00:29:15.110 WARN  4 players hard coded in deck distribution. Remove after debugging. 
-00:29:18.982 WARN  4 players hard coded in deck distribution. Remove after debugging. 
-00:31:32.102 WARN  4 players hard coded in deck distribution. Remove after debugging. 
-00:32:54.523 WARN  4 players hard coded in deck distribution. Remove after debugging. 
-03:06:58.575 ERROR Errore nella rimozione del socket WMlJK1tS4WWNVzy3AAAB 
-03:07:05.585 ERROR Errore nella rimozione del socket 8pEkiEF7jokGt3UuAAAC 
-03:07:07.001 ERROR Errore nella rimozione del socket 4IHBbWSnvbI7OdCaAAAE 
-03:07:12.272 ERROR Errore nella rimozione del socket Gcn91Z_NXFZEp466AAAF 
-03:07:15.660 ERROR Errore nella rimozione del socket G233wFVV8sMyjvdoAAAD 
-03:07:25.481 ERROR Errore nella rimozione del socket quk4qsmmHcowc3b9AAAL 
-03:07:27.109 ERROR Errore nella rimozione del socket I6AASyA_PQLgt-W2AAAK 
-03:08:07.298 ERROR Errore nella rimozione del socket D7v37CHsULKukaIcAAAV 
-03:09:11.486 ERROR Errore nella rimozione del socket RatlhBKuPe2TzJNSAAAP 
-03:09:11.953 ERROR Errore nella rimozione del socket dtWuoU0G-suc2C1tAAAQ 
-03:12:21.129 ERROR Errore nella rimozione del socket 0CguNvmnRm-p_VR5AAAC 
-03:12:26.121 ERROR Errore nella rimozione del socket -w2zznAwsCh-2K_-AAAD 
-03:12:27.930 ERROR Errore nella rimozione del socket zC25itc1qKSkfCHaAAAE 
-03:13:50.065 ERROR Errore nella rimozione del socket BkKscztO6xhDQOhcAAAB 
-03:13:52.448 ERROR Errore nella rimozione del socket l7ga3221S1w2oi1nAAAE 
-03:13:56.586 ERROR Errore nella rimozione del socket 0tnkpUjA3udLKJvPAAAF 
-03:13:59.239 ERROR Errore nella rimozione del socket VscvPoOYQUTRNFDrAAAG 
-03:14:02.953 ERROR Errore nella rimozione del socket YcFLhIDeu3bRlZVIAAAH 
-03:14:05.845 ERROR Errore nella rimozione del socket 21rek6yo7uFq8BD_AAAI 
-03:17:07.522 ERROR Errore nella rimozione del socket r2tp1xJ1MT9GYP1RAAAB 
-03:17:12.046 ERROR Errore nella rimozione del socket 3UC5p_7yjjtoiN2BAAAD 
-03:17:17.072 ERROR Errore nella rimozione del socket V-xnhBG1w5lPq1aBAAAF 
-03:17:21.858 ERROR Errore nella rimozione del socket 92EH_LY4oMgBwT8EAAAH 
-03:17:33.280 ERROR Errore nella rimozione del socket b2BgffN3Ld5wA1QqAAAJ 
+22:02:45.903 ERROR Errore nella rimozione del socket Vn-IND0oRfChNBNyAAAE 
+22:02:47.904 ERROR Errore nella rimozione del socket UjDgFnn2Ucd8sUb0AAAF 
+22:02:48.974 ERROR Errore nella rimozione del socket L5xEyXIO8P25y1GmAAAG 
+22:02:50.657 ERROR Errore nella rimozione del socket HNYY4I6ZCCaK4_uzAAAB 
+22:02:52.945 ERROR Errore nella rimozione del socket xM80pOIzFaIS4RoHAAAH 
+22:03:26.287 ERROR Errore nella rimozione del socket XPtdj8ddjoI2v0nqAAAA 
+22:03:28.078 ERROR Errore nella rimozione del socket HLNdlHWchs0EWpOpAAAE 
+22:03:30.420 ERROR Errore nella rimozione del socket njUaeMdR9MRbiWMIAAAF 
+22:03:32.041 ERROR Errore nella rimozione del socket cqouP5tx0_WS98OYAAAB 
+22:03:33.325 ERROR Errore nella rimozione del socket 4xTFUAJORhTl8XYMAAAH 
+22:03:34.366 ERROR Errore nella rimozione del socket qfnBQpp3AiltOs7WAAAG 
+22:03:35.919 ERROR Errore nella rimozione del socket fBhWcf0dsyfoNDYKAAAD 
+22:03:37.113 ERROR Errore nella rimozione del socket E9uS5IxVeiIqNOgfAAAC 
+22:15:42.070 ERROR Errore nella rimozione del socket BpK_wrS8mKxo2CoxAAAD 
+22:15:43.454 ERROR Errore nella rimozione del socket 0LZ9DogQtSugg169AAAB 
+22:15:44.291 ERROR Errore nella rimozione del socket 7M_K1c7ZeKw0ytHtAAAC 
+22:15:44.949 ERROR Errore nella rimozione del socket CvuB7L70iGv1vzUAAAAA 
+22:24:03.678 ERROR Errore nella rimozione del socket yk9YznnlqKsrhPvrAAAA 
+22:24:05.303 ERROR Errore nella rimozione del socket fv-OXELzqgN_1va4AAAB 
+22:24:07.138 ERROR Errore nella rimozione del socket JRXnIVPwA5MZP22GAAAD 
+22:24:08.694 ERROR Errore nella rimozione del socket sptfWJhTSZ7kWQ9-AAAC 
+22:25:07.183 ERROR Errore nella rimozione del socket D0XmAVV9ogMgwqh9AAAA 
+22:25:08.712 ERROR Errore nella rimozione del socket PliHjXn3N8pm1GTvAAAD 
+22:25:14.654 ERROR Errore nella rimozione del socket ls0WWFOVBpsPkwpzAAAB 
+22:26:10.356 ERROR Errore nella rimozione del socket -NHqGB6-wZzemavLAAAB 
+22:26:12.394 ERROR Errore nella rimozione del socket 4_0I31AlJG4e_JxAAAAC 
+22:26:14.756 ERROR Errore nella rimozione del socket S7HFiDSq1gQpiDKFAAAA 
+22:28:06.901 ERROR Errore nella rimozione del socket c3AkzklsV0HuNskrAAAA 
+22:28:09.662 ERROR Errore nella rimozione del socket aUtJ0n8rHjiQtq5xAAAE 
+22:28:11.071 ERROR Errore nella rimozione del socket A5Rn53dzhEVuQ8E5AAAD 
+22:28:12.138 ERROR Errore nella rimozione del socket saU2sfkRf9k-IHv2AAAB 
+22:28:13.147 ERROR Errore nella rimozione del socket -i4rQm8APkWkPMcUAAAC 
+22:33:09.181 ERROR Errore nella rimozione del socket 2LGzew8UZOYq5wU0AAAA 
+22:33:10.606 ERROR Errore nella rimozione del socket 2nBmSHJ1bn-oZIVbAAAC 
+22:33:11.538 ERROR Errore nella rimozione del socket v_q-eGMP0xi6aKEGAAAB 
+22:33:12.417 ERROR Errore nella rimozione del socket wdK4t__lbPVUJ1bjAAAD 
+22:36:52.269 ERROR Errore nella rimozione del socket 0a0pxlj0YcSNOqokAAAA 
+22:36:53.600 ERROR Errore nella rimozione del socket SaK-Yb2rRRrueKmMAAAC 
+22:36:54.559 ERROR Errore nella rimozione del socket H-yWjXvNgjNzpFInAAAD 
+22:36:55.548 ERROR Errore nella rimozione del socket S6KF9K21MUS7f17jAAAB 
+23:23:56.298 ERROR Errore nella rimozione del socket My0acl0x7-9F0fPwAAAC 
+23:24:01.236 ERROR Errore nella rimozione del socket CC3YA8RIB32JZsaSAAAD 
+23:24:05.176 ERROR Errore nella rimozione del socket O5QHogc4n10q4ijzAAAB 
+23:24:12.834 ERROR Errore nella rimozione del socket J--vLrOJ21P0fwweAAAA 
+23:32:07.228 ERROR Errore nella rimozione del socket -ZfvcNB_rctkwQexAAAC 
+23:32:09.025 ERROR Errore nella rimozione del socket B8dG0__Rg3l49h9cAAAD 
+23:32:09.664 ERROR Errore nella rimozione del socket 3d_k8pLyXJJOjhWLAAAA 
+23:32:10.156 ERROR Errore nella rimozione del socket 73mK7F0wBKCHWabfAAAB 
+23:44:51.946 ERROR Errore nella rimozione del socket RRrvnT3P5JSecdxzAAAA 
+23:44:52.604 ERROR Errore nella rimozione del socket lHlBT0g6Yhwn81-KAAAB 
+23:44:53.258 ERROR Errore nella rimozione del socket Vf3YftTITZyuGl4ZAAAD 
+23:44:53.913 ERROR Errore nella rimozione del socket qfeN-cpn5SB_EmuUAAAC 
+23:54:34.199 ERROR Errore nella rimozione del socket uElhqWnp0lQiDSewAAAB 
+23:54:35.540 ERROR Errore nella rimozione del socket T3hftgblVXkfWO33AAAA 
+23:54:36.489 ERROR Errore nella rimozione del socket eZ9s7VpzgwxWIOgxAAAC 
+23:54:37.299 ERROR Errore nella rimozione del socket HWWYHLYviV9x38mlAAAD 
