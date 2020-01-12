@@ -37,8 +37,12 @@ socket.on("id", function(data){
 });
 
 socket.on("nuovaConnessione", function(data){
-    console.log("Giocatori totali: " + data);
-    $("#infoMazzo").html("Il tuo ID è <strong>" + userId + "</strong>, sei il giocatore <strong>" + giocatore + "</strong> / 4, totale: <strong>" + data + "</strong> / 4");
+    if(userId == "undefined" && giocatore == "undefined"){
+        window.location.href = "/errore";
+    } else {
+        console.log("Giocatori totali: " + data);
+        $("#infoMazzo").html("Il tuo ID è <strong>" + userId + "</strong>, sei il giocatore <strong>" + giocatore + "</strong> / 4, totale: <strong>" + data + "</strong> / 4");
+    }
 });
 
 socket.on("errorone", function(data){
