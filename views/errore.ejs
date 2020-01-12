@@ -1,0 +1,44 @@
+<% include ./partials/header %>
+
+<style>
+    .carousel-item img {
+        height: 60vh !important;
+    }
+</style>
+
+<div class="container mt-2">
+    <div class="accordion" id="info">
+        <div class="card">
+            <div class="collapse show" aria-labelledby="headingOne" data-parent="#info">
+                <div class="card-body">
+
+                    <div class="row">
+                        <div class="col-12 col-lg-6">
+                            <h1>Errore!! <span class="badge badge-secondary">Vai cos&igrave;!</span></h1>
+                            <p>Complimenti, hai rotto il sito.</p>
+                            <p>Rappresentavi un pericolo per gli altri.</p>
+                            <p>Ecco foto casuali di gatti.</p>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <div id="gatti" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="<%= catArray[0] %>" class="d-block" alt="catto 1">
+                                    </div>
+                                    <% for(var i = 1; i < catArray.length; i++){ %>
+                                    <div class="carousel-item">
+                                        <img src="<%= catArray[i] %>" class="d-block" alt="catto <%= i + 1 %>">
+                                    </div>
+                                    <% }; %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include ./partials/footer %>

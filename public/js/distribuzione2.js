@@ -2,6 +2,12 @@ var socket = io();
 
 var inGame = false;
 
+setTimeout(function(){
+    if($("#infoMazzo").text() == "Caricamento in corso... (Se non si carica, fai il logout e rientra)"){
+        window.location.href = "/errore";
+    }
+}, 10000)
+
 socket.on("connessioni", function(data){
     console.log("Gli id collegati sono:");
     console.log(data.id1);
@@ -21,14 +27,22 @@ var userId;
 var giocatore;
 
 socket.on("id", function(data){
-    $("#infoMazzo").html("Il tuo ID è <strong>" + data.id + "</strong>, sei il giocatore <strong>" + data.giocatori + "</strong> / 4, totale: <strong>" + data.giocatori + "</strong> / 4");
-    userId = data.id;
-    giocatore = data.giocatori;
+    if(data.id == "undefined" && data.giocatori == "undefined"){
+        window.location.href = "/errore";
+    } else {
+        $("#infoMazzo").html("Il tuo ID è <strong>" + data.id + "</strong>, sei il giocatore <strong>" + data.giocatori + "</strong> / 4, totale: <strong>" + data.giocatori + "</strong> / 4");
+        userId = data.id;
+        giocatore = data.giocatori;
+    }
 });
 
 socket.on("nuovaConnessione", function(data){
     console.log("Giocatori totali: " + data);
     $("#infoMazzo").html("Il tuo ID è <strong>" + userId + "</strong>, sei il giocatore <strong>" + giocatore + "</strong> / 4, totale: <strong>" + data + "</strong> / 4");
+});
+
+socket.on("errorone", function(data){
+    alert(data);
 });
 
 $("#resetPlayers").click(function(event){
@@ -47,6 +61,21 @@ class Carta {
 }
 
 var mazzo = [];
+
+// !! REMOVE AFTER DEBUG!!
+// socket.on("playerlist", function(playerList){
+//     $("#debug").text("");
+//     playerList.forEach(function(player){
+//         var socket_id = player.socket_id;
+//         var user_id = player.user_id;
+//         $("#debug").text($("#debug").text() + "\n||| SOCKET = " + socket_id + " | USER ID = " + user_id);
+//     });
+// });
+
+// Ordine di redirect
+socket.on("redirect", function(destination){
+    window.location.href = destination;
+});
 
 socket.on("carte", function(data){
     for(var i = 0; i < data.length; i++){
