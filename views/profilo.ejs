@@ -18,8 +18,9 @@
                     <form action="/profilo/<%= utente._id %>?_method=PUT" method="POST">
                         <div class="form-group">
                             <label for="nickname"><strong>Nickname:</strong></label>
-                            <input type="text" class="form-control" name="nickname" id="nickname"
+                            <input type="text" aria-describedby="usernameRules" class="form-control" name="nickname" id="nickname"
                                 placeholder="DARKANGELCRAFT" value="<%= utente.nickname %>" maxlength="15" minlength="5">
+                            <small id="usernameRules" class="form-text text-muted">Da 5 a 15 caratteri, solo lettere, numeri e trattini bassi.</small>
                             <button class="mt-2 btn btn-primary" id="changeNickname" type="submit">Cambia
                                 Nickname</button>
                     </form>
@@ -41,10 +42,17 @@
 
 <script>
     $("#changeNickname").hide();
-    $('#nickname').keyup(function () {
-        $("#changeNickname").show();
+    $("#usernameRules").hide();
+    var currentUsername = $('#nickname').val();
+    $('#nickname').keyup(function() {
+        if($('#nickname').val() != currentUsername && /^\w+$/.test($('#nickname').val())){
+            $("#changeNickname").show();
+            $("#usernameRules").show();
+        } else {
+            $("#changeNickname").hide();
+            $("#usernameRules").hide();
+        }
     });
-
 </script>
 
 <% include ./partials/footer %>

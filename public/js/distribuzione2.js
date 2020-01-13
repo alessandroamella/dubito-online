@@ -8,19 +8,21 @@ setTimeout(function(){
     }
 }, 10000)
 
+var partita_uuid = "";
+
 socket.on("avversari", function(data){
+    partita_uuid = data.partita_uuid;
     console.log("I tuoi avversari sono:");
-    console.log(data.username1);
-    console.log(data.username2);
-    console.log(data.username3);
-    console.log(data.username4);
+    for(var i = 0; i < data.usernames.length; i++){
+        console.log(data.usernames[i]);
+    };
     setTimeout(function(){
         $("#infoMazzo").addClass("animated bounceOut");
     }, 1000);
     setTimeout(function(){
         $("#infoMazzo").remove();
     }, 2000);
-    var inGame = true;
+    inGame = true;
 });
 
 var userId;
@@ -40,8 +42,15 @@ socket.on("nuovaConnessione", function(data){
     if(userId == "undefined" && giocatore == "undefined"){
         window.location.href = "/errore";
     } else {
-        console.log("Giocatori totali: " + data);
-        $("#infoMazzo").html("Il tuo ID è <strong>" + userId + "</strong>, sei il giocatore <strong>" + giocatore + "</strong> / 4, totale: <strong>" + data + "</strong> / 4");
+        console.log("Giocatori totali: " + data.connessioni);
+        $("#infoMazzo").html("Il tuo ID è <strong>" + userId + "</strong>, sei il giocatore <strong>" + giocatore + "</strong> / 4, totale: <strong>" + data.connessioni + "</strong> / 4");
+        var avversari = data.usernames;
+        for(var i = 0; i < data.usernames.length; i++){
+            if(i + 1 == data.index){
+                avversari.splice(i, 1);
+            }
+        }
+        $("#infoMazzo2").html("I tuoi avversari: <strong>" + avversari.join("</strong>, <strong>") + "<strong>");
     }
 });
 
@@ -97,10 +106,14 @@ socket.on("carte", function(data){
 
 function cartaClick(numero, seme){
     console.log("Hai cliccato la carta " + numero + " di " + seme);
-    socket.emit("cartaSend", {
-        numero: numero,
-        seme: seme
-    })
+    if(inGame){
+        socket.emit("cartaSend", {
+            numero: numero,
+            seme: seme
+        })
+    } else {
+        console.log("Non sei in partita. Aspe, ma come fai a vedermi?!");
+    }
 };
 
 socket.on("cartaReceive", function(data){
