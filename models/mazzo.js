@@ -9,7 +9,7 @@ function generaMazzo(){
 	{
 		for(var x = 0; x < carte.length; x++)
 		{
-			var card = {numero: carte[x], seme: semi[i]};
+			var card = {numero: carte[x], seme: semi[i], index: i};
 			mazzo.push(card);
 		}
 	}

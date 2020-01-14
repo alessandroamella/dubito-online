@@ -38,19 +38,19 @@ socket.on("id", function(data){
     }
 });
 
-socket.on("nuovaConnessione", function(data){
+socket.on("aggiornaConnessioni", function(data){
     if(userId == "undefined" && giocatore == "undefined"){
         window.location.href = "/errore";
     } else {
-        console.log("Giocatori totali: " + data.connessioni);
-        $("#infoMazzo").html("Il tuo ID è <strong>" + userId + "</strong>, sei il giocatore <strong>" + giocatore + "</strong> / 4, totale: <strong>" + data.connessioni + "</strong> / 4");
-        var avversari = data.usernames;
-        for(var i = 0; i < data.usernames.length; i++){
-            if(i + 1 == data.index){
-                avversari.splice(i, 1);
-            }
+        var posizione = giocatore;
+        if(giocatore - data.connessioni > 0){
+            posizione = giocatore - (giocatore - data.connessioni);
+        } else {
+            posizione = giocatore;
         }
-        $("#infoMazzo2").html("I tuoi avversari: <strong>" + avversari.join("</strong>, <strong>") + "<strong>");
+        console.log("Giocatori totali: " + data.connessioni);
+        $("#infoMazzo").html("Il tuo ID è <strong>" + userId + "</strong>, sei il giocatore <strong>" + posizione + "</strong> / 4, totale: <strong>" + data.connessioni + "</strong> / 4");
+        $("#infoMazzo2").html("I tuoi avversari: <strong>" + data.usernames.join("</strong>, <strong>") + "</strong>");
     }
 });
 
@@ -123,9 +123,7 @@ socket.on("cartaReceive", function(data){
 var turnoAdesso = false;
 
 socket.on("turno", function(data){
-    if(data == giocatore - 1){
-        console.log("È il tuo turno!");
-    };
+    console.log("È il tuo turno!");
 });
 
 socket.on("noturno", function(data){
