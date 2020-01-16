@@ -1,35 +1,30 @@
-var carte = ["Asso", "2", "3", "4", "5", "6", "7", "Jack", "Donna", "Re"];
+var numeri = ["Asso", "2", "3", "4", "5", "6", "7", "Jack", "Donna", "Re"];
 var semi = ["picche", "cuori", "quadri", "fiori"];
-var mazzo = new Array();
+var mazzo = [];
 
 function generaMazzo(){
-	var mazzo = new Array();
+	var mazzo = [];
 
-	for(var i = 0; i < semi.length; i++)
-	{
-		for(var x = 0; x < carte.length; x++)
+	for(var i = 0; i < semi.length; i++){
+		for(var x = 0; x < numeri.length; x++)
 		{
-			var card = {numero: carte[x], seme: semi[i], index: i};
+			var card = {numero: numeri[x], seme: semi[i], index: i};
 			mazzo.push(card);
 		}
-	}
+    }
 
-	return mazzo;
+    return mazzo;
 }
 
 function mescola(){
-	// for 1000 turns
-	// switch the values of two random cards
-	for (var i = 0; i < 1000; i++)
-	{
-		var location1 = Math.floor((Math.random() * mazzo.length));
-		var location2 = Math.floor((Math.random() * mazzo.length));
-		var tmp = mazzo[location1];
+    
+    for(var i = 0; i < mazzo.length; i++){
+		var randomLocation = Math.floor((Math.random() * mazzo.length));
+		var tmp = mazzo[i];
 
-		mazzo[location1] = mazzo[location2];
-		mazzo[location2] = tmp;
-	}
-
+		mazzo[i] = mazzo[randomLocation];
+		mazzo[randomLocation] = tmp;
+    }
 }
 
 function carica()

@@ -38,7 +38,7 @@ mongoose.connect(process.env.mongoDBURI, { useNewUrlParser: true, useUnifiedTopo
 
 mongoStore = new MongoStore({
     url: process.env.mongoDBURI,
-    ttl: 24*60*60
+    ttl: 14 * 24 * 60 * 60
 });
 
 // SETUP EXPRESS SESSION AND CONNECT MONGO
@@ -350,7 +350,7 @@ io.on("connection", function(socket){
         // Chat room per player in attesa
         socket.join("waiting-room");
 
-        io.to("waiting-room").emit("aggiornaConnessioni", {usernames: getUsernames(playerList), connessioni: playerList.length});
+        io.to("waiting-room").emit("aggiornaConnessioni", {usernames: getUsernames(playerList), connessioni: playerList.length + 1});
 
         return newPlayer;
 
@@ -472,10 +472,6 @@ io.on("connection", function(socket){
                     if(playersLocal[i].socket.id == playerList[j].socket.id){
                         playerList.splice(j, 1);
                         j--;
-                        console.log("playerList: ");
-                        console.log(playerList);
-                        console.log("playersLocal: ");
-                        console.log(playersLocal);
                     }
                 }
             }
@@ -517,11 +513,7 @@ io.on("connection", function(socket){
         console.log("_____________________\n");
 
         partite.push(nuovaPartita);
-
-        console.log(playersLocal);
-        console.log(nuovaPartita);
-        console.log("turno");
-        console.log(nuovaPartita.turno)
+        
         playersLocal[nuovaPartita.turno].socket.emit("turno", turno);
 
         return true;
