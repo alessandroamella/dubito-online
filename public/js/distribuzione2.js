@@ -74,6 +74,7 @@ class Carta {
 }
 
 var mazzo = [];
+var mazzoDOM = $("#mazzo");
 
 // !! REMOVE AFTER DEBUG!!
 // socket.on("playerlist", function(playerList){
@@ -91,14 +92,16 @@ socket.on("redirect", function(destination){
 });
 
 socket.on("carte", function(data){
+    mazzo = [];
+    mazzoDOM.empty();
     for(var i = 0; i < data.length; i++){
-        var cartaRender = document.createElement("div");
+        var cartaRender = document.createElement("li");
         cartaRender.setAttribute('class', 'col-6 col-sm-5 col-md-3 col-xl-2');
         // console.log(data[i]);
         // cartaRender.innerHTML = '<button onclick="cartaClick(\'' + data[i].numero + '\', \'' + data[i].seme + '\')"><strong>' + data[i].numero + '</strong> di <strong> ' + data[i].seme + '</strong></button>';
         var imageSource = "/imgs/" +  data[i].seme + "/" + data[i].numero + ".png";
-        cartaRender.innerHTML = '<img onclick="cartaClick(\'' + data[i].numero + '\', \'' + data[i].seme + '\')" src="' + imageSource + '" width="100px" class="m-3">';
-        $("#mazzo").append(cartaRender);
+        cartaRender.innerHTML = '<input type="checkbox" id="carta' + i + '"><label for="carta' + i + '"><img src="' + imageSource + '" onclick="cartaClick(\'' + data[i].numero + '\', \'' + data[i].seme + '\')" width="100px" class="m-3"></label>';
+        mazzoDOM.append(cartaRender);
         mazzo.push(new Carta(data[i].numero, data[i].seme));
     };
 });
