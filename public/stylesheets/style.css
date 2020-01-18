@@ -258,19 +258,19 @@ strong {
     vertical-align: top;
   }
 
-  #mazzo {
+  #mazzo ul {
     list-style-type: none;
   }
-
+  
   #mazzo li {
     display: inline-block;
   }
-
-  #mazzo li input[type="checkbox"] {
+  
+  #mazzo input[type="checkbox"] {
     display: none;
   }
   
-  #mazzo li label {
+  #mazzo label {
     border: 1px solid #fff;
     padding: 10px;
     display: block;
@@ -279,7 +279,7 @@ strong {
     cursor: pointer;
   }
   
-  #mazzo li label:before {
+  #mazzo label:before {
     background-color: white;
     color: white;
     content: " ";
@@ -297,24 +297,90 @@ strong {
     transform: scale(0);
   }
   
-  #mazzo li label img {
+  #mazzo label img {
     transition-duration: 0.2s;
     transform-origin: 50% 50%;
   }
   
-  #mazzo li :checked + label {
+  #mazzo :checked + label {
     border-color: #ddd;
   }
   
-  #mazzo li :checked + label:before {
+  #mazzo :checked + label:before {
     content: "✓";
     background-color: grey;
     transform: scale(1);
   }
   
-  #mazzo li :checked + label img {
+  #mazzo :checked + label img {
     transform: scale(0.9);
     /* box-shadow: 0 0 5px #333; */
     z-index: -1;
   }
-  
+
+.turnoPlayer {
+    color: purple;
+    font-weight: 700;
+    background-color: #FFFF00;
+    border: 2px solid purple;
+    text-decoration: underline;
+    padding: 5px;
+}
+
+#btn-invia {
+	border-radius:2.5rem;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	padding:0.5rem 1rem;
+	text-decoration: none;
+    left: 0;
+    text-align: center;
+	background-color:#0b8ade;
+	border:1px solid #0b8ade;
+	text-shadow:0px 1px 0px #274066;
+}
+#btn-invia:active:enabled {
+	position:relative;
+	top:1px;
+}
+#btn-invia:disabled {
+	background-color:#51768d;
+	border: 1px solid #4c6c83;
+	text-decoration: line-through;
+}
+#btn-invia:hover:enabled {
+	background-color:#0a78bd;
+}
+
+#btn-bluffa {
+    margin-left: 0.5rem;
+	border-radius:2.5rem;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	padding:0.5rem 1rem;
+	text-decoration: none;
+    left: 0;
+    text-align: center;
+	background-color:#ce0cf5;
+	border:1px solid #aa10cc;
+	text-shadow:0px 1px 0px #66285f;
+}
+#btn-bluffa:active:enabled {
+	position:relative;
+	top:1px;
+}
+#btn-bluffa:disabled {
+	background-color:#ad82b6;
+	border: 1px solid #af7abb;
+	text-decoration: line-through;
+}
+#btn-bluffa:hover:enabled {
+	background-color:#ae10d1;
+}
+
+div.play-btns {
+    padding: 0;
+    margin: 0;
+}

@@ -4,6 +4,7 @@ class Partita {
         this.partita_uuid = uuid();
         this.players = players;
         this.turno = 0;
+        this.carteInMezzo = [];
     }
 }
 module.exports = Partita;

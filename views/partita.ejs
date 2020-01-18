@@ -3,10 +3,17 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 
 <div class="container info-container pt-2 mt-2">
-    <button type="button" id="resetPlayers" class="btn btn-warning">Reset players</button>
+    <nav>
+        <div class="play-btns navbar navbar-light bg-white justify-content-start">
+            <button id="btn-invia" disabled>Invia come ...</button>
+            <button id="btn-bluffa" disabled>Bluffa</button>
+        </div>
+        <!-- <button type="button" id="resetPlayers" class="btn btn-warning">Reset players</button> -->
+        <p id="infoMazzo">Caricamento in corso... (Se non si carica, fai il logout e rientra)</p>
+        <p class="text-center" id="infoMazzo2"></p>
+    </nav>
+    
     <div class="avversari"></div>
-    <p id="infoMazzo">Caricamento in corso... (Se non si carica, fai il logout e rientra)</p>
-    <p id="infoMazzo2"></p>
     <div class="mazzo text-center mb-2 row">
         <ul id="mazzo"></ul>
     </div>

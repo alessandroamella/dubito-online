@@ -284,9 +284,13 @@ io.on("connection", function(socket){
             var newPlayer = emitNewConnection(socket, new Player(socket));
 
             playerList.push(newPlayer);
-            emitInfo(socket);
+            emitInfo(socket, newPlayer.username);
 
             // printPlayers();
+            
+            console.log("\n******************");
+            console.log(playerList.length + " player totali");
+            console.log("******************\n");
 
             if(playerList.length === numPlayers){
                 if(!iniziaPartita(playerList)){
@@ -305,9 +309,6 @@ io.on("connection", function(socket){
                     iniziaPartita(morePlayers);
                 }
             };
-            console.log("\n******************");
-            console.log(playerList.length + " player totali");
-            console.log("******************\n");
 
 
             
@@ -329,10 +330,11 @@ io.on("connection", function(socket){
     // }, 1000);
     // function emitList(){socket.emit("playerlist", playerList);};
 
-    function emitInfo(socket){
+    function emitInfo(socket, username){
         socket.emit("id", {
             id: socket.id,
-            giocatori: playerList.length
+            giocatori: playerList.length,
+            username: username
         });
     }
 
@@ -422,7 +424,7 @@ io.on("connection", function(socket){
                 console.log("Rimosso il player " + playerList[i].user_id + " con socket ID " + socket.id);
                 playerList.splice(i, 1);
                 io.to("waiting-room").emit("aggiornaConnessioni", {usernames: getUsernames(playerList), connessioni: playerList.length});
-                printPlayers();
+                // printPlayers();
                 return true;
             }
             // DEBUG
@@ -519,18 +521,24 @@ io.on("connection", function(socket){
         return true;
     }
 
-    function checkMazzo(partita, carta, player){
-        var cartaIndex = -1;
+    function checkMazzo(partita, carte, player){
+        var cartaTot = 0;
         var playerMazzo = partita.players[player.playerIndex].mazzo;
         for(var i = 0; i < playerMazzo.length; i++){
-            if(playerMazzo[i].numero == carta.numero && playerMazzo[i].seme == carta.seme){
-                return true;
+            for(var j = 0; j < carte.length; j++){
+                if(playerMazzo[i].numero == carte[j].numero && playerMazzo[i].seme == carte[j].seme){
+                    cartaTot++;
+                }
             }
         }
+        if(cartaTot == carte.length){
+            return true;
+        }
+        console.log("HO TROVATO SOLO " + cartaTot + " DELLE DATE " + carte.length + " CARTE!!");
         return false;
     }
 
-    socket.on("cartaSend", function(carta){
+    socket.on("cartaSend", function(carte){
         var playerInPartita = trovaPlayerInPartita(socket);
         if(!playerInPartita){
             removePlayer(socket);
@@ -538,12 +546,16 @@ io.on("connection", function(socket){
             var partitaIndex = playerInPartita.partitaIndex;
             var playerIndex = playerInPartita.playerIndex;
             var partita = partite[partitaIndex];
-            if(!checkMazzo(partita, carta, playerInPartita)){
+            if(!checkMazzo(partita, carte, playerInPartita)){
                 removePlayer(socket);
             } else {
+                socket.emit("cartaSend");
                 if(partita.turno == playerIndex){
                     // Solo se è il turno del socket che emette la carta, allora emetti a tutti la carta inviata
-                    socket.broadcast.to(partita.partita_uuid).emit("cartaReceive", carta);
+                    io.to(partita.partita_uuid).emit("cartaReceive", {
+                        numCarte: carte.length,
+                        dalPlayer: partita.players[partita.turno].username
+                    });
                     // Aumenta il turno di uno, se il turno è pari al numero del giocatori totali, allora il giro ricomincia
                     if(partita.turno >= 0 && partita.turno.toString() < (partita.players.length - 1).toString()){
                         partita.turno++;
@@ -555,9 +567,8 @@ io.on("connection", function(socket){
                     };
                     partita.players[partita.turno].socket.emit("turno");
                     console.log("Turno del giocatore " + (partita.turno + 1).toString());
-                    socket.emit("senderSuccess", "Hai inviato la carta!");
-                    io.to(partita.players[partita.turno]).emit("receiverSuccess", "Hai ricevuto la carta!");
                     io.to(partita.players[partita.turno]).emit("turno", partita.turno);
+                    io.to(partita.partita_uuid).emit("aggiornaTurno", partita.turno);
                 } else {
                     // Se non è il turno del socket che emette la carta, allora emetti "noturno"
                     socket.emit("noturno", true);
@@ -568,8 +579,8 @@ io.on("connection", function(socket){
     });
 
     // Tasto di debug per impostare a 0 il numero di socket connessi
-    socket.on("reset", function(data){
-        if(data.reset === true && socket.request.user._id == "5d93afc3de69e01da8b64efe"){
+    socket.on("reset", function(){
+        if(socket.request.user.googleId == process.env.googleId){
             playerList = [];
             // connessioni = 0;
             console.log("Connessioni resettate a " + playerList.length);
