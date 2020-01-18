@@ -14,10 +14,14 @@ setTimeout(function(){
 
 var partita_uuid = "";
 var usernames = [];
+var proprioTurno = 0;
+var numTurno = 0;
 
 socket.on("avversari", function(data){
     partita_uuid = data.partita_uuid;
+    proprioTurno = data.turno;
     usernames = data.usernames;
+    $("#partita-uuid").html("Partita <strong>" + partita_uuid.split("-")[0] + "</strong>").tooltip({title: partita_uuid, delay: {show: 0, hide: 3000}});;
     $("#infoMazzo2").html("<strong>" + data.usernames.join("</strong> > <strong>") + "</strong>");
     setTimeout(function(){
         $("#infoMazzo").addClass("animated bounceOut");
@@ -28,6 +32,12 @@ socket.on("avversari", function(data){
     inGame = true;
     displayTurno();
 });
+
+// $("#partita-uuid").toggle(function(){
+//     $(this).text("Partita <strong>" + partita_uuid + "</strong>");
+// }, function(){
+//     $(this).text("Partita <strong>" + partita_uuid.split("-")[0] + "</strong>");
+// });
 
 socket.on("id", function(data){
     if(data.id.toString() == "undefined" && data.giocatori.toString() == "undefined"){
@@ -67,12 +77,6 @@ socket.on("errorone", function(data){
     alert(data);
 });
 
-$("#resetPlayers").click(function(event){
-    console.log("Reset!");
-    socket.emit("reset");
-    location.reload();
-});
-
 class Carta {
     constructor(numero, seme) {
         this.numero = numero;
@@ -103,40 +107,51 @@ socket.on("carte", function(data){
     mazzoDOM.empty();
     for(var i = 0; i < data.length; i++){
         var cartaRender = document.createElement("li");
-        cartaRender.setAttribute('class', 'col-6 col-sm-5 col-md-3 col-xl-2');
+        cartaRender.setAttribute('class', 'col-6 col-sm-4 col-md-3 col-lg-2');
         cartaRender.setAttribute('id', 'li-carta' + i);
         // console.log(data[i]);
         // cartaRender.innerHTML = '<button onclick="cartaClick(\'' + data[i].numero + '\', \'' + data[i].seme + '\')"><strong>' + data[i].numero + '</strong> di <strong> ' + data[i].seme + '</strong></button>';
         var imageSource = "/imgs/" +  data[i].seme + "/" + data[i].numero + ".png";
-        cartaRender.innerHTML = '<input type="checkbox" onclick="cartaClick(\'' + data[i].numero + '\', \'' + data[i].seme + '\', ' + i + ')" id="carta' + i + '"><label for="carta' + i + '"><img src="' + imageSource + '" width="100px" class="m-3"></label>';
+        cartaRender.innerHTML = '<input type="checkbox" class="carta-checkbox" onclick="cartaClick(\'' + data[i].numero + '\', \'' + data[i].seme + '\', ' + i + ')" id="carta' + i + '"><label for="carta' + i + '"><img src="' + imageSource + '" width="100px" class="m-3"></label>';
         mazzoDOM.append(cartaRender);
         mazzo.push(new Carta(data[i].numero, data[i].seme));
     };
 });
 
-
-
+var numeroUguale;
 var carteSelezionate = [];
 
 function cartaClick(numero, seme, index){
-    var carteSelezionateTemp = []
-    for(var i = 0; i < mazzo.length; i++){
-        if(document.getElementById("carta" + i).checked){
-            carteSelezionateTemp.push(mazzo[i]);
+    var carteBluffCount = 0;
+    $.each($("input[class='carta-checkbox']:checked"), function(){
+        carteBluffCount++;
+        if(carteBluffCount > 3){
+            $(this).prop("checked", false);
         }
-    }
-    carteSelezionate = carteSelezionateTemp;
-    if(carteSelezionate.length > 0){
-        $("#btn-bluffa").prop('disabled', false);
-        var numeroUguale = haSoloNumeriUguali(carteSelezionate);
-        if(numeroUguale){
-            // Numeri uguali
-            $("#btn-invia").prop('disabled', false);
-            $("#btn-invia").text('Invia come ' + numeroUguale);
+    });
+    if(proprioTurno == numTurno){
+        var carteSelezionateTemp = []
+        for(var i = 0; i < mazzo.length; i++){
+            if(document.getElementById("carta" + i).checked){
+                carteSelezionateTemp.push(mazzo[i]);
+            }
+        }
+        carteSelezionate = carteSelezionateTemp;
+        if(carteSelezionate.length > 0){
+            $("#btn-bluffa").prop('disabled', false);
+            numeroUguale = haSoloNumeriUguali(carteSelezionate);
+            if(numeroUguale){
+                // Numeri uguali
+                $("#btn-invia").prop('disabled', false);
+                $("#btn-invia").text('Invia come ' + numeroUguale);
+            } else {
+                // Numeri diversi
+                $("#btn-invia").prop('disabled', true);
+            };
         } else {
-            // Numeri diversi
             $("#btn-invia").prop('disabled', true);
-        };
+            $("#btn-bluffa").prop('disabled', true);
+        }
     } else {
         $("#btn-invia").prop('disabled', true);
         $("#btn-bluffa").prop('disabled', true);
@@ -155,20 +170,38 @@ function haSoloNumeriUguali(array) {
     return array[0].numero;
 }
 
+// $(".carta-checkbox").change(function(){
+//     console.log($('.carta-checkbox:checked').size());
+// });
+
 $("#btn-invia").on("click", function(){
-    socket.emit("cartaSend", carteSelezionate);
+    socket.emit("cartaSend", {reali: carteSelezionate, nominale: numeroUguale});
 });
+
+var valoreRadio = "Asso";
+$(".radio-bluff").change(function(){
+    valoreRadio = $("input[name='numero-bluff-radio']:checked").attr("id").replace("numero-bluff-","");
+});
+
+$("#btn-bluffa-invia").on("click", function(){
+    var carteBluffSelez = 0;
+    socket.emit("cartaSend", {reali: carteSelezionate, nominale: valoreRadio})
+});
+
+var turnoAnimation = false;
 
 socket.on("cartaSend", function(){
     for(var i = 0; i < mazzo.length; i++){
         document.getElementById("carta" + i).checked = false;
     }
+    $("#btn-invia").prop('disabled', true);
+    $("#btn-bluffa").prop('disabled', true);
+    $('#bluffModal').modal('hide');
+    turnoAnimation = false;
 });
 
-var numTurno = 0;
-
 socket.on("cartaReceive", function(data){
-    console.log("Ricevute " + data.numCarte + " carte da " + data.dalPlayer);
+    console.log("Ricevuti " + data.numCarte + " " + data.nominale + " da " + data.delPlayer);
 });
 
 socket.on("aggiornaTurno", function(data){
@@ -194,44 +227,34 @@ function displayTurno(){
     if(secondNames.length > 0){
         combinedNames.push(secondNames.join(" > "));
     }
-    console.log(combinedNames);
-    // function returnFirstNames(){
-    //     if(firstNames.length == 0){
-    //         return "";
-    //     } else {
-    //         return firstNames.join(" > ");
-    //     }
-    // }
-    // function returnSecondNames(){
-    //     if(secondNames.length == 0){
-    //         return "";
-    //     } else {
-    //         return secondNames.join(" > ");
-    //     }
-    // }
-    // $("#infoMazzo2").html("<strong>" + returnFirstNames() + ", <span class='turnoPlayer'>" + turnoName + "</span>, " + returnSecondNames() + "</strong>");
     $("#infoMazzo2").html(combinedNames.join(" > "));
-    // for(var i = 0; i < usernames.length; i++){
-    //     if(i == numTurno){
-    //         $("#infoMazzo2").html($("#infoMazzo2").html() + "<span class='turnoPlayer'>"
-    //         + usernames[i] + "</span>");
-    //     }
-    // }
-    // $("#infoMazzo2").html("<strong>" + data.usernames.join("</strong> > <strong>") + "</strong>");
+    if(proprioTurno == numTurno && !turnoAnimation){
+        turnoText();
+    }
 }
 
-socket.on("turno", function(data){
+socket.on("turno", function(){
     console.log("È il tuo turno!");
 });
 
+function turnoText(){
+    turnoAnimation = true;
+    function changeTextTimer(){
+        setTimeout(function(){
+            $("#infoMazzo2").html("<span class='turnoText'>È il tuo turno!</span>");
+            setTimeout(function(){
+                displayTurno();
+                if(turnoAnimation){
+                    changeTextTimer();
+                } else {
+                    displayTurno();
+                }
+            }, 1000);
+        }, 1000);
+    }
+    changeTextTimer();
+}
+
 socket.on("noturno", function(data){
     console.log("Oh cosa usi, i cheat?! Non è il tuo turno!");
-});
-
-socket.on("senderSuccess", function(data){
-    console.log(data);
-});
-
-socket.on("receiverSuccess", function(data){
-    console.log(data);
 });

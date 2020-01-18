@@ -34,5 +34,10 @@ function carica()
 }
 
 carica();
+mescola();
+mescola();
+mescola();
+mescola();
+mescola();
 
 module.exports = mazzo;

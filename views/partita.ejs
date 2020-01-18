@@ -2,15 +2,60 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 
+<!-- Modal -->
+<div class="modal fade" id="bluffModal" tabindex="-1" role="dialog" aria-labelledby="bluffModalTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="bluffModalTitle">Scegli che numero dire</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <fieldset class="bluff-radios">
+                    <input type="radio" class="radio-bluff" id="numero-bluff-Asso" name="numero-bluff-radio" checked>
+                    <label for="numero-bluff-Asso">Asso</label>
+                    <input type="radio" class="radio-bluff" id="numero-bluff-2" name="numero-bluff-radio">
+                    <label for="numero-bluff-2">2</label>
+                    <input type="radio" class="radio-bluff" id="numero-bluff-3" name="numero-bluff-radio">
+                    <label for="numero-bluff-3">3</label>
+                    <input type="radio" class="radio-bluff" id="numero-bluff-4" name="numero-bluff-radio">
+                    <label for="numero-bluff-4">4</label>
+                    <input type="radio" class="radio-bluff" id="numero-bluff-5" name="numero-bluff-radio">
+                    <label for="numero-bluff-5">5</label>
+                    <input type="radio" class="radio-bluff" id="numero-bluff-6" name="numero-bluff-radio">
+                    <label for="numero-bluff-6">6</label>
+                    <input type="radio" class="radio-bluff" id="numero-bluff-7" name="numero-bluff-radio">
+                    <label for="numero-bluff-7">7</label>
+                    <input type="radio" class="radio-bluff" id="numero-bluff-Jack" name="numero-bluff-radio">
+                    <label for="numero-bluff-Jack">Jack</label>
+                    <input type="radio" class="radio-bluff" id="numero-bluff-Donna" name="numero-bluff-radio">
+                    <label for="numero-bluff-Donna">Donna</label>
+                    <input type="radio" class="radio-bluff" id="numero-bluff-Re" name="numero-bluff-radio">
+                    <label for="numero-bluff-Re">Re</label>
+                </fieldset>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="tasto-grigio" data-dismiss="modal">Annulla</button>
+                <button type="button" class="tasto-verde" id="btn-bluffa-invia">Invia</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container info-container pt-2 mt-2">
     <nav>
         <div class="play-btns navbar navbar-light bg-white justify-content-start">
-            <button id="btn-invia" disabled>Invia come ...</button>
-            <button id="btn-bluffa" disabled>Bluffa</button>
+            <button class="tasto-verde" id="btn-invia" disabled>Invia come ...</button>
+            <button class="tasto-rosa" id="btn-bluffa" data-toggle="modal" data-target="#bluffModal" disabled>Bluffa</button>
+            <p style="margin-left: auto;" id="partita-uuid" data-toggle="tooltip" data-placement="bottom">Partita dall'ID ambiguo</p>
         </div>
         <!-- <button type="button" id="resetPlayers" class="btn btn-warning">Reset players</button> -->
         <p id="infoMazzo">Caricamento in corso... (Se non si carica, fai il logout e rientra)</p>
         <p class="text-center" id="infoMazzo2"></p>
+        <p class="text-center" id="infoText"></p>
     </nav>
     
     <div class="avversari"></div>
