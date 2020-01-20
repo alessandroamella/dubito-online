@@ -39,7 +39,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="tasto-grigio" data-dismiss="modal">Annulla</button>
-                <button type="button" class="tasto-verde" id="btn-bluffa-invia">Invia</button>
+                <button type="button" class="tasto-verde" id="btn-bluffa-invia">Invia &#xbb;</button>
             </div>
         </div>
     </div>
@@ -49,11 +49,13 @@
     <nav>
         <div class="play-btns navbar navbar-light bg-white justify-content-start">
             <button class="tasto-verde" id="btn-invia" disabled>Invia come ...</button>
-            <button class="tasto-rosa" id="btn-bluffa" data-toggle="modal" data-target="#bluffModal" disabled>Bluffa</button>
-            <p style="margin-left: auto;" id="partita-uuid" data-toggle="tooltip" data-placement="bottom">Partita dall'ID ambiguo</p>
+            <button class="tasto-rosa" id="btn-bluffa" disabled>Bluffa</button>
+            <button class="tasto-arancione" id="btn-dubito" disabled>Dubito!</button>
+            <p style="margin-left: auto;" id="partita-uuid" data-toggle="tooltip" data-placement="bottom"></p>
         </div>
         <!-- <button type="button" id="resetPlayers" class="btn btn-warning">Reset players</button> -->
         <p id="infoMazzo">Caricamento in corso... (Se non si carica, fai il logout e rientra)</p>
+        <p id="avvenimenti"></p>
         <p class="text-center" id="infoMazzo2"></p>
         <p class="text-center" id="infoText"></p>
     </nav>

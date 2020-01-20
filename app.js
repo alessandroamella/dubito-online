@@ -522,15 +522,50 @@ io.on("connection", function(socket){
         console.log("Giocatori: " + getUsernames(nuovaPartita.players).join(", "));
         console.log("_____________________\n");
 
+        nuovaPartita.primoPlayer = playersLocal[nuovaPartita.turno];
+
         partite.push(nuovaPartita);
-        
-        playersLocal[nuovaPartita.turno].socket.emit("turno", turno);
+
+        nuovaPartita.primoPlayer.socket.emit("primoPlayer");
 
         return true;
     }
 
+    function checkCarta(carte){
+        var numeri = ["Asso", "2", "3", "4", "5", "6", "7", "Jack", "Donna", "Re"];
+        var semi = ["picche", "cuori", "quadri", "fiori"];
+        // Per tutte le carte date, controlla:
+        for(var i = 0; i < carte.reali.length; i++){
+            var numeroValido = false;
+            var semeValido = false;
+            // Che il numero sia valido
+            for(var j = 0; j < numeri.length; j++){
+                if(carte.reali[i].numero == numeri[j]){
+                    numeroValido = true;
+                    break;
+                }
+            }
+            // Che il seme sia valido
+            for(var j = 0; j < semi.length; j++){
+                if(carte.reali[i].seme == semi[j]){
+                    semeValido = true;
+                    break;
+                }
+            }
+        }
+        if(numeroValido && semeValido){
+            // Se sono entrambi validi, controlla il valore nominale
+            for(var i = 0; i < numeri.length; i++){
+                if(carte.nominale == numeri[i]){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     function checkMazzo(partita, carte, player){
-        if(carte.length > 3){
+        if(carte.reali.length > 3){
             return false;
         }
         var cartaTot = 0;
@@ -543,37 +578,57 @@ io.on("connection", function(socket){
             }
         }
         if(cartaTot == carte.reali.length){
+            if(checkCarta(carte)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function checkNominale(carteInMezzo, nominale){
+        // Se il num. dell'ultima carta in mezzo = quella scartata, allora si può continuare
+        if(carteInMezzo[carteInMezzo.length - 1].nominale == nominale){
             return true;
         }
         return false;
     }
 
-    var carteAlCentro = [];
-
     socket.on("cartaSend", function(carte){
         var playerInPartita = trovaPlayerInPartita(socket);
         if(!playerInPartita){
+            console.log("Riga 599, giocatore rimosso.")
             removePlayer(socket);
         } else {
             var partitaIndex = playerInPartita.partitaIndex;
             var playerIndex = playerInPartita.playerIndex;
             var partita = partite[partitaIndex];
             if(!checkMazzo(partita, carte, playerInPartita)){
+                console.log("Riga 606, giocatore rimosso.")
                 removePlayer(socket);
             } else {
+                // CONTROLLA TURNO
                 if(partita.turno == playerIndex){
-                    socket.emit("cartaSend");
-                    carteAlCentro.push({
-                        carte: carte.reali,
-                        nominale: carte.nominale,
-                        delPlayer: partita.players[partita.turno],
-                    });
-                    // Solo se è il turno del socket che emette la carta, allora emetti a tutti la carta inviata
-                    io.to(partita.partita_uuid).emit("cartaReceive", {
-                        numCarte: carte.reali.length,
-                        nominale: carte.nominale,
-                        delPlayer: partita.players[partita.turno].username
-                    });
+
+                    // CONTROLLA SE È PRIMO PLAYER
+                    if(partita.primoPlayer == partita.players[playerIndex] || checkNominale(partita.carteInMezzo, carte.nominale)){
+                        partita.primoPlayer = false;
+
+                        socket.emit("cartaSend");
+                        partita.carteInMezzo.push({
+                            carte: carte.reali,
+                            nominale: carte.nominale,
+                            delPlayer: partita.players[partita.turno],
+                        });
+                        // Solo se è il turno del socket che emette la carta, allora emetti a tutti la carta inviata
+                        io.to(partita.partita_uuid).emit("cartaReceive", {
+                            numCarte: carte.reali.length,
+                            nominale: carte.nominale,
+                            delPlayer: partita.players[partita.turno].username
+                        });
+                    } else {
+                        console.log("Riga 629, giocatore rimosso.")
+                        removePlayer(partita.players[playerIndex].socket);
+                    }
                     // Aumenta il turno di uno, se il turno è pari al numero del giocatori totali, allora il giro ricomincia
                     if(partita.turno >= 0 && partita.turno.toString() < (partita.players.length - 1).toString()){
                         partita.turno++;
@@ -584,9 +639,9 @@ io.on("connection", function(socket){
                         partita.turno = 0;
                     };
                     partita.players[partita.turno].socket.emit("turno");
-                    console.log("Turno del giocatore " + (partita.turno + 1).toString());
                     io.to(partita.players[partita.turno]).emit("turno", partita.turno);
                     io.to(partita.partita_uuid).emit("aggiornaTurno", partita.turno);
+
                 } else {
                     // Se non è il turno del socket che emette la carta, allora emetti "noturno"
                     socket.emit("noturno", true);
@@ -595,6 +650,47 @@ io.on("connection", function(socket){
         }
 
     });
+
+    socket.on("dubito", function(){
+        if(dubito(socket)){
+            console.log("Il giocatore ha dubitato correttamente!");
+        } else {
+            console.log("Il giocatore ha dubitato errato!");
+        };
+    });
+
+    function dubito(socket){
+        var playerInPartita = trovaPlayerInPartita(socket);
+        if(!playerInPartita){
+            console.log("Riga 665, giocatore rimosso.")
+            removePlayer(socket);
+        } else {
+            var partitaIndex = playerInPartita.partitaIndex;
+            var playerIndex = playerInPartita.playerIndex;
+            var partita = partite[partitaIndex];
+            if(partita.turno == playerIndex){
+                // CONTROLLA SE È PRIMO PLAYER
+                if(partita.primoPlayer != partita.players[playerIndex]){
+
+                    var carteInMezzo = partita.carteInMezzo[partita.carteInMezzo.length - 1];
+                    for(var i = 0; i < carteInMezzo.carte.length; i++){
+                        if(carteInMezzo.carte[i].numero != carteInMezzo.nominale){
+                            // Il giocatore ha dubitato correttamente
+                            return true;
+                        }
+                    }
+                    return false;    
+
+                } else {
+                    // Il giocatore è il primo player
+                    console.log("Riga 686, giocatore rimosso.")
+                    removePlayer(socket);
+                }
+            } else {
+                socket.emit("noturno", true);
+            };
+        }
+    }
 
     // Tasto di debug per impostare a 0 il numero di socket connessi
     socket.on("reset", function(){
@@ -607,6 +703,7 @@ io.on("connection", function(socket){
 
     socket.on("disconnect", function(){
         console.log("\nSocket " + socket.id + " disconnesso");
+        console.log("Riga 706, giocatore rimosso.")
         removePlayer(socket);
     });
 });

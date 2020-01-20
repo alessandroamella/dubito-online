@@ -479,6 +479,7 @@ strong {
 	background-color: #32ce4a;
 	border:1px solid #2fc446;
 	text-shadow:0px 1px 0px #27662c;
+    transition: all 0.2s;
 }
 .tasto-verde:active:enabled {
 	position:relative;
@@ -506,6 +507,7 @@ strong {
 	background-color: #535353;
 	border:1px solid #494949;
 	text-shadow:0px 1px 0px #3a3a3a;
+    transition: all 0.2s;
 }
 .tasto-grigio:active:enabled {
 	position:relative;
@@ -534,6 +536,7 @@ strong {
 	background-color: #ce0cf5;
 	border:1px solid #aa10cc;
 	text-shadow:0px 1px 0px #66285f;
+    transition: all 0.2s;
 }
 .tasto-rosa:active:enabled {
 	position:relative;
@@ -549,7 +552,41 @@ strong {
 	background-color: #ae10d1;
 }
 
+.tasto-arancione {
+    margin-left: 0.5rem;
+	border-radius:2.5rem;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	padding: 0.5rem 1rem;
+	text-decoration: none;
+    left: 0;
+    text-align: center;
+	background-color: #f5b608;
+	border:1px solid #d8a20f;
+	text-shadow:0px 1px 0px #664d28;
+    transition: all 0.2s;
+}
+.tasto-arancione:active:enabled {
+	position:relative;
+	top:1px;
+}
+.tasto-arancione:disabled {
+	background-color: #af946a;
+	border: 1px solid #c7a279;
+    text-decoration: line-through;
+    cursor: not-allowed;
+}
+.tasto-arancione:hover:enabled {
+	background-color: #d19410;
+}
+
 div.play-btns {
     padding: 0;
     margin: 0;
+}
+
+#btn-dubito {
+    margin-left: auto;
+    margin-right: 5px;
 }

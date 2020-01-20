@@ -15,7 +15,9 @@ setTimeout(function(){
 var partita_uuid = "";
 var usernames = [];
 var proprioTurno = 0;
-var numTurno = 0;
+var turnoAttuale = 0;
+var primoPlayer = false;
+var nominale = false;
 
 socket.on("avversari", function(data){
     partita_uuid = data.partita_uuid;
@@ -78,7 +80,7 @@ socket.on("errorone", function(data){
 });
 
 class Carta {
-    constructor(numero, seme) {
+    constructor(numero, seme){
         this.numero = numero;
         this.seme = seme;
     }
@@ -129,35 +131,136 @@ function cartaClick(numero, seme, index){
             $(this).prop("checked", false);
         }
     });
-    if(proprioTurno == numTurno){
-        var carteSelezionateTemp = []
-        for(var i = 0; i < mazzo.length; i++){
-            if(document.getElementById("carta" + i).checked){
-                carteSelezionateTemp.push(mazzo[i]);
+    if(proprioTurno == turnoAttuale){
+        if(primoPlayer){
+            $("#btn-bluffa").text("Bluffa");
+            var carteSelezionateTemp = []
+            for(var i = 0; i < mazzo.length; i++){
+                if(document.getElementById("carta" + i).checked){
+                    carteSelezionateTemp.push(mazzo[i]);
+                }
             }
-        }
-        carteSelezionate = carteSelezionateTemp;
-        if(carteSelezionate.length > 0){
-            $("#btn-bluffa").prop('disabled', false);
-            numeroUguale = haSoloNumeriUguali(carteSelezionate);
-            if(numeroUguale){
-                // Numeri uguali
-                $("#btn-invia").prop('disabled', false);
-                $("#btn-invia").text('Invia come ' + numeroUguale);
+            carteSelezionate = carteSelezionateTemp;
+            if(carteSelezionate.length > 0){
+                $("#btn-bluffa").prop('disabled', false);
+                numeroUguale = haSoloNumeriUguali(carteSelezionate);
+                if(numeroUguale){
+                    // Numeri uguali
+                    $("#btn-invia").prop('disabled', false);
+                    $("#btn-invia").text('Invia come ' + numeroUguale + " \u00bb");
+                } else {
+                    // Numeri diversi
+                    $("#btn-invia").prop('disabled', true);
+                };
             } else {
-                // Numeri diversi
                 $("#btn-invia").prop('disabled', true);
-            };
+                $("#btn-bluffa").prop('disabled', true);
+            }
         } else {
-            $("#btn-invia").prop('disabled', true);
-            $("#btn-bluffa").prop('disabled', true);
+
+            var carteSelezionateTemp = []
+            for(var i = 0; i < mazzo.length; i++){
+                if(document.getElementById("carta" + i).checked){
+                    carteSelezionateTemp.push(mazzo[i]);
+                }
+            }
+            carteSelezionate = carteSelezionateTemp;
+            if(carteSelezionate.length > 0){
+
+                var carteBuone = true;
+                for (var i = 0; i < carteSelezionate.length; i++){
+                    if(carteSelezionate[i].numero != nominale){
+                        carteBuone = false;
+                        break;
+                    }
+                }
+                if(carteBuone == true){
+                    $("#btn-invia").prop('disabled', false).text('Invia come ' + nominale + " \u00bb");
+                    $("#btn-bluffa").prop('disabled', true);
+                } else {
+                    $("#btn-invia").prop('disabled', true);
+                    $("#btn-bluffa").prop('disabled', false);
+                }
+            }
+
+            // // LOGICA SE IL PLAYER NON È IL PRIMO
+            // if(numero == nominale){
+            //     // Se numero = nominale, puoi anche non bluffare
+            //     var carteSelezionateTemp = []
+            //     for(var i = 0; i < mazzo.length; i++){
+            //         if(document.getElementById("carta" + i).checked){
+            //             carteSelezionateTemp.push(mazzo[i]);
+            //         }
+            //     }
+            //     carteSelezionate = carteSelezionateTemp;
+            //     if(carteSelezionate.length > 0){
+            //         numeroUguale = haSoloNumeriUguali(carteSelezionate);
+            //         if(numeroUguale){
+            //             // Numeri uguali
+            //             var couldBluff = false;
+            //             for(var i = 0; i < carteSelezionate.length; i++){
+            //                 if(carteSelezionate[i].numero != nominale){
+            //                     $("#btn-invia").prop('disabled', true);
+            //                     couldBluff = true;
+            //                     break;
+            //                 }
+            //             }
+            //             if(!couldBluff){
+            //                 $("#btn-invia").prop('disabled', false);
+            //                 $("#btn-invia").text('Invia come ' + nominale + " \u00bb");
+            //                 $("#btn-bluffa").prop('disabled', true);
+            //             }
+            //         } else {
+            //             // Numeri diversi
+            //             $("#btn-invia").prop('disabled', true);
+            //             $("#btn-bluffa").prop('disabled', false);
+            //         };
+            //     } else {
+            //         $("#btn-invia").prop('disabled', true);
+            //         $("#btn-bluffa").prop('disabled', true);
+            //     }
+            // } else {
+            //     var ricontrollo = true;
+            //     for(var i = 0; i < carteSelezionate.length; i++){
+            //         if(carteSelezionate[i].numero != nominale){
+            //             ricontrollo = false;
+            //             break;
+            //         }
+            //     }
+            //     if(ricontrollo){
+            //         $("#btn-invia").prop('disabled', false);
+            //         $("#btn-bluffa").prop('disabled', true);
+            //     } else {
+            //         $("#btn-invia").prop('disabled', true);
+            //         $("#btn-bluffa").prop('disabled', false);
+            //     }
+            //     var carteSelezionateTemp = []
+            //     for(var i = 0; i < mazzo.length; i++){
+            //         if(document.getElementById("carta" + i).checked){
+            //             carteSelezionateTemp.push(mazzo[i]);
+            //         }
+            //     }
+            //     carteSelezionate = carteSelezionateTemp;
+            // }
+
+            // if(carteSelezionate.length > 0){
+            //     for(var i = 0; i < carteSelezionate.length; i++){
+            //         if(carteSelezionate[i].numero != nominale){
+            //             $("#btn-bluffa").prop('disabled', false).text("Bluffa \u00bb");
+            //             break;
+            //         }
+            //     }
+            // } else {
+            //     $("#btn-bluffa").prop('disabled', true);
+            // }
+            
         }
     } else {
         $("#btn-invia").prop('disabled', true);
         $("#btn-bluffa").prop('disabled', true);
     }
 }
-function haSoloNumeriUguali(array) {
+function haSoloNumeriUguali(array){
     for(var i = 0; i < array.length; i++){
         for(var j = 0; j < array.length; j++){
             if(i != j){
@@ -175,7 +278,11 @@ function haSoloNumeriUguali(array) {
 // });
 
 $("#btn-invia").on("click", function(){
-    socket.emit("cartaSend", {reali: carteSelezionate, nominale: numeroUguale});
+    if(primoPlayer){
+        socket.emit("cartaSend", {reali: carteSelezionate, nominale: numeroUguale});
+    } else {
+        socket.emit("cartaSend", {reali: carteSelezionate, nominale: nominale});
+    }
 });
 
 var valoreRadio = "Asso";
@@ -184,7 +291,6 @@ $(".radio-bluff").change(function(){
 });
 
 $("#btn-bluffa-invia").on("click", function(){
-    var carteBluffSelez = 0;
     socket.emit("cartaSend", {reali: carteSelezionate, nominale: valoreRadio})
 });
 
@@ -197,27 +303,30 @@ socket.on("cartaSend", function(){
     $("#btn-invia").prop('disabled', true);
     $("#btn-bluffa").prop('disabled', true);
     $('#bluffModal').modal('hide');
+    primoPlayer = false;
     turnoAnimation = false;
 });
 
 socket.on("cartaReceive", function(data){
     console.log("Ricevuti " + data.numCarte + " " + data.nominale + " da " + data.delPlayer);
+    $("#btn-invia").text('Invia come ' + data.nominale + " \u00bb");
+    nominale = data.nominale;
 });
 
 socket.on("aggiornaTurno", function(data){
-    numTurno = data;
+    turnoAttuale = data;
     displayTurno();
 });
 
 function displayTurno(){
     var firstNames = [];
-    var turnoName = "<span class='turnoPlayer'>" + usernames[numTurno] + "</span>";
+    var turnoName = "<span class='turnoPlayer'>" + usernames[turnoAttuale] + "</span>";
     var secondNames = [];
     var combinedNames = [];
-    for(var i = 0; i < numTurno; i++){
+    for(var i = 0; i < turnoAttuale; i++){
         firstNames.push(usernames[i]);
     }
-    for(var i = numTurno + 1; i < usernames.length; i++){
+    for(var i = turnoAttuale + 1; i < usernames.length; i++){
         secondNames.push(usernames[i]);
     }
     if(firstNames.length > 0){
@@ -228,13 +337,18 @@ function displayTurno(){
         combinedNames.push(secondNames.join(" > "));
     }
     $("#infoMazzo2").html(combinedNames.join(" > "));
-    if(proprioTurno == numTurno && !turnoAnimation){
+    if(proprioTurno == turnoAttuale && !turnoAnimation){
         turnoText();
     }
 }
 
 socket.on("turno", function(){
     console.log("È il tuo turno!");
+    if(primoPlayer){
+        $("#btn-dubito").prop('disabled', true);
+    } else {
+        $("#btn-dubito").prop('disabled', false);
+    }
 });
 
 function turnoText(){
@@ -257,4 +371,33 @@ function turnoText(){
 
 socket.on("noturno", function(data){
     console.log("Oh cosa usi, i cheat?! Non è il tuo turno!");
+});
+
+// CONTROLLA DUBITO, IMPOSTA DISABLED E TUTTO IL RESTO
+$("#btn-dubito").on("click", function(){
+    if(proprioTurno == turnoAttuale){
+        if(!primoPlayer){
+            socket.emit("dubito");
+        } else {
+            console.log("Sei il primo player, non puoi dubitare!");
+        }
+    } else {
+        console.log("Oh cosa usi, i cheat?! Non è il tuo turno!");
+    }
+});
+
+socket.on("primoPlayer", function(){
+    primoPlayer = true;
+});
+
+$("#btn-bluffa").on("click", function(){
+    if(turnoAttuale == proprioTurno && primoPlayer){
+        $('#bluffModal').modal('show');
+    } else if(turnoAttuale == proprioTurno && !primoPlayer){
+        socket.emit("cartaSend", {reali: carteSelezionate, nominale: nominale})
+    } else {
+        if(window.confirm("Non dovresti vedere questo messaggio. Se non sei sicuro di quel che stai facendo, annulla o rischi il ban.")){ 
+            $('#bluffModal').modal('show');
+        }
+    };
 });
