@@ -114,7 +114,7 @@ socket.on("carte", function(data){
         // console.log(data[i]);
         // cartaRender.innerHTML = '<button onclick="cartaClick(\'' + data[i].numero + '\', \'' + data[i].seme + '\')"><strong>' + data[i].numero + '</strong> di <strong> ' + data[i].seme + '</strong></button>';
         var imageSource = "/imgs/" +  data[i].seme + "/" + data[i].numero + ".png";
-        cartaRender.innerHTML = '<input type="checkbox" class="carta-checkbox" onclick="cartaClick(\'' + data[i].numero + '\', \'' + data[i].seme + '\', ' + i + ')" id="carta' + i + '"><label for="carta' + i + '"><img src="' + imageSource + '" width="100px" class="m-3"></label>';
+        cartaRender.innerHTML = '<input type="checkbox" class="carta-checkbox" onclick="cartaClick(\'' + data[i].numero + '\', \'' + data[i].seme + '\')" id="carta' + i + '"><label for="carta' + i + '"><img src="' + imageSource + '" width="100px" class="m-3"></label>';
         mazzoDOM.append(cartaRender);
         mazzo.push(new Carta(data[i].numero, data[i].seme));
     };
@@ -123,25 +123,27 @@ socket.on("carte", function(data){
 var numeroUguale;
 var carteSelezionate = [];
 
-function cartaClick(numero, seme, index){
+function cartaClick(numero, seme){
     var carteBluffCount = 0;
-    $.each($("input[class='carta-checkbox']:checked"), function(){
+    $.each($("input[class='carta-checkbox']:checked"), function (){
         carteBluffCount++;
         if(carteBluffCount > 3){
             $(this).prop("checked", false);
         }
     });
     if(proprioTurno == turnoAttuale){
-        if(primoPlayer){
-            $("#btn-bluffa").text("Bluffa");
-            var carteSelezionateTemp = []
-            for(var i = 0; i < mazzo.length; i++){
-                if(document.getElementById("carta" + i).checked){
-                    carteSelezionateTemp.push(mazzo[i]);
-                }
+
+        var carteSelezionateTemp = []
+        for(var i = 0; i < mazzo.length; i++){
+            if(document.getElementById("carta" + i).checked){
+                carteSelezionateTemp.push(mazzo[i]);
             }
-            carteSelezionate = carteSelezionateTemp;
-            if(carteSelezionate.length > 0){
+        }
+        carteSelezionate = carteSelezionateTemp;
+
+        if(carteSelezionate.length > 0){
+            if(primoPlayer){
+                $("#btn-bluffa").text("Bluffa");
                 $("#btn-bluffa").prop('disabled', false);
                 numeroUguale = haSoloNumeriUguali(carteSelezionate);
                 if(numeroUguale){
@@ -153,22 +155,17 @@ function cartaClick(numero, seme, index){
                     $("#btn-invia").prop('disabled', true);
                 };
             } else {
-                $("#btn-invia").prop('disabled', true);
-                $("#btn-bluffa").prop('disabled', true);
-            }
-        } else {
 
-            var carteSelezionateTemp = []
-            for(var i = 0; i < mazzo.length; i++){
-                if(document.getElementById("carta" + i).checked){
-                    carteSelezionateTemp.push(mazzo[i]);
+                var carteSelezionateTemp = []
+                for(var i = 0; i < mazzo.length; i++){
+                    if(document.getElementById("carta" + i).checked){
+                        carteSelezionateTemp.push(mazzo[i]);
+                    }
                 }
-            }
-            carteSelezionate = carteSelezionateTemp;
-            if(carteSelezionate.length > 0){
+                carteSelezionate = carteSelezionateTemp;
 
                 var carteBuone = true;
-                for (var i = 0; i < carteSelezionate.length; i++){
+                for(var i = 0; i < carteSelezionate.length; i++){
                     if(carteSelezionate[i].numero != nominale){
                         carteBuone = false;
                         break;
@@ -181,83 +178,83 @@ function cartaClick(numero, seme, index){
                     $("#btn-invia").prop('disabled', true);
                     $("#btn-bluffa").prop('disabled', false);
                 }
+
+                // // LOGICA SE IL PLAYER NON È IL PRIMO
+                // if(numero == nominale){
+                //     // Se numero = nominale, puoi anche non bluffare
+                //     var carteSelezionateTemp = []
+                //     for(var i = 0; i < mazzo.length; i++){
+                //         if(document.getElementById("carta" + i).checked){
+                //             carteSelezionateTemp.push(mazzo[i]);
+                //         }
+                //     }
+                //     carteSelezionate = carteSelezionateTemp;
+                //     if(carteSelezionate.length > 0){
+                //         numeroUguale = haSoloNumeriUguali(carteSelezionate);
+                //         if(numeroUguale){
+                //             // Numeri uguali
+                //             var couldBluff = false;
+                //             for(var i = 0; i < carteSelezionate.length; i++){
+                //                 if(carteSelezionate[i].numero != nominale){
+                //                     $("#btn-invia").prop('disabled', true);
+                //                     couldBluff = true;
+                //                     break;
+                //                 }
+                //             }
+                //             if(!couldBluff){
+                //                 $("#btn-invia").prop('disabled', false);
+                //                 $("#btn-invia").text('Invia come ' + nominale + " \u00bb");
+                //                 $("#btn-bluffa").prop('disabled', true);
+                //             }
+                //         } else {
+                //             // Numeri diversi
+                //             $("#btn-invia").prop('disabled', true);
+                //             $("#btn-bluffa").prop('disabled', false);
+                //         };
+                //     } else {
+                //         $("#btn-invia").prop('disabled', true);
+                //         $("#btn-bluffa").prop('disabled', true);
+                //     }
+                // } else {
+                //     var ricontrollo = true;
+                //     for(var i = 0; i < carteSelezionate.length; i++){
+                //         if(carteSelezionate[i].numero != nominale){
+                //             ricontrollo = false;
+                //             break;
+                //         }
+                //     }
+                //     if(ricontrollo){
+                //         $("#btn-invia").prop('disabled', false);
+                //         $("#btn-bluffa").prop('disabled', true);
+                //     } else {
+                //         $("#btn-invia").prop('disabled', true);
+                //         $("#btn-bluffa").prop('disabled', false);
+                //     }
+                //     var carteSelezionateTemp = []
+                //     for(var i = 0; i < mazzo.length; i++){
+                //         if(document.getElementById("carta" + i).checked){
+                //             carteSelezionateTemp.push(mazzo[i]);
+                //         }
+                //     }
+                //     carteSelezionate = carteSelezionateTemp;
+                // }
+
+                // if(carteSelezionate.length > 0){
+                //     for(var i = 0; i < carteSelezionate.length; i++){
+                //         if(carteSelezionate[i].numero != nominale){
+                //             $("#btn-bluffa").prop('disabled', false).text("Bluffa \u00bb");
+                //             break;
+                //         }
+                //     }
+                // } else {
+                //     $("#btn-bluffa").prop('disabled', true);
+                // }
+
             }
-
-            // // LOGICA SE IL PLAYER NON È IL PRIMO
-            // if(numero == nominale){
-            //     // Se numero = nominale, puoi anche non bluffare
-            //     var carteSelezionateTemp = []
-            //     for(var i = 0; i < mazzo.length; i++){
-            //         if(document.getElementById("carta" + i).checked){
-            //             carteSelezionateTemp.push(mazzo[i]);
-            //         }
-            //     }
-            //     carteSelezionate = carteSelezionateTemp;
-            //     if(carteSelezionate.length > 0){
-            //         numeroUguale = haSoloNumeriUguali(carteSelezionate);
-            //         if(numeroUguale){
-            //             // Numeri uguali
-            //             var couldBluff = false;
-            //             for(var i = 0; i < carteSelezionate.length; i++){
-            //                 if(carteSelezionate[i].numero != nominale){
-            //                     $("#btn-invia").prop('disabled', true);
-            //                     couldBluff = true;
-            //                     break;
-            //                 }
-            //             }
-            //             if(!couldBluff){
-            //                 $("#btn-invia").prop('disabled', false);
-            //                 $("#btn-invia").text('Invia come ' + nominale + " \u00bb");
-            //                 $("#btn-bluffa").prop('disabled', true);
-            //             }
-            //         } else {
-            //             // Numeri diversi
-            //             $("#btn-invia").prop('disabled', true);
-            //             $("#btn-bluffa").prop('disabled', false);
-            //         };
-            //     } else {
-            //         $("#btn-invia").prop('disabled', true);
-            //         $("#btn-bluffa").prop('disabled', true);
-            //     }
-            // } else {
-            //     var ricontrollo = true;
-            //     for(var i = 0; i < carteSelezionate.length; i++){
-            //         if(carteSelezionate[i].numero != nominale){
-            //             ricontrollo = false;
-            //             break;
-            //         }
-            //     }
-            //     if(ricontrollo){
-            //         $("#btn-invia").prop('disabled', false);
-            //         $("#btn-bluffa").prop('disabled', true);
-            //     } else {
-            //         $("#btn-invia").prop('disabled', true);
-            //         $("#btn-bluffa").prop('disabled', false);
-            //     }
-            //     var carteSelezionateTemp = []
-            //     for(var i = 0; i < mazzo.length; i++){
-            //         if(document.getElementById("carta" + i).checked){
-            //             carteSelezionateTemp.push(mazzo[i]);
-            //         }
-            //     }
-            //     carteSelezionate = carteSelezionateTemp;
-            // }
-
-            // if(carteSelezionate.length > 0){
-            //     for(var i = 0; i < carteSelezionate.length; i++){
-            //         if(carteSelezionate[i].numero != nominale){
-            //             $("#btn-bluffa").prop('disabled', false).text("Bluffa \u00bb");
-            //             break;
-            //         }
-            //     }
-            // } else {
-            //     $("#btn-bluffa").prop('disabled', true);
-            // }
-            
+        } else {
+            $("#btn-invia").prop('disabled', true);
+            $("#btn-bluffa").prop('disabled', true);
         }
-    } else {
-        $("#btn-invia").prop('disabled', true);
-        $("#btn-bluffa").prop('disabled', true);
     }
 }
 function haSoloNumeriUguali(array){
@@ -296,7 +293,7 @@ $("#btn-bluffa-invia").on("click", function(){
 
 var turnoAnimation = false;
 
-socket.on("cartaSend", function(){
+socket.on("cartaSend", function(nuovoMazzo){
     for(var i = 0; i < mazzo.length; i++){
         document.getElementById("carta" + i).checked = false;
     }
@@ -305,16 +302,44 @@ socket.on("cartaSend", function(){
     $('#bluffModal').modal('hide');
     primoPlayer = false;
     turnoAnimation = false;
+    
+    mazzo = [];
+    mazzoDOM.empty();
+    for(var i = 0; i < nuovoMazzo.length; i++){
+        var cartaRender = document.createElement("li");
+        cartaRender.setAttribute('class', 'col-6 col-sm-4 col-md-3 col-lg-2');
+        cartaRender.setAttribute('id', 'li-carta' + i);
+        // console.log(nuovoMazzo[i]);
+        // cartaRender.innerHTML = '<button onclick="cartaClick(\'' + nuovoMazzo[i].numero + '\', \'' + nuovoMazzo[i].seme + '\')"><strong>' + nuovoMazzo[i].numero + '</strong> di <strong> ' + nuovoMazzo[i].seme + '</strong></button>';
+        var imageSource = "/imgs/" +  nuovoMazzo[i].seme + "/" + nuovoMazzo[i].numero + ".png";
+        cartaRender.innerHTML = '<input type="checkbox" class="carta-checkbox" onclick="cartaClick(\'' + nuovoMazzo[i].numero + '\', \'' + nuovoMazzo[i].seme + '\')" id="carta' + i + '"><label for="carta' + i + '"><img src="' + imageSource + '" width="100px" class="m-3"></label>';
+        mazzoDOM.append(cartaRender);
+        mazzo.push(new Carta(nuovoMazzo[i].numero, nuovoMazzo[i].seme));
+    };
 });
 
 socket.on("cartaReceive", function(data){
+    $("#avvenimenti").html("<strong>" + data.delPlayer + "</strong> ha inviato " + data.numCarte + ' "<strong>' + data.nominale + '</strong>"');
     console.log("Ricevuti " + data.numCarte + " " + data.nominale + " da " + data.delPlayer);
     $("#btn-invia").text('Invia come ' + data.nominale + " \u00bb");
     nominale = data.nominale;
 });
 
+function aggiornaBtnDubito(){
+    if(primoPlayer){
+        $("#btn-dubito").prop('disabled', true);
+    } else {
+        if(turnoAttuale == proprioTurno){
+            $("#btn-dubito").prop('disabled', false);
+        } else {
+            $("#btn-dubito").prop('disabled', true);
+        }
+    }
+}
+
 socket.on("aggiornaTurno", function(data){
     turnoAttuale = data;
+    aggiornaBtnDubito();
     displayTurno();
 });
 
@@ -339,16 +364,13 @@ function displayTurno(){
     $("#infoMazzo2").html(combinedNames.join(" > "));
     if(proprioTurno == turnoAttuale && !turnoAnimation){
         turnoText();
+    } else {
+        turnoAnimation = false;
     }
 }
 
 socket.on("turno", function(){
     console.log("È il tuo turno!");
-    if(primoPlayer){
-        $("#btn-dubito").prop('disabled', true);
-    } else {
-        $("#btn-dubito").prop('disabled', false);
-    }
 });
 
 function turnoText(){
@@ -388,6 +410,7 @@ $("#btn-dubito").on("click", function(){
 
 socket.on("primoPlayer", function(){
     primoPlayer = true;
+    aggiornaBtnDubito();
 });
 
 $("#btn-bluffa").on("click", function(){
@@ -400,4 +423,26 @@ $("#btn-bluffa").on("click", function(){
             $('#bluffModal').modal('show');
         }
     };
+});
+
+socket.on("addCarte", function(data){
+    for(var i = 0; i < data.length; i++){
+        var cartaRender = document.createElement("li");
+        cartaRender.setAttribute('class', 'col-6 col-sm-4 col-md-3 col-lg-2');
+        cartaRender.setAttribute('id', 'li-carta' + (i + mazzo.length));
+        // console.log(data[i]);
+        // cartaRender.innerHTML = '<button onclick="cartaClick(\'' + data[i].numero + '\', \'' + data[i].seme + '\')"><strong>' + data[i].numero + '</strong> di <strong> ' + data[i].seme + '</strong></button>';
+        var imageSource = "/imgs/" +  data[i].seme + "/" + data[i].numero + ".png";
+        cartaRender.innerHTML = '<input type="checkbox" class="carta-checkbox" onclick="cartaClick(\'' + data[i].numero + '\', \'' + data[i].seme + '\')" id="carta' + (i + mazzo.length) + '"><label for="carta' + (i + mazzo.length - 1) + '"><img src="' + imageSource + '" width="100px" class="m-3"></label>';
+        mazzoDOM.append(cartaRender);
+        mazzo.push(new Carta(data[i].numero, data[i].seme));
+    };
+})
+
+socket.on("afterDubito", function(data){
+    if(data.esito){
+        $("#avvenimenti").html("<strong>" + data.username + "</strong> ha dubitato <span style='color: green;'>correttamente</span> le carte di <strong>" + data.pastUsername + "</strong>!");
+    } else {
+        $("#avvenimenti").html("<strong>" + data.username + "</strong> ha dubitato <span style='color: red;'>erroneamente</span> le carte di <strong>" + data.pastUsername + "</strong>!");
+    }
 });
