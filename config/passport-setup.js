@@ -24,7 +24,8 @@ passport.use(
         User.findOne({googleId: profile.id}).then((currentUser) => {
             if(currentUser){
                 // already have this user
-                console.log('New login: ', currentUser.username);
+                console.log('Nuovo login: ', currentUser.username);
+                console.log(currentUser);
                 done(null, currentUser);
             } else {
                 // if not, create user in our db
@@ -32,9 +33,22 @@ passport.use(
                     googleId: profile.id,
                     username: profile.displayName,
                     thumbnail: profile._json.picture,
-                    nickname: ""
+                    nickname: "",
+                    stats: {
+                        rank: "",
+                        punti: 0,
+                        partiteGiocate: [],
+                        vittorie: 0,
+                        sconfitte: 0,
+                        vittorieConsecutive: 0,
+                        warns: [],
+                        carteGiocate: 0,
+                        obiettivi: [],
+                        medaglie: []
+                    }
                 }).save().then((newUser) => {
-                    console.log('Created new user: ', newUser.username);
+                    console.log('Creato nuovo utente: ', newUser.username);
+                    console.log(newUser);
                     done(null, newUser);
                 });
             }

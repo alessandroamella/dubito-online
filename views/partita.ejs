@@ -38,19 +38,19 @@
                 </fieldset>
             </div>
             <div class="modal-footer">
-                <button type="button" class="tasto-grigio" data-dismiss="modal">Annulla</button>
-                <button type="button" class="tasto-verde" id="btn-bluffa-invia">Invia &#xbb;</button>
+                <button type="button" class="tasto-grigio" data-dismiss="modal"><i class="fas fa-times"></i> Annulla</button>
+                <button type="button" class="tasto-verde" id="btn-bluffa-invia"><i class="fas fa-angle-double-right"></i> Invia</button>
             </div>
         </div>
     </div>
 </div>
 
-<div class="container info-container pt-2 mt-2">
-    <nav>
+<div class="container info-container pt-2 pb-2 mt-2">
+    <nav id="btns-nav">
         <div class="play-btns navbar navbar-light bg-white justify-content-start">
-            <button class="tasto-verde" id="btn-invia" disabled>Invia come ...</button>
-            <button class="tasto-rosa" id="btn-bluffa" disabled>Bluffa</button>
-            <button class="tasto-arancione" id="btn-dubito" disabled>Dubito!</button>
+            <button class="tasto-verde" id="btn-invia" disabled><i class="far fa-arrow-alt-circle-right"></i> Invia come ...</button>
+            <button class="tasto-rosa" id="btn-bluffa" disabled><i class="fas fa-arrow-alt-circle-right"></i> Bluffa</button>
+            <button class="tasto-arancione" id="btn-dubito" disabled><i class="fas fa-check-double"></i> Dubito!</button>
             <p style="margin-left: auto;" id="partita-uuid" data-toggle="tooltip" data-placement="bottom"></p>
         </div>
         <!-- <button type="button" id="resetPlayers" class="btn btn-warning">Reset players</button> -->
@@ -63,7 +63,7 @@
     </nav>
     
     <div class="avversari"></div>
-    <div class="mazzo text-center mb-2 row">
+    <div class="mazzo text-center mb-2">
         <ul id="mazzo"></ul>
     </div>
     <p id="debug"></p>

@@ -5,6 +5,18 @@ class Player {
         this.inGame = false;
         this.username = "";
         this.mazzo = []
+        this.stats = {
+            rank: "",
+            punti: 0,
+            partiteGiocate: [],
+            vittorie: 0,
+            sconfitte: 0,
+            vittorieConsecutive: 0,
+            warns: [],
+            carteGiocate: 0,
+            obiettivi: [],
+            medaglie: []
+        }
     }
 }
 

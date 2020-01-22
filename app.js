@@ -450,6 +450,9 @@ io.on("connection", function(socket){
             console.log("Rimosso il player " + partite[playerInPartita.partitaIndex].players[playerInPartita.playerIndex].username
             + " nella partita " + partite[playerInPartita.partitaIndex].partita_uuid);
             partite[playerInPartita.partitaIndex].players.splice(playerInPartita.playerIndex, 1);
+            // DEBUG, DA CAMBIARE: annulla partita e manda all'attesa tutti gli altri player
+            io.to(partite[playerInPartita.partitaIndex].partita_uuid).emit("redirect", "/dubito");
+            partite.splice(partite[playerInPartita.partitaIndex], 1);
             return true;
         }
     }
@@ -572,11 +575,30 @@ io.on("connection", function(socket){
         var playerMazzo = partita.players[player.playerIndex].mazzo;
         for(var i = 0; i < playerMazzo.length; i++){
             for(var j = 0; j < carte.reali.length; j++){
-                if(playerMazzo[i].numero == carte.reali[j].numero && playerMazzo[i].seme == carte.reali[j].seme){
-                    cartaTot++;
-                    playerMazzo.splice(i, 1);
-                    i--;
-                    j--;
+                try {
+                    if(playerMazzo[i].numero == carte.reali[j].numero && playerMazzo[i].seme == carte.reali[j].seme){
+                        cartaTot++;
+                        playerMazzo.splice(i, 1);
+                        if(i > 0){
+                            i--;
+                        }
+                    }
+                }
+                catch(err) {
+                    console.log("\n\n\n");
+                    console.log("Errore nella funzione checkMazzoAndTaglia");
+                    console.log(err);
+                    console.log("\n\n\n\n\nplayerMazzo:");
+                    console.log(playerMazzo.length);
+                    console.log(playerMazzo);
+                    console.log("i");
+                    console.log(i);
+                    console.log("carte.reali:");
+                    console.log(carte.reali.length);
+                    console.log(carte.reali);
+                    console.log("j");
+                    console.log(j);
+                    console.log("\n\n\n");
                 }
             }
         }
@@ -633,6 +655,11 @@ io.on("connection", function(socket){
                         console.log("Riga 629, giocatore rimosso.")
                         removePlayer(partita.players[playerIndex].socket);
                     }
+                    var turnoBefore = partita.turno - 1;
+                    if(turnoBefore < 0){turnoBefore = partita.players.length - 1;}
+                    if(partita.players[turnoBefore].mazzo.length <= 0){
+                        vittoria(partita, partita.turno);
+                    }
                     // Aumenta il turno di uno, se il turno è pari al numero del giocatori totali, allora il giro ricomincia
                     aumentaTurno(partita);
                     partita.players[partita.turno].socket.emit("turno");
@@ -671,34 +698,39 @@ io.on("connection", function(socket){
             if(partita.turno == playerIndex){
                 // CONTROLLA SE È PRIMO PLAYER
                 if(partita.primoPlayer != playerIndex){
-                    var carteDubitate = [];
-                    for(var i = 0; i < partita.carteInMezzo.length; i++){
-                        for(var j = 0; j < partita.carteInMezzo[i].carte.length; j++){
-                            carteDubitate.push(partita.carteInMezzo[i].carte[j]);
-                        }
-                    }
                     var indexEmit = partita.turno - 1;
                     if(indexEmit < 0){indexEmit = partita.players.length - 1;}
                     if(dubito(partita)){
                         console.log("Il giocatore ha dubitato correttamente!");
+                        for(var i = 0; i < partita.carteInMezzo.length; i++){
+                            for(var j = 0; j < partita.carteInMezzo[i].carte.length; j++){
+                                partita.players[indexEmit].mazzo.push(partita.carteInMezzo[i].carte[j]);
+                            }
+                        }
                         io.to(partita.partita_uuid).emit("afterDubito", {username: partita.players[partita.turno].username, esito: true, pastUsername: partita.players[indexEmit].username})
                         partita.primoPlayer = partita.turno;
-                        partita.players[indexEmit].mazzo.push(carteDubitate);
-                        partita.players[indexEmit].socket.emit("addCarte", carteDubitate);
+                        partita.players[indexEmit].socket.emit("carte", partita.players[indexEmit].mazzo);
                         partita.carteInMezzo = [];
                         io.to(partita.partita_uuid).emit("aggiornaTurno", partita.turno);
                         socket.emit("primoPlayer");
                     } else {
                         console.log("Il giocatore ha dubitato errato!");
+                        for(var i = 0; i < partita.carteInMezzo.length; i++){
+                            for(var j = 0; j < partita.carteInMezzo[i].carte.length; j++){
+                                partita.players[partita.turno].mazzo.push(partita.carteInMezzo[i].carte[j]);
+                            }
+                        }
                         io.to(partita.partita_uuid).emit("afterDubito", {username: partita.players[partita.turno].username, esito: false, pastUsername: partita.players[indexEmit].username})
-                        socket.emit("addCarte", carteDubitate);
+                        partita.players[partita.turno].socket.emit("carte", partita.players[partita.turno].mazzo);
                         partita.carteInMezzo = [];
                         aumentaTurno(partita);
                         partita.primoPlayer = partita.turno;
-                        partita.players[partita.turno].mazzo.push(carteDubitate);
                         io.to(partita.partita_uuid).emit("aggiornaTurno", partita.turno);
                         partita.players[partita.turno].socket.emit("primoPlayer");
                     };
+                    if(partita.players[indexEmit].mazzo.length <= 0){
+                        vittoria(partita, partita.turno);
+                    }
                 } else {
                     // Il giocatore è il primo player
                     console.log("Riga 686, giocatore rimosso.")
@@ -720,6 +752,32 @@ io.on("connection", function(socket){
         }
         return false;
     }
+
+    function vittoria(partita, playerIndex){
+        io.to(partita.partita_uuid).emit("vittoriaTimer");
+        setTimeout(function(){
+            // !! Aumenta stats vincitore!!
+            var podio = [];
+            for(var i = 0; i < partita.players.length; i++){
+                podio.push({
+                    username: partita.players[i].username,
+                    carteRimanenti: partita.players[i].mazzo.length
+                });
+            }
+            podio.sort((a, b) => (a.carteRimanenti > b.carteRimanenti) ? 1 : -1)
+            io.to(partita.partita_uuid).emit("vittoria", {
+                username: partita.players[playerIndex].username,
+                podio: podio
+            });
+            for(var i = 0; i < partite.length; i++){
+                if(partite[i].partita_uuid == partita.partita_uuid){
+                    partite.splice(i, 1);
+                    return true;
+                }
+            }
+            return false;
+        }, 2500)
+    };
 
     // Tasto di debug per impostare a 0 il numero di socket connessi
     socket.on("reset", function(){

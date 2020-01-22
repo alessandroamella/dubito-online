@@ -595,3 +595,18 @@ div.play-btns {
     text-align: center;
     font-size: 1.2rem;
 }
+
+#vittoria-text {
+    font-size: 3rem;
+    text-align: center;
+    line-height: 1;
+    margin: 0;
+    padding-bottom: 3vh;
+    top: 50%;
+    left: 50%;
+    text-shadow: #0c1018;
+    left: 0;
+    width: 100%;
+    top: 0;
+    z-index: 5;
+}

@@ -312,3 +312,1076 @@
 23:49:19.783 ERROR Errore nella rimozione del socket p78rg8kCizN59WA6AAAB 
 23:49:20.674 ERROR Errore nella rimozione del socket 2UQPiOmdcNGmZEEpAAAD 
 23:49:21.156 ERROR Errore nella rimozione del socket uw3QmYov_KPkUbrJAAAC 
+14:13:26.252 ERROR Errore nella rimozione del socket ssiZ7j-JUR5UH6IaAAAB 
+14:13:26.901 ERROR Errore nella rimozione del socket fsqUe2nmBNPrKmV_AAAC 
+14:13:28.689 ERROR Errore nella rimozione del socket 308j_YRymQetlIrlAAAD 
+15:16:20.752 ERROR Errore nella rimozione del socket 5H2315QxrvBGHXRoAAAA 
+15:44:22.813 ERROR Errore nella funzione checkMazzoAndTaglia 
+15:44:22.813 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+15:44:22.813 ERROR Errore nella funzione checkMazzoAndTaglia 
+15:44:22.813 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+15:44:22.813 ERROR Errore nella funzione checkMazzoAndTaglia 
+15:44:22.813 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+15:44:44.787 ERROR Errore nella funzione checkMazzoAndTaglia 
+15:44:44.787 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+15:46:34.878 ERROR Errore nella funzione checkMazzoAndTaglia 
+15:46:34.878 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+15:47:06.554 ERROR Errore nella funzione checkMazzoAndTaglia 
+15:47:06.554 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+15:58:24.222 ERROR Errore nella funzione checkMazzoAndTaglia 
+15:58:24.222 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+15:58:37.648 ERROR Errore nella rimozione del socket uTBYA_34kRJrepVjAAAF 
+15:58:38.835 ERROR Errore nella rimozione del socket uTBYA_34kRJrepVjAAAF 
+16:05:09.252 ERROR Errore nella funzione checkMazzoAndTaglia 
+16:05:09.252 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+16:05:09.252 ERROR Errore nella funzione checkMazzoAndTaglia 
+16:05:09.252 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+16:05:09.252 ERROR Errore nella funzione checkMazzoAndTaglia 
+16:05:09.252 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+16:06:04.141 ERROR Errore nella funzione checkMazzoAndTaglia 
+16:06:04.141 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+16:06:04.141 ERROR Errore nella funzione checkMazzoAndTaglia 
+16:06:04.141 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+16:06:04.141 ERROR Errore nella funzione checkMazzoAndTaglia 
+16:06:04.141 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+16:06:20.343 ERROR Errore nella funzione checkMazzoAndTaglia 
+16:06:20.343 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+16:06:20.343 ERROR Errore nella funzione checkMazzoAndTaglia 
+16:06:20.343 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+16:06:20.343 ERROR Errore nella funzione checkMazzoAndTaglia 
+16:06:20.343 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+16:07:36.358 ERROR Errore nella funzione checkMazzoAndTaglia 
+16:07:36.358 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+16:07:36.358 ERROR Errore nella funzione checkMazzoAndTaglia 
+16:07:36.358 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+16:07:36.358 ERROR Errore nella funzione checkMazzoAndTaglia 
+16:07:36.358 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+16:07:36.358 ERROR Errore nella funzione checkMazzoAndTaglia 
+16:07:36.358 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+16:07:36.358 ERROR Errore nella funzione checkMazzoAndTaglia 
+16:07:36.358 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+16:07:51.800 ERROR Errore nella funzione checkMazzoAndTaglia 
+16:07:51.800 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+16:07:51.800 ERROR Errore nella funzione checkMazzoAndTaglia 
+16:07:51.800 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+16:07:51.800 ERROR Errore nella funzione checkMazzoAndTaglia 
+16:07:51.800 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+16:07:51.800 ERROR Errore nella funzione checkMazzoAndTaglia 
+16:07:51.800 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+16:07:51.800 ERROR Errore nella funzione checkMazzoAndTaglia 
+16:07:51.800 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+16:07:51.800 ERROR Errore nella funzione checkMazzoAndTaglia 
+16:07:51.800 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+16:07:58.570 ERROR Errore nella rimozione del socket v07lJ83hvVopX5_6AAAE 
+16:07:58.684 ERROR Errore nella rimozione del socket KwTUcidFbB7tBpJWAAAF 
+16:07:59.075 ERROR Errore nella rimozione del socket KrMTHJTeSGa0UMwTAAAG 
+16:07:59.357 ERROR Errore nella rimozione del socket xjpIQr7x8E0grmaJAAAH 
+16:30:30.022 ERROR Errore nella funzione checkMazzoAndTaglia 
+16:30:30.022 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+16:30:30.022 ERROR Errore nella funzione checkMazzoAndTaglia 
+16:30:30.022 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+16:30:30.022 ERROR Errore nella funzione checkMazzoAndTaglia 
+16:30:30.022 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+16:30:30.022 ERROR Errore nella funzione checkMazzoAndTaglia 
+16:30:30.022 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+16:30:30.022 ERROR Errore nella funzione checkMazzoAndTaglia 
+16:30:30.022 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+16:30:43.436 ERROR Errore nella funzione checkMazzoAndTaglia 
+16:30:43.436 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+16:31:40.763 ERROR Errore nella rimozione del socket I5ayUEX4SqYiBmKCAAAE 
+16:31:40.882 ERROR Errore nella rimozione del socket 2rQXBKjwWoX0JYbEAAAF 
+16:31:41.192 ERROR Errore nella rimozione del socket 5cegrgqVEMiulsXiAAAG 
+16:31:41.538 ERROR Errore nella rimozione del socket _K6PBg3q9LDIP4y2AAAH 
+16:55:55.374 ERROR Errore nella funzione checkMazzoAndTaglia 
+16:55:55.374 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+16:55:55.374 ERROR Errore nella funzione checkMazzoAndTaglia 
+16:55:55.374 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+16:55:55.374 ERROR Errore nella funzione checkMazzoAndTaglia 
+16:55:55.374 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+16:55:55.374 ERROR Errore nella funzione checkMazzoAndTaglia 
+16:55:55.374 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+16:55:55.374 ERROR Errore nella funzione checkMazzoAndTaglia 
+16:55:55.374 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+16:55:55.374 ERROR Errore nella funzione checkMazzoAndTaglia 
+16:55:55.374 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+16:56:37.648 ERROR Errore nella rimozione del socket nkPQ3rCSQrj8TmRaAAAE 
+16:56:37.784 ERROR Errore nella rimozione del socket iG4ReFNqx97VTquVAAAF 
+16:56:38.109 ERROR Errore nella rimozione del socket irDXVI5kIBwEN1QGAAAG 
+16:56:38.583 ERROR Errore nella rimozione del socket AKAofvQwDZGDmX84AAAH 
+16:57:07.050 ERROR Errore nella funzione checkMazzoAndTaglia 
+16:57:07.050 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+16:57:07.050 ERROR Errore nella funzione checkMazzoAndTaglia 
+16:57:07.050 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+16:57:07.050 ERROR Errore nella funzione checkMazzoAndTaglia 
+16:57:07.050 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+16:57:07.050 ERROR Errore nella funzione checkMazzoAndTaglia 
+16:57:07.050 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+16:57:07.050 ERROR Errore nella funzione checkMazzoAndTaglia 
+16:57:07.050 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+16:57:07.050 ERROR Errore nella funzione checkMazzoAndTaglia 
+16:57:07.050 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+17:15:26.827 ERROR Errore nella funzione checkMazzoAndTaglia 
+17:15:26.827 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+17:25:02.698 ERROR Errore nella funzione checkMazzoAndTaglia 
+17:25:02.698 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+17:25:02.698 ERROR Errore nella funzione checkMazzoAndTaglia 
+17:25:02.698 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+17:25:02.698 ERROR Errore nella funzione checkMazzoAndTaglia 
+17:25:02.698 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+18:51:15.453 ERROR Errore nella funzione checkMazzoAndTaglia 
+18:51:15.453 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+18:51:15.453 ERROR Errore nella funzione checkMazzoAndTaglia 
+18:51:15.453 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+18:51:15.453 ERROR Errore nella funzione checkMazzoAndTaglia 
+18:51:15.453 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+18:51:15.453 ERROR Errore nella funzione checkMazzoAndTaglia 
+18:51:15.453 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+18:51:15.453 ERROR Errore nella funzione checkMazzoAndTaglia 
+18:51:15.453 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+18:53:06.609 ERROR Errore nella funzione checkMazzoAndTaglia 
+18:53:06.609 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+18:53:06.609 ERROR Errore nella funzione checkMazzoAndTaglia 
+18:53:06.609 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+18:53:06.609 ERROR Errore nella funzione checkMazzoAndTaglia 
+18:53:06.609 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+18:54:42.143 ERROR Errore nella funzione checkMazzoAndTaglia 
+18:54:42.143 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+19:06:16.881 ERROR Errore nella funzione checkMazzoAndTaglia 
+19:06:16.881 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+19:06:16.881 ERROR Errore nella funzione checkMazzoAndTaglia 
+19:06:16.881 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+19:06:16.881 ERROR Errore nella funzione checkMazzoAndTaglia 
+19:06:16.881 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+19:06:25.725 ERROR Errore nella funzione checkMazzoAndTaglia 
+19:06:25.725 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+19:43:11.234 ERROR Errore nella funzione checkMazzoAndTaglia 
+19:43:11.234 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+19:43:11.234 ERROR Errore nella funzione checkMazzoAndTaglia 
+19:43:11.234 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+19:43:11.234 ERROR Errore nella funzione checkMazzoAndTaglia 
+19:43:11.234 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+19:43:11.234 ERROR Errore nella funzione checkMazzoAndTaglia 
+19:43:11.234 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+19:43:11.234 ERROR Errore nella funzione checkMazzoAndTaglia 
+19:43:11.234 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+19:43:16.654 ERROR Errore nella funzione checkMazzoAndTaglia 
+19:43:16.654 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+19:43:16.654 ERROR Errore nella funzione checkMazzoAndTaglia 
+19:43:16.654 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+19:43:31.460 ERROR Errore nella funzione checkMazzoAndTaglia 
+19:43:31.460 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+19:43:31.460 ERROR Errore nella funzione checkMazzoAndTaglia 
+19:43:31.460 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+19:43:42.354 ERROR Errore nella funzione checkMazzoAndTaglia 
+19:43:42.354 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+19:45:46.372 ERROR Errore nella funzione checkMazzoAndTaglia 
+19:45:46.372 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+19:45:46.372 ERROR Errore nella funzione checkMazzoAndTaglia 
+19:45:46.372 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+19:45:46.372 ERROR Errore nella funzione checkMazzoAndTaglia 
+19:45:46.372 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+19:45:46.372 ERROR Errore nella funzione checkMazzoAndTaglia 
+19:45:46.372 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+19:45:46.372 ERROR Errore nella funzione checkMazzoAndTaglia 
+19:45:46.372 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+19:46:07.146 ERROR Errore nella funzione checkMazzoAndTaglia 
+19:46:07.146 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+19:46:07.146 ERROR Errore nella funzione checkMazzoAndTaglia 
+19:46:07.146 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+19:46:07.146 ERROR Errore nella funzione checkMazzoAndTaglia 
+19:46:07.146 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+19:46:07.146 ERROR Errore nella funzione checkMazzoAndTaglia 
+19:46:07.146 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+19:46:07.146 ERROR Errore nella funzione checkMazzoAndTaglia 
+19:46:07.146 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+19:46:07.146 ERROR Errore nella funzione checkMazzoAndTaglia 
+19:46:07.146 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+20:37:54.757 ERROR Errore nella funzione checkMazzoAndTaglia 
+20:37:54.757 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+20:37:54.757 ERROR Errore nella funzione checkMazzoAndTaglia 
+20:37:54.757 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+20:37:54.757 ERROR Errore nella funzione checkMazzoAndTaglia 
+20:37:54.757 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+20:38:01.632 ERROR Errore nella funzione checkMazzoAndTaglia 
+20:38:01.632 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+20:38:01.632 ERROR Errore nella funzione checkMazzoAndTaglia 
+20:38:01.632 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+20:38:01.632 ERROR Errore nella funzione checkMazzoAndTaglia 
+20:38:01.632 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+20:38:01.632 ERROR Errore nella funzione checkMazzoAndTaglia 
+20:38:01.632 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+20:38:01.632 ERROR Errore nella funzione checkMazzoAndTaglia 
+20:38:01.632 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+20:38:01.632 ERROR Errore nella funzione checkMazzoAndTaglia 
+20:38:01.632 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+20:38:07.487 ERROR Errore nella funzione checkMazzoAndTaglia 
+20:38:07.487 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+20:38:11.367 ERROR Errore nella funzione checkMazzoAndTaglia 
+20:38:11.367 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:614:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+20:46:02.960 ERROR Errore nella funzione checkMazzoAndTaglia 
+20:46:02.960 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:616:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+20:46:02.969 ERROR Errore nella funzione checkMazzoAndTaglia 
+20:46:02.969 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:616:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+20:46:02.971 ERROR Errore nella funzione checkMazzoAndTaglia 
+20:46:02.971 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:616:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+20:46:02.981 ERROR Errore nella funzione checkMazzoAndTaglia 
+20:46:02.981 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:616:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+20:46:02.983 ERROR Errore nella funzione checkMazzoAndTaglia 
+20:46:02.983 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:616:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+20:46:02.984 ERROR Errore nella funzione checkMazzoAndTaglia 
+20:46:02.984 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:616:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+20:47:57.763 ERROR Errore nella funzione checkMazzoAndTaglia 
+20:47:57.763 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:617:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+20:47:57.773 ERROR Errore nella funzione checkMazzoAndTaglia 
+20:47:57.773 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:617:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+20:47:57.781 ERROR Errore nella funzione checkMazzoAndTaglia 
+20:47:57.781 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:617:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+20:47:57.783 ERROR Errore nella funzione checkMazzoAndTaglia 
+20:47:57.783 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:617:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+20:47:57.785 ERROR Errore nella funzione checkMazzoAndTaglia 
+20:47:57.785 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:617:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+20:47:57.787 ERROR Errore nella funzione checkMazzoAndTaglia 
+20:47:57.787 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:617:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+20:48:08.346 ERROR Errore nella funzione checkMazzoAndTaglia 
+20:48:08.346 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:617:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+20:48:08.356 ERROR Errore nella funzione checkMazzoAndTaglia 
+20:48:08.356 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:617:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+20:48:08.358 ERROR Errore nella funzione checkMazzoAndTaglia 
+20:48:08.358 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:617:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+20:48:08.359 ERROR Errore nella funzione checkMazzoAndTaglia 
+20:48:08.359 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:617:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+20:48:08.361 ERROR Errore nella funzione checkMazzoAndTaglia 
+20:48:08.361 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:617:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+20:48:08.362 ERROR Errore nella funzione checkMazzoAndTaglia 
+20:48:08.362 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:617:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+20:48:35.102 ERROR Errore nella funzione checkMazzoAndTaglia 
+20:48:35.102 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:617:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+20:48:45.036 ERROR Errore nella funzione checkMazzoAndTaglia 
+20:48:45.036 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:617:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+20:48:52.392 ERROR Errore nella funzione checkMazzoAndTaglia 
+20:48:52.392 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:617:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+20:49:04.798 ERROR Errore nella funzione checkMazzoAndTaglia 
+20:49:04.798 ERROR Cannot read property 'numero' of undefined
+{}
+TypeError: Cannot read property 'numero' of undefined
+    at checkMazzoAndTaglia (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:576:39)
+    at Socket.<anonymous> (D:\Alessandro\Documents\Webdev Projects\dubitoOnline\app.js:617:35)
+    at Socket.emit (events.js:198:13)
+    at D:\Alessandro\Documents\Webdev Projects\dubitoOnline\node_modules\socket.io\lib\socket.js:528:12
+    at process._tickCallback (internal/process/next_tick.js:61:11) 
+21:05:31.774 ERROR Errore nella rimozione del socket vgSVNmdJJta7O5DZAAAE 
+21:10:04.074 ERROR Errore nella rimozione del socket 4KJVJd-WUt5shg_YAAAD 
+21:10:31.023 ERROR Errore nella rimozione del socket gBe-R04WZ-8UO0CfAAAH 
+21:10:48.805 ERROR Errore nella rimozione del socket _zv1DL5xxuQ_E_CgAAAD 
+21:39:14.152 ERROR Errore nella rimozione del socket 5eWA_AaNzkE7htyFAAAE 
+21:56:46.120 ERROR Errore nella rimozione del socket HKRr76NIt1Vkaip2AAAE 
+21:57:15.020 ERROR Errore nella rimozione del socket AsAhEiq4CvZHtDv4AAAG 
+21:57:15.477 ERROR Errore nella rimozione del socket OtcnQlXrYRaQ44dKAAAH 
+22:00:11.127 ERROR Errore nella rimozione del socket glwxVNuJ6_YVCmuLAAAB 
+22:00:11.275 ERROR Errore nella rimozione del socket fwbSukSTx0Ptv1DhAAAD 
+22:00:11.373 ERROR Errore nella rimozione del socket IDZZCS7b_sMPrTpBAAAE 
