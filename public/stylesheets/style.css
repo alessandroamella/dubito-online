@@ -11,15 +11,19 @@ body {
     padding-bottom: 5rem;
 }
 
-.page-footer {
-    background-color: #2196f3;
-}
-
 footer {
-    position: relative;
+    background-color: #2196f3;
+    position: fixed;
     bottom: 0;
     width: 100%;
+    max-height: 70px;
 }
+
+@media screen and (max-width: 600px) {
+    footer {
+      display: none;
+    }
+  }
 
 .info-container {
     border: 1px solid #ddd;
@@ -265,6 +269,7 @@ strong {
   
   #mazzo li {
     display: inline-block;
+    margin: 0;
   }
   
   #mazzo input[type="checkbox"] {

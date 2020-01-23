@@ -280,7 +280,7 @@ io.on("connection", function(socket){
     function newConnection(foundPlayer, socket){
         
         // UNCOMMENT AFTER DEBUG
-        if(!foundPlayer){
+        // if(!foundPlayer){
 
 
             // Qua la logica per una nuova connessione da un nuovo player
@@ -320,11 +320,11 @@ io.on("connection", function(socket){
 
 
             
-        } else {
-            foundPlayer.socket.id = socket.id;
-            console.log("Giocatore riconnesso, lista players aggiornata");
-            // printPlayers();
-        }
+        // } else {
+        //     foundPlayer.socket.id = socket.id;
+        //     console.log("Giocatore riconnesso, lista players aggiornata");
+        //     // printPlayers();
+        // }
 
         // DEBUG
         // emitList();

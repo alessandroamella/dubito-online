@@ -56,22 +56,15 @@ socket.on("aggiornaConnessioni", function(data){
     if(userId == "undefined" && giocatore == "undefined"){
         window.location.href = "/errore";
     } else {
-        var posizione = giocatore;
-        if(giocatore - data.connessioni > 0){
-            posizione = giocatore - (giocatore - data.connessioni);
-        } else {
-            posizione = giocatore;
-        }
-
-        var usernames = data.usernames;
+        var posizione = 1;
         for(var i = 0; i < usernames.length; i++){
             if(usernames[i] == username){
-                usernames.splice(i, 1);
+                posizione = i + 1;
                 break;
             }
         }
         $("#infoMazzo").html("Il tuo ID è <strong>" + userId + "</strong>, sei il giocatore <strong>" + posizione + "</strong> / 4, totale: <strong>" + data.connessioni + "</strong> / 4");
-        $("#infoMazzo2").html("I tuoi avversari: <strong>" + usernames.join("</strong>, <strong>") + "</strong>");
+        $("#infoMazzo2").html("I tuoi avversari: <strong>" + data.usernames.join("</strong>, <strong>") + "</strong>");
     }
 });
 
@@ -109,7 +102,7 @@ socket.on("carte", function(data){
     mazzoDOM.empty();
     for(var i = 0; i < data.length; i++){
         var cartaRender = document.createElement("li");
-        cartaRender.setAttribute('class', 'col-6 col-sm-4 col-md-3 col-lg-2');
+        cartaRender.setAttribute('class', 'col-3 col-lg-2');
         cartaRender.setAttribute('id', 'li-carta' + i);
         // console.log(data[i]);
         // cartaRender.innerHTML = '<button onclick="cartaClick(\'' + data[i].numero + '\', \'' + data[i].seme + '\')"><strong>' + data[i].numero + '</strong> di <strong> ' + data[i].seme + '</strong></button>';
