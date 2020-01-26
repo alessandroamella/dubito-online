@@ -290,9 +290,7 @@ io.on("connection", function(socket){
             // connessioni++;
 
             var newPlayer = emitNewConnection(socket, new Player(socket));
-
-            playerList.push(newPlayer);
-            emitInfo(socket, newPlayer.username);
+            emitInfo(socket);
 
             // printPlayers();
             
@@ -338,11 +336,12 @@ io.on("connection", function(socket){
     // }, 1000);
     // function emitList(){socket.emit("playerlist", playerList);};
 
-    function emitInfo(socket, username){
+    function emitInfo(socket){
         socket.emit("id", {
-            id: socket.id,
+            // id: socket.id,
             giocatori: playerList.length,
-            username: username
+            // username: username,
+            usernames: getUsernames(playerList)
         });
     }
 
@@ -360,7 +359,13 @@ io.on("connection", function(socket){
         // Chat room per player in attesa
         socket.join("waiting-room");
 
-        io.to("waiting-room").emit("aggiornaConnessioni", {usernames: getUsernames(playerList), connessioni: playerList.length + 1});
+        playerList.push(newPlayer);
+
+        for(var i = 0; i < playerList.length; i++){
+            playerList[i].socket.emit("aggiornaConnessioni", {usernames: getUsernames(playerList), index: i + 1, connessioni: playerList.length + 1});
+        }
+
+        // io.to("waiting-room").emit("aggiornaConnessioni", {usernames: getUsernames(playerList), connessioni: playerList.length + 1});
 
         return newPlayer;
 
@@ -431,7 +436,9 @@ io.on("connection", function(socket){
                 socket.emit("redirect", "/rimosso");
                 console.log("Rimosso il player " + playerList[i].user_id + " con socket ID " + socket.id);
                 playerList.splice(i, 1);
-                io.to("waiting-room").emit("aggiornaConnessioni", {usernames: getUsernames(playerList), connessioni: playerList.length});
+                for(var i = 0; i < playerList.length; i++){
+                    playerList[i].socket.emit("aggiornaConnessioni", {usernames: getUsernames(playerList), index: i + 1, connessioni: playerList.length});
+                }
                 // printPlayers();
                 return true;
             }

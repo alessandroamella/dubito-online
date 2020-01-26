@@ -2,9 +2,8 @@ var socket = io();
 
 var inGame = false;
 
-var userId;
+var inGame = false;
 var giocatore;
-var username;
 
 setTimeout(function(){
     if($("#infoMazzo").text() == "Caricamento in corso... (Se non si carica, fai il logout e rientra)"){
@@ -31,7 +30,6 @@ socket.on("avversari", function(data){
     setTimeout(function(){
         $("#infoMazzo").remove();
     }, 2000);
-    inGame = true;
     displayTurno();
 });
 
@@ -41,31 +39,52 @@ socket.on("avversari", function(data){
 //     $(this).text("Partita <strong>" + partita_uuid.split("-")[0] + "</strong>");
 // });
 
-socket.on("id", function(data){
-    if(data.id.toString() == "undefined" && data.giocatori.toString() == "undefined"){
-        window.location.href = "/errore";
-    } else {
-        $("#infoMazzo").html("Il tuo ID è <strong>" + data.id + "</strong>, sei il giocatore <strong>" + data.giocatori + "</strong> / 4, totale: <strong>" + data.giocatori + "</strong> / 4");
-        userId = data.id;
-        giocatore = data.giocatori;
-        username = data.username;
+socket.on("id", function (data) {
+    if(!inGame) {
+        $("#infoMazzo").html("Sei il giocatore <strong>" + data.giocatori + "</strong> / 4, totale: <strong>" + data.giocatori + "</strong> / 4");
+        inGame = true;
+        $("#infoMazzo2").html("In attesa: <strong>" + data.usernames.join("</strong>, <strong>") + "</strong>");
+    }
+});
+
+setInterval(function(){
+    if(!socket.connected){connessionePersa();}
+}, 5000);
+
+var disconnesso = false;
+socket.on("disconnect", connessionePersa);
+socket.on('connect_error', connessionePersa);
+socket.on('connect_timeout', connessionePersa);
+socket.on('reconnect_error', connessionePersa);
+
+socket.on("connect", function(){
+    if(disconnesso){
+        connessioneTornata();
+    }
+});
+socket.on('reconnect', connessioneTornata);
+
+function connessionePersa(){
+    disconnesso = true;
+    $(".mazzo").remove();
+    $("#btns-nav").html("<p style='font-size: 2rem; font-weight: 700;'>Connessione persa</p><button style='font-size: 1.2rem;' id='btn-reconnect' class='tasto-rosa'>Prova a riconnetterti</button>");
+    socket.close();
+}
+
+function connessioneTornata(){
+    $("#btns-nav").html("<p style='font-size: 2rem; font-weight: 700;'>Connessione ritrovata</p><button style='font-size: 1.2rem;' id='btn-reconnect' class='tasto-rosa'>Riconnettiti</button>");
+}
+
+$(document).on("click", ".tasto-rosa", function(){
+    if($(this).attr("id") == "btn-reconnect"){
+        $("#btn-reconnect").prop('disabled', true);
+        location.reload();
     }
 });
 
 socket.on("aggiornaConnessioni", function(data){
-    if(userId == "undefined" && giocatore == "undefined"){
-        window.location.href = "/errore";
-    } else {
-        var posizione = 1;
-        for(var i = 0; i < usernames.length; i++){
-            if(usernames[i] == username){
-                posizione = i + 1;
-                break;
-            }
-        }
-        $("#infoMazzo").html("Il tuo ID è <strong>" + userId + "</strong>, sei il giocatore <strong>" + posizione + "</strong> / 4, totale: <strong>" + data.connessioni + "</strong> / 4");
-        $("#infoMazzo2").html("I tuoi avversari: <strong>" + data.usernames.join("</strong>, <strong>") + "</strong>");
-    }
+    $("#infoMazzo").html("Sei il giocatore <strong>" + data.index + "</strong> / 4, totale: <strong>" + data.connessioni + "</strong> / 4");
+    $("#infoMazzo2").html("In attesa: <strong>" + data.usernames.join("</strong>, <strong>") + "</strong>");
 });
 
 socket.on("errorone", function(data){
@@ -125,6 +144,8 @@ function cartaClick(numero, seme){
         }
     });
     if(proprioTurno == turnoAttuale){
+
+        Navigator.vibrate(200);
 
         var carteSelezionateTemp = []
         for(var i = 0; i < mazzo.length; i++){
@@ -460,6 +481,7 @@ function coloreCasuale(){
 }
 
 socket.on("vittoria", function(data){
+    socket.close();
     var podioText = "";
     for(var i = 0; i < data.podio.length; i++){
         podioText += ("<p style='font-size: 1.2rem'><strong>" + (i + 1) + "</strong>: <strong>" + data.podio[i].username + "</strong> con <strong>" + data.podio[i].carteRimanenti + "</strong> carte rimanenti</p>");

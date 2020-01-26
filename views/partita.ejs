@@ -46,7 +46,7 @@
 </div>
 
 <div class="container info-container pt-2 pb-2 mt-2">
-    <nav id="btns-nav">
+    <nav class="text-center" id="btns-nav">
         <div class="play-btns navbar navbar-light bg-white justify-content-start">
             <button class="tasto-verde" id="btn-invia" disabled><i class="far fa-arrow-alt-circle-right"></i> Invia come ...</button>
             <button class="tasto-rosa" id="btn-bluffa" disabled><i class="fas fa-arrow-alt-circle-right"></i> Bluffa</button>
@@ -54,12 +54,12 @@
             <p style="margin-left: auto;" id="partita-uuid" data-toggle="tooltip" data-placement="bottom"></p>
         </div>
         <!-- <button type="button" id="resetPlayers" class="btn btn-warning">Reset players</button> -->
-        <p id="infoMazzo">Caricamento in corso... (Se non si carica, fai il logout e rientra)</p>
+        <p id="infoMazzo" class="mt-2">Caricamento in corso... (Se non si carica, fai il logout e rientra)</p>
         <hr>
         <p id="avvenimenti"></p>
         <hr>
-        <p class="text-center" id="infoMazzo2"></p>
-        <p class="text-center" id="infoText"></p>
+        <p id="infoMazzo2"></p>
+        <p id="infoText"></p>
     </nav>
     
     <div class="avversari"></div>
@@ -70,7 +70,7 @@
 </div>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
 <script src="/js/distribuzione2.js"></script>
 
 <% include ./partials/footer %>

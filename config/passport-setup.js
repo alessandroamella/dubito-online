@@ -25,7 +25,6 @@ passport.use(
             if(currentUser){
                 // already have this user
                 console.log('Nuovo login: ', currentUser.username);
-                console.log(currentUser);
                 done(null, currentUser);
             } else {
                 // if not, create user in our db
@@ -48,7 +47,6 @@ passport.use(
                     }
                 }).save().then((newUser) => {
                     console.log('Creato nuovo utente: ', newUser.username);
-                    console.log(newUser);
                     done(null, newUser);
                 });
             }
