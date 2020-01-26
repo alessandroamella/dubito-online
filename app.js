@@ -800,5 +800,9 @@ io.on("connection", function(socket){
         console.log("Riga 706, giocatore rimosso.")
         removePlayer(socket);
     });
+
+    socket.on("connessione-persa", function(data){
+        console.log("Il socket " + socket.id + " ha perso la connessione per: " + data);
+    })
 });
 

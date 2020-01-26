@@ -52,19 +52,20 @@ setInterval(function(){
 }, 5000);
 
 var disconnesso = false;
-socket.on("disconnect", connessionePersa);
-socket.on('connect_error', connessionePersa);
-socket.on('connect_timeout', connessionePersa);
-socket.on('reconnect_error', connessionePersa);
+socket.on("disconnect", connessionePersa("disconnect"));
+socket.on("connect_error", connessionePersa("connect_error"));
+socket.on("connect_timeout", connessionePersa("connect_timeout"));
+socket.on("reconnect_error", connessionePersa("reconnect_error"));
 
 socket.on("connect", function(){
     if(disconnesso){
         connessioneTornata();
     }
 });
-socket.on('reconnect', connessioneTornata);
+socket.on("reconnect", connessioneTornata);
 
-function connessionePersa(){
+function connessionePersa(msg){
+    socket.emit("connessione-persa", msg);
     disconnesso = true;
     $(".mazzo").remove();
     $("#btns-nav").html("<p style='font-size: 2rem; font-weight: 700;'>Connessione persa</p><button style='font-size: 1.2rem;' id='btn-reconnect' class='tasto-rosa'>Prova a riconnetterti</button>");
@@ -121,7 +122,7 @@ socket.on("carte", function(data){
     mazzoDOM.empty();
     for(var i = 0; i < data.length; i++){
         var cartaRender = document.createElement("li");
-        cartaRender.setAttribute('class', 'col-3 col-lg-2');
+        cartaRender.setAttribute('class', 'col-4 col-md-3 col-lg-2');
         cartaRender.setAttribute('id', 'li-carta' + i);
         // console.log(data[i]);
         // cartaRender.innerHTML = '<button onclick="cartaClick(\'' + data[i].numero + '\', \'' + data[i].seme + '\')"><strong>' + data[i].numero + '</strong> di <strong> ' + data[i].seme + '</strong></button>';
@@ -145,7 +146,7 @@ function cartaClick(numero, seme){
     });
     if(proprioTurno == turnoAttuale){
 
-        Navigator.vibrate(200);
+        navigator.vibrate(200);
 
         var carteSelezionateTemp = []
         for(var i = 0; i < mazzo.length; i++){
