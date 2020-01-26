@@ -205,7 +205,9 @@ var server = app.listen(process.env.PORT, process.env.IP, function (){
 });
 
 // SOCKET SETUP
-var io = socket(server);
+var io = socket(server, {
+    transports: ['websocket']
+});
 
 io.use(passportSocketIo.authorize({
     cookieParser: cookieParser, //optional your cookie-parser middleware function. Defaults to require('cookie-parser')
