@@ -484,7 +484,6 @@ function coloreCasuale(){
 }
 
 socket.on("vittoria", function(data){
-    socket.close();
     var podioText = "";
     for(var i = 0; i < data.podio.length; i++){
         podioText += ("<p style='font-size: 1.2rem'><strong>" + (i + 1) + "</strong>: <strong>" + data.podio[i].username + "</strong> con <strong>" + data.podio[i].carteRimanenti + "</strong> carte rimanenti</p>");
@@ -492,6 +491,7 @@ socket.on("vittoria", function(data){
     $("#btns-nav").remove();
     $(".mazzo").html("<h1 id='vittoria-text' style='color: " + coloreCasuale() + ";'>" + data.username + " ha vinto!</h1>")
         .append("<h1>Il podio:</h1>" + podioText + '<button onclick="location.href=' + "'/dubito'" + ';" class="tasto-rosa"><i class="fa fa-repeat" aria-hidden="true"></i> Nuova partita</button>');
+    socket.close();
 });
 
 socket.on("perdita", function(){
