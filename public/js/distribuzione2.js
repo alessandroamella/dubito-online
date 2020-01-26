@@ -48,14 +48,14 @@ socket.on("id", function (data) {
 });
 
 setInterval(function(){
-    if(!socket.connected){connessionePersa();}
+    if(!socket.connected){connessionePersa("socket.connected == false");}
 }, 5000);
 
 var disconnesso = false;
-socket.on("disconnect", connessionePersa("disconnect"));
-socket.on("connect_error", connessionePersa("connect_error"));
-socket.on("connect_timeout", connessionePersa("connect_timeout"));
-socket.on("reconnect_error", connessionePersa("reconnect_error"));
+socket.on("disconnect", function(){connessionePersa("disconnect")});
+socket.on("connect_error", function(){connessionePersa("connect_error")});
+socket.on("connect_timeout", function(){connessionePersa("connect_timeout")});
+socket.on("reconnect_error", function(){connessionePersa("reconnect_error")});
 
 socket.on("connect", function(){
     if(disconnesso){
