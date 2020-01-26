@@ -68,7 +68,7 @@ function connessionePersa(msg){
     socket.emit("connessione-persa", msg);
     disconnesso = true;
     $(".mazzo").remove();
-    $("#btns-nav").html("<p style='font-size: 2rem; font-weight: 700;'>Connessione persa</p><button style='font-size: 1.2rem;' id='btn-reconnect' class='tasto-rosa'>Prova a riconnetterti</button>");
+    $("#btns-nav").html("<p style='font-size: 2rem; font-weight: 700;'>Connessione persa</p><p>" + msg + "</p><button style='font-size: 1.2rem;' id='btn-reconnect' class='tasto-rosa'>Prova a riconnetterti</button>");
     socket.close();
 }
 
