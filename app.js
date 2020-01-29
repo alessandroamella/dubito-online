@@ -273,7 +273,7 @@ function updateObj(oldObj, newObj){
     let newObjCopy = newObj;
     for(let oldField in oldObj){
         for(let newField in newObj){
-            if(oldField == newField){
+            if(oldField == newField && typeof oldObj[newField] == typeof newObjCopy[newField]){
                 newObjCopy[newField] = oldObj[newField];
             }
         }
