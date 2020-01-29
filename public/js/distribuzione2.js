@@ -21,6 +21,7 @@ var primoPlayer = false;
 var nominale = false;
 
 socket.on("avversari", function(data){
+    inGame = true;
     partita_uuid = data.partita_uuid;
     proprioTurno = data.turno;
     usernames = data.usernames;
@@ -44,7 +45,6 @@ socket.on("avversari", function(data){
 socket.on("id", function (data) {
     if(!inGame) {
         $("#infoMazzo").html("Sei il giocatore <strong>" + data.giocatori + "</strong> / 4, totale: <strong>" + data.giocatori + "</strong> / 4");
-        inGame = true;
         $("#infoMazzo2").html("In attesa: <strong>" + data.usernames.join("</strong>, <strong>") + "</strong>");
     }
 });
@@ -70,11 +70,12 @@ function connessionePersa(msg){
     socket.emit("connessione-persa", msg);
     disconnesso = true;
     $(".mazzo").remove();
-    $("#btns-nav").html("<p style='font-size: 2rem; font-weight: 700;'>Connessione persa</p><p>" + msg + "</p><button style='font-size: 1.2rem;' id='btn-reconnect' class='tasto-rosa'>Prova a riconnetterti</button>");
+    $("#debug").html("<p style='font-size: 2rem; font-weight: 700;'>Connessione persa</p><p>" + msg + "</p><button style='font-size: 1.2rem;' id='btn-reconnect' class='tasto-rosa'>Prova a riconnetterti</button>");
     socket.close();
 }
 
 function connessioneTornata(){
+    socket.close();
     $("#btns-nav").html("<p style='font-size: 2rem; font-weight: 700;'>Connessione ritrovata</p><button style='font-size: 1.2rem;' id='btn-reconnect' class='tasto-rosa'>Riconnettiti</button>");
 }
 
@@ -86,8 +87,10 @@ $(document).on("click", ".tasto-rosa", function(){
 });
 
 socket.on("aggiornaConnessioni", function(data){
-    $("#infoMazzo").html("Sei il giocatore <strong>" + data.index + "</strong> / 4, totale: <strong>" + data.connessioni + "</strong> / 4");
-    $("#infoMazzo2").html("In attesa: <strong>" + data.usernames.join("</strong>, <strong>") + "</strong>");
+    if(!inGame){
+        $("#infoMazzo").html("Sei il giocatore <strong>" + data.index + "</strong> / 4, totale: <strong>" + data.connessioni + "</strong> / 4");
+        $("#infoMazzo2").html("In attesa: <strong>" + data.usernames.join("</strong>, <strong>") + "</strong>");
+    }
 });
 
 socket.on("errorone", function(data){
@@ -126,10 +129,8 @@ socket.on("carte", function(data){
         var cartaRender = document.createElement("li");
         cartaRender.setAttribute('class', 'col-4 col-md-3 col-lg-2');
         cartaRender.setAttribute('id', 'li-carta' + i);
-        // console.log(data[i]);
-        // cartaRender.innerHTML = '<button onclick="cartaClick(\'' + data[i].numero + '\', \'' + data[i].seme + '\')"><strong>' + data[i].numero + '</strong> di <strong> ' + data[i].seme + '</strong></button>';
         var imageSource = "/imgs/" +  data[i].seme + "/" + data[i].numero + ".png";
-        cartaRender.innerHTML = '<input type="checkbox" class="carta-checkbox" onclick="cartaClick(\'' + data[i].numero + '\', \'' + data[i].seme + '\')" id="carta' + i + '"><label for="carta' + i + '"><img src="' + imageSource + '" width="100px" class="m-3"></label>';
+        cartaRender.innerHTML = '<input type="checkbox" class="carta-checkbox" onclick="cartaClick()" id="carta' + i + '"><label for="carta' + i + '"><img src="' + imageSource + '" width="100px" class="m-3"></label>';
         mazzoDOM.append(cartaRender);
         mazzo.push(new Carta(data[i].numero, data[i].seme));
     };
@@ -138,7 +139,7 @@ socket.on("carte", function(data){
 var numeroUguale;
 var carteSelezionate = [];
 
-function cartaClick(numero, seme){
+function cartaClick(){
     var carteBluffCount = 0;
     $.each($("input[class='carta-checkbox']:checked"), function (){
         carteBluffCount++;
@@ -193,78 +194,6 @@ function cartaClick(numero, seme){
                     $("#btn-invia").prop('disabled', true);
                     $("#btn-bluffa").prop('disabled', false).html('<i class="fas fa-arrow-alt-circle-right"></i> Bluffa \u00bb');
                 }
-
-                // // LOGICA SE IL PLAYER NON È IL PRIMO
-                // if(numero == nominale){
-                //     // Se numero = nominale, puoi anche non bluffare
-                //     var carteSelezionateTemp = []
-                //     for(var i = 0; i < mazzo.length; i++){
-                //         if(document.getElementById("carta" + i).checked){
-                //             carteSelezionateTemp.push(mazzo[i]);
-                //         }
-                //     }
-                //     carteSelezionate = carteSelezionateTemp;
-                //     if(carteSelezionate.length > 0){
-                //         numeroUguale = haSoloNumeriUguali(carteSelezionate);
-                //         if(numeroUguale){
-                //             // Numeri uguali
-                //             var couldBluff = false;
-                //             for(var i = 0; i < carteSelezionate.length; i++){
-                //                 if(carteSelezionate[i].numero != nominale){
-                //                     $("#btn-invia").prop('disabled', true);
-                //                     couldBluff = true;
-                //                     break;
-                //                 }
-                //             }
-                //             if(!couldBluff){
-                //                 $("#btn-invia").prop('disabled', false);
-                //                 $("#btn-invia").text('Invia come ' + nominale + " \u00bb");
-                //                 $("#btn-bluffa").prop('disabled', true);
-                //             }
-                //         } else {
-                //             // Numeri diversi
-                //             $("#btn-invia").prop('disabled', true);
-                //             $("#btn-bluffa").prop('disabled', false);
-                //         };
-                //     } else {
-                //         $("#btn-invia").prop('disabled', true);
-                //         $("#btn-bluffa").prop('disabled', true);
-                //     }
-                // } else {
-                //     var ricontrollo = true;
-                //     for(var i = 0; i < carteSelezionate.length; i++){
-                //         if(carteSelezionate[i].numero != nominale){
-                //             ricontrollo = false;
-                //             break;
-                //         }
-                //     }
-                //     if(ricontrollo){
-                //         $("#btn-invia").prop('disabled', false);
-                //         $("#btn-bluffa").prop('disabled', true);
-                //     } else {
-                //         $("#btn-invia").prop('disabled', true);
-                //         $("#btn-bluffa").prop('disabled', false);
-                //     }
-                //     var carteSelezionateTemp = []
-                //     for(var i = 0; i < mazzo.length; i++){
-                //         if(document.getElementById("carta" + i).checked){
-                //             carteSelezionateTemp.push(mazzo[i]);
-                //         }
-                //     }
-                //     carteSelezionate = carteSelezionateTemp;
-                // }
-
-                // if(carteSelezionate.length > 0){
-                //     for(var i = 0; i < carteSelezionate.length; i++){
-                //         if(carteSelezionate[i].numero != nominale){
-                //             $("#btn-bluffa").prop('disabled', false).text("Bluffa \u00bb");
-                //             break;
-                //         }
-                //     }
-                // } else {
-                //     $("#btn-bluffa").prop('disabled', true);
-                // }
-
             }
         } else {
             $("#btn-invia").prop('disabled', true);
@@ -326,10 +255,8 @@ socket.on("cartaSend", function(nuovoMazzo){
         var cartaRender = document.createElement("li");
         cartaRender.setAttribute('class', 'col-6 col-sm-4 col-md-3 col-lg-2');
         cartaRender.setAttribute('id', 'li-carta' + i);
-        // console.log(nuovoMazzo[i]);
-        // cartaRender.innerHTML = '<button onclick="cartaClick(\'' + nuovoMazzo[i].numero + '\', \'' + nuovoMazzo[i].seme + '\')"><strong>' + nuovoMazzo[i].numero + '</strong> di <strong> ' + nuovoMazzo[i].seme + '</strong></button>';
         var imageSource = "/imgs/" +  nuovoMazzo[i].seme + "/" + nuovoMazzo[i].numero + ".png";
-        cartaRender.innerHTML = '<input type="checkbox" class="carta-checkbox" onclick="cartaClick(\'' + nuovoMazzo[i].numero + '\', \'' + nuovoMazzo[i].seme + '\')" id="carta' + i + '"><label for="carta' + i + '"><img src="' + imageSource + '" width="100px" class="m-3"></label>';
+        cartaRender.innerHTML = '<input type="checkbox" class="carta-checkbox" onclick="cartaClick()" id="carta' + i + '"><label for="carta' + i + '"><img src="' + imageSource + '" width="100px" class="m-3"></label>';
         mazzoDOM.append(cartaRender);
         mazzo.push(new Carta(nuovoMazzo[i].numero, nuovoMazzo[i].seme));
     };
@@ -443,34 +370,6 @@ $("#btn-bluffa").on("click", function(){
     };
 });
 
-// socket.on("addCarte", function(data){
-//     mazzo = [];
-//     mazzoDOM.empty();
-//     for(var i = 0; i < data.length; i++){
-//         var cartaRender = document.createElement("li");
-//         cartaRender.setAttribute('class', 'col-6 col-sm-4 col-md-3 col-lg-2');
-//         cartaRender.setAttribute('id', 'li-carta' + i);
-//         // console.log(data[i]);
-//         // cartaRender.innerHTML = '<button onclick="cartaClick(\'' + data[i].numero + '\', \'' + data[i].seme + '\')"><strong>' + data[i].numero + '</strong> di <strong> ' + data[i].seme + '</strong></button>';
-//         var imageSource = "/imgs/" +  data[i].seme + "/" + data[i].numero + ".png";
-//         cartaRender.innerHTML = '<input type="checkbox" class="carta-checkbox" onclick="cartaClick(\'' + data[i].numero + '\', \'' + data[i].seme + '\')" id="carta' + i + '"><label for="carta' + i + '"><img src="' + imageSource + '" width="100px" class="m-3"></label>';
-//         mazzoDOM.append(cartaRender);
-//         mazzo.push(new Carta(data[i].numero, data[i].seme));
-//     };
-//     // for(var i = 0; i < data.length; i++){
-//     //     var cartaRender = document.createElement("li");
-//     //     cartaRender.setAttribute('class', 'col-6 col-sm-4 col-md-3 col-lg-2');
-//     //     cartaRender.setAttribute('id', 'li-carta' + mazzo.length);
-//     //     // console.log(data[i]);
-//     //     // cartaRender.innerHTML = '<button onclick="cartaClick(\'' + data[i].numero + '\', \'' + data[i].seme + '\')"><strong>' + data[i].numero + '</strong> di <strong> ' + data[i].seme + '</strong></button>';
-//     //     var imageSource = "/imgs/" +  data[i].seme + "/" + data[i].numero + ".png";
-//     //     cartaRender.innerHTML = '<input type="checkbox" class="carta-checkbox" onclick="cartaClick(\'' + data[i].numero + '\', \'' + data[i].seme + '\')" id="carta' + mazzo.length + '"><label for="carta' + mazzo.length + '"><img src="' + imageSource + '" width="100px" class="m-3"></label>';
-//     //     mazzoDOM.append(cartaRender);
-//     //     console.log("Aggiunta una nuova carta al mazzo con i = " + i + ", " + data[i].numero + data[i].seme);
-//     //     mazzo.push(new Carta(data[i].numero, data[i].seme));
-//     // };
-// })
-
 socket.on("afterDubito", function(data){
     if(data.esito){
         $("#avvenimenti").html("<strong>" + data.username + "</strong> ha dubitato <span style='color: green;'>correttamente</span> le carte di <strong>" + data.pastUsername + "</strong>!");
@@ -484,6 +383,7 @@ function coloreCasuale(){
 }
 
 socket.on("vittoria", function(data){
+    console.log(data.stats);
     var podioText = "";
     for(var i = 0; i < data.podio.length; i++){
         podioText += ("<p style='font-size: 1.2rem'><strong>" + (i + 1) + "</strong>: <strong>" + data.podio[i].username + "</strong> con <strong>" + data.podio[i].carteRimanenti + "</strong> carte rimanenti</p>");
@@ -491,7 +391,6 @@ socket.on("vittoria", function(data){
     $("#btns-nav").remove();
     $(".mazzo").html("<h1 id='vittoria-text' style='color: " + coloreCasuale() + ";'>" + data.username + " ha vinto!</h1>")
         .append("<h1>Il podio:</h1>" + podioText + '<button onclick="location.href=' + "'/dubito'" + ';" class="tasto-rosa"><i class="fa fa-repeat" aria-hidden="true"></i> Nuova partita</button>');
-    socket.close();
 });
 
 socket.on("perdita", function(){

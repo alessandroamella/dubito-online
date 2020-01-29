@@ -34,8 +34,9 @@ passport.use(
                     thumbnail: profile._json.picture,
                     nickname: "",
                     stats: {
-                        rank: "",
+                        rank: [],
                         punti: 0,
+                        dataCreazione: new Date,
                         partiteGiocate: [],
                         vittorie: 0,
                         sconfitte: 0,

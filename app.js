@@ -34,6 +34,7 @@ app.use(cookieParser(process.env.cooKey));
 // CONNECT MONGODB URI
 mongoose.connect(process.env.mongoDBURI, { useNewUrlParser: true, useUnifiedTopology: true }, function(){
     console.log("Database connected!");
+    updateAllStats();
 });
 
 mongoStore = new MongoStore({
@@ -247,7 +248,70 @@ var partite = [];
 
 // var connessioni = playerList.length;
 
-var turno = 0;
+// var turno = 0;
+
+// DEBUG
+
+var defaultStats = {
+    rank: [],
+    punti: 0,
+    dataCreazione: new Date,
+    partiteGiocate: [],
+    vittorie: 0,
+    sconfitte: 0,
+    vittorieConsecutive: 0,
+    warns: [],
+    carteGiocate: 0,
+    obiettivi: [],
+    medaglie: []
+}
+
+var statsList = Object.keys(defaultStats);
+
+// Questa funzione prende due oggetti e aggiorna il primo con le proprieta` del secondo
+function updateObj(oldObj, newObj){
+    let newObjCopy = newObj;
+    for(let oldField in oldObj){
+        for(let newField in newObj){
+            if(oldField == newField){
+                newObjCopy[newField] = oldObj[newField];
+            }
+        }
+    }
+    return newObjCopy;
+}
+
+// Questa funzione aggiorna tutte le stats degli utenti in modo che abbiano le stesse proprietà
+// Viene eseguita dopo la connessione al database
+async function updateAllStats(){
+    console.log("Aggiornamento stats iniziato!");
+    await User.find({}, function(err, users){
+        if(err){
+            console.log("Errore nella ricerca utenti!");
+            console.log(err);
+        } else {
+            let flag = false;
+            for(var k = 0; k < users.length; k++){
+                for(let defaultProp in defaultStats){
+                    if(typeof users[k].stats[0].defaultProp == "undefined"){
+                        flag = true;
+                        users[k].stats[0] = updateObj(users[k].stats[0], defaultStats);
+                    }
+                }
+                if(flag){
+                    flag = false;
+                    users[k].save(function(err, updatedUser){
+                        if(err){
+                            console.log("ERRORE nel salvataggio nuove stats!");
+                            console.log(err);
+                        }
+                    });
+                }
+            }
+        }
+    })
+    console.log("Aggiornamento stats finito!");
+}
 
 io.on("connection", function(socket){
 
@@ -279,7 +343,7 @@ io.on("connection", function(socket){
     }
 
     // Se sì, associa il nuovo socket al giocatore, altrimenti crea un nuovo oggetto Player
-    function newConnection(foundPlayer, socket){
+    async function newConnection(foundPlayer, socket){
         
         // UNCOMMENT AFTER DEBUG
         // if(!foundPlayer){
@@ -293,6 +357,12 @@ io.on("connection", function(socket){
 
             var newPlayer = emitNewConnection(socket, new Player(socket));
             emitInfo(socket);
+
+            // DEBUG
+            console.log("Nuovo player: ");
+            console.log(newPlayer);
+
+            await User.findById(newPlayer.user_id, function(err, foundUser){});
 
             // printPlayers();
             
@@ -762,22 +832,37 @@ io.on("connection", function(socket){
         return false;
     }
 
-    function vittoria(partita, playerIndex){
+    async function vittoria(partita, playerIndex){
         io.to(partita.partita_uuid).emit("vittoriaTimer");
-        setTimeout(function(){
+        // setTimeout(function(){
             // !! Aumenta stats vincitore!!
             var podio = [];
             for(var i = 0; i < partita.players.length; i++){
+                var stats = false;
+                await User.findById(partita.players[i].user_id, function(err, foundUser){
+                    if(err){
+                        console.log(err);
+                    } else {
+                        // stats.push(foundUser);
+                        // SOLO AL VINCITORE! RISOLVI!!
+                        stats = foundUser.stats[0];
+                        stats.punti += Math.round(100 / Math.sqrt(Math.sqrt(Math.sqrt(stats.punti))))
+                    }
+                });
                 podio.push({
                     username: partita.players[i].username,
                     carteRimanenti: partita.players[i].mazzo.length
                 });
             }
-            podio.sort((a, b) => (a.carteRimanenti > b.carteRimanenti) ? 1 : -1)
-            io.to(partita.partita_uuid).emit("vittoria", {
-                username: partita.players[playerIndex].username,
-                podio: podio
-            });
+            podio.sort((a, b) => (a.carteRimanenti > b.carteRimanenti) ? 1 : -1);
+            for(var i = 0; i < partita.players.length; i++){
+                partita.players[i].socket.emit("vittoria", {
+                    username: partita.players[playerIndex].username,
+                    podio: podio
+                    // stats: stats[i]
+                });
+                partita.players[i].socket.leave(partita.partita_uuid);
+            }
             for(var i = 0; i < partite.length; i++){
                 if(partite[i].partita_uuid == partita.partita_uuid){
                     partite.splice(i, 1);
@@ -785,7 +870,7 @@ io.on("connection", function(socket){
                 }
             }
             return false;
-        }, 2500)
+        // }, 2500)
     };
 
     // Tasto di debug per impostare a 0 il numero di socket connessi

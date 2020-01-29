@@ -4,19 +4,8 @@ class Player {
         this.user_id = socket.request.user._id;
         this.inGame = false;
         this.username = "";
-        this.mazzo = []
-        this.stats = {
-            rank: "",
-            punti: 0,
-            partiteGiocate: [],
-            vittorie: 0,
-            sconfitte: 0,
-            vittorieConsecutive: 0,
-            warns: [],
-            carteGiocate: 0,
-            obiettivi: [],
-            medaglie: []
-        }
+        this.mazzo = [];
+        this.stats = socket.request.user.stats[0];
     }
 }
 
