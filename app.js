@@ -273,8 +273,16 @@ function updateObj(oldObj, newObj){
     let newObjCopy = newObj;
     for(let oldField in oldObj){
         for(let newField in newObj){
-            if(oldField == newField && typeof oldObj[newField] == typeof newObjCopy[newField]){
-                newObjCopy[newField] = oldObj[newField];
+            if(oldField == newField){
+                if(typeof oldObj[newField] == typeof newObjCopy[newField]){
+                    newObjCopy[newField] = oldObj[newField];
+                } else {
+                    console.log("TIPO VAR DIVERSO:");
+                    console.log(newField);
+                    console.log(typeof oldObj[newField]);
+                    console.log(typeof newObjCopy[newField]);
+                    console.log("\n");
+                }
             }
         }
     }
