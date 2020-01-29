@@ -271,17 +271,16 @@ var statsList = Object.keys(defaultStats);
 // Questa funzione prende due oggetti e aggiorna il primo con le proprieta` del secondo
 function updateObj(oldObj, newObj){
     let newObjCopy = newObj;
+    let differentTypes = [];
     for(let oldField in oldObj){
         for(let newField in newObj){
             if(oldField == newField){
                 if(typeof oldObj[newField] == typeof newObjCopy[newField]){
                     newObjCopy[newField] = oldObj[newField];
                 } else {
-                    console.log("TIPO VAR DIVERSO:");
-                    console.log(newField);
-                    console.log(typeof oldObj[newField]);
-                    console.log(typeof newObjCopy[newField]);
-                    console.log("\n");
+                    // Tipo var salvato diverso
+                    // Fare qualcosa a questo array inutile
+                    differentTypes.push(newField);
                 }
             }
         }
@@ -308,6 +307,7 @@ async function updateAllStats(){
                 }
                 if(flag){
                     flag = false;
+                    User.findByIdAndUpdate(users[k]._id, )
                     users[k].save(function(err, updatedUser){
                         if(err){
                             console.log("ERRORE nel salvataggio nuove stats!");
