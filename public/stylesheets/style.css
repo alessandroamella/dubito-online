@@ -500,6 +500,34 @@ strong {
 	background-color: #2dbd42;
 }
 
+.tasto-blu {
+	border-radius:2.5rem;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	padding: 0.5rem 1rem;
+	text-decoration: none;
+    left: 0;
+    text-align: center;
+	background-color: #3e92e0;
+	border:1px solid #357ed1;
+	text-shadow:0px 1px 0px #273666;
+    transition: all 0.2s;
+}
+.tasto-blu:active:enabled {
+	position:relative;
+	top:1px;
+}
+.tasto-blu:disabled {
+	background-color: #88bbda;
+	border: 1px solid #77a6d1;
+    text-decoration: line-through;
+    cursor: not-allowed;
+}
+.tasto-blu:hover:enabled {
+	background-color: #3378c7;
+}
+
 .tasto-grigio {
 	border-radius:2.5rem;
 	display: inline-block;
