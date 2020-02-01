@@ -13,28 +13,31 @@
         </div>
     </div>
     <div class="pt-3">
-        <a href="/nuovapartita" class="button button-blue btn" role="button">
+        <button id="nuovapartita" class="tasto-blu">
             <i class="fa fa-gamepad"></i>
             <strong>Partita rapida</strong>
-        </a>
+        </button>
     </div>
     <div class="pt-3">
-        <a href="/creastanza" class="button button-orange btn" role="button">
+        <button id="creastanza" class="tasto-arancione">
             <i class="fa fa-plus"></i>
             Crea una stanza
-        </a>
+        </button>
     </div>
     <div class="pt-3">
-        <a href="/entrastanza" class="button button-yellow btn" role="button">
+        <button id="entrastanza" class="tasto-giallo">
             <i class="fa fa-sign-in"></i>
             Entra in una stanza
-        </a>
+        </button>
     </div>
 </div>
 
 <script src="/js/jquery.fittext.js"></script>
 <script>
     $("#splashText").fitText(0.35);
+    $("#nuovapartita").on("click", function(){window.location.href="/nuovapartita";});
+    $("#creastanza").on("click", function(){window.location.href="/creastanza";});
+    $("#entrastanza").on("click", function(){window.location.href="/entrastanza";});
 </script>
 
 <% include ./partials/footer %>

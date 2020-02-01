@@ -500,6 +500,35 @@ strong {
 	background-color: #2dbd42;
 }
 
+.tasto-giallo {
+	border-radius:2.5rem;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	padding: 0.5rem 1rem;
+	text-decoration: none;
+    left: 0;
+    text-align: center;
+	background-color: #dad74d;
+	border:1px solid #dbd82d;
+	text-shadow:0px 1px 0px #656627;
+    transition: all 0.2s;
+}
+.tasto-giallo:active:enabled {
+	position:relative;
+	top:1px;
+}
+.tasto-giallo:disabled {
+	background-color: #c8d487;
+	border: 1px solid #bfc067;
+    text-decoration: line-through;
+    cursor: not-allowed;
+}
+.tasto-giallo:hover:enabled {
+	border:1px solid #c7c40f;
+	background-color: #cfcc10;
+}
+
 .tasto-blu {
 	border-radius:2.5rem;
 	display: inline-block;
@@ -509,7 +538,7 @@ strong {
 	text-decoration: none;
     left: 0;
     text-align: center;
-	background-color: #3e92e0;
+	background-color: #2196f3;
 	border:1px solid #357ed1;
 	text-shadow:0px 1px 0px #273666;
     transition: all 0.2s;
