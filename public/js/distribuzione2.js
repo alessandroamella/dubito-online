@@ -264,7 +264,7 @@ socket.on("cartaSend", function(nuovoMazzo){
 
 socket.on("cartaReceive", function(data){
     $("#avvenimenti").html("<strong>" + data.delPlayer + "</strong> ha inviato " + data.numCarte + ' "<strong>' + data.nominale + '</strong>"');
-    console.log("Ricevuti " + data.numCarte + " " + data.nominale + " da " + data.delPlayer);
+    // console.log("Ricevuti " + data.numCarte + " " + data.nominale + " da " + data.delPlayer);
     $("#btn-invia").html('<i class="far fa-arrow-alt-circle-right"></i> Invia come ' + data.nominale);
     $("#btn-bluffa").html('<i class="fas fa-arrow-alt-circle-right"></i> Bluffa');
     nominale = data.nominale;
@@ -314,9 +314,9 @@ function displayTurno(){
     }
 }
 
-socket.on("turno", function(){
-    console.log("È il tuo turno!");
-});
+// socket.on("turno", function(){
+    // console.log("È il tuo turno!");
+// });
 
 function turnoText(){
     turnoAnimation = true;
@@ -345,12 +345,14 @@ $("#btn-dubito").on("click", function(){
     if(proprioTurno == turnoAttuale){
         if(!primoPlayer){
             socket.emit("dubito");
-        } else {
-            console.log("Sei il primo player, non puoi dubitare!");
         }
-    } else {
-        console.log("Oh cosa usi, i cheat?! Non è il tuo turno!");
+        // else {
+        //     console.log("Sei il primo player, non puoi dubitare!");
+        // }
     }
+    // else {
+    //     console.log("Oh cosa usi, i cheat?! Non è il tuo turno!");
+    // }
 });
 
 socket.on("primoPlayer", function(){
@@ -383,7 +385,7 @@ function coloreCasuale(){
 }
 
 socket.on("vittoria", function(data){
-    console.log(data.stats);
+    // console.log(data.stats);
     var podioText = "";
     for(var i = 0; i < data.podio.length; i++){
         podioText += ("<p style='font-size: 1.2rem'><strong>" + (i + 1) + "</strong>: <strong>" + data.podio[i].username + "</strong> con <strong>" + data.podio[i].carteRimanenti + "</strong> carte rimanenti</p>");

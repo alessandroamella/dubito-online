@@ -23,18 +23,21 @@ passport.use(
         // check if user already exists in our own db
         User.findOne({googleId: profile.id}).then((currentUser) => {
             if(currentUser){
-                // already have this user
+                // Già registrato, loggalo
                 console.log('Nuovo login: ', currentUser.username);
                 done(null, currentUser);
             } else {
-                // if not, create user in our db
+                // Crea e salva utente in Mongo
                 new User({
                     googleId: profile.id,
                     username: profile.displayName,
                     thumbnail: profile._json.picture,
                     nickname: "",
+                    email: profile.emails[0].value,
                     stats: {
-                        rank: [],
+                        rank: [{
+                            nome: 'Principiante'
+                        }],
                         punti: 0,
                         dataCreazione: new Date,
                         partiteGiocate: [],

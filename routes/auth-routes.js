@@ -8,7 +8,7 @@ router.get("/login", function(req, res){
 
 // Auth with Google, get profile information
 router.get("/google", passport.authenticate("google", {
-    scope: ['profile']
+    scope: ['profile', 'email']
 }));
 
 // Callback route for Google to redirect

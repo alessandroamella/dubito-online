@@ -266,22 +266,19 @@ var defaultStats = {
     medaglie: []
 }
 
-var statsList = Object.keys(defaultStats);
-
 // Questa funzione prende due oggetti e aggiorna il primo con le proprieta` del secondo
 function updateObj(oldObj, newObj){
     let newObjCopy = newObj;
-    let differentTypes = [];
     for(let oldField in oldObj){
         for(let newField in newObj){
             if(oldField == newField){
-                if(typeof oldObj[newField] == typeof newObjCopy[newField]){
+                // if(typeof oldObj[newField] == typeof newObjCopy[newField]){
                     newObjCopy[newField] = oldObj[newField];
-                } else {
+                // } else {
                     // Tipo var salvato diverso
-                    // Fare qualcosa a questo array inutile
-                    differentTypes.push(newField);
-                }
+                    // console.log("Attenzione! Tipo elemento diverso:");
+                    // console.log(newField + ': "' + typeof oldObj[newField] + '" diverso da "' + typeof newObjCopy[newField] + '"\n');
+                // }
             }
         }
     }
@@ -292,28 +289,27 @@ function updateObj(oldObj, newObj){
 // Viene eseguita dopo la connessione al database
 async function updateAllStats(){
     console.log("Aggiornamento stats iniziato!");
-    await User.find({}, function(err, users){
+    await User.find({}, async function(err, users){
         if(err){
             console.log("Errore nella ricerca utenti!");
             console.log(err);
         } else {
-            let flag = false;
             for(var k = 0; k < users.length; k++){
+                inner_loop:
                 for(let defaultProp in defaultStats){
-                    if(typeof users[k].stats[0].defaultProp == "undefined"){
-                        flag = true;
-                        users[k].stats[0] = updateObj(users[k].stats[0], defaultStats);
+                    if(typeof users[k].stats[defaultProp] == "undefined"){
+                        console.log("\n!! All'utente " + k + " manca la proprietà " + defaultProp);
+                        users[k].stats = updateObj(users[k].stats, defaultStats);
+                        await users[k].save(async function(err){
+                            if(err){
+                                console.log("Errore nel salvataggio updateObj:");
+                                console.log(err);
+                            } else {
+                                console.log("Utente " + k + " aggiornato!");
+                            }
+                        });
+                        break inner_loop;
                     }
-                }
-                if(flag){
-                    flag = false;
-                    User.findByIdAndUpdate(users[k]._id, )
-                    users[k].save(function(err, updatedUser){
-                        if(err){
-                            console.log("ERRORE nel salvataggio nuove stats!");
-                            console.log(err);
-                        }
-                    });
                 }
             }
         }
@@ -853,7 +849,7 @@ io.on("connection", function(socket){
                     } else {
                         // stats.push(foundUser);
                         // SOLO AL VINCITORE! RISOLVI!!
-                        stats = foundUser.stats[0];
+                        stats = foundUser.stats;
                         stats.punti += Math.round(100 / Math.sqrt(Math.sqrt(Math.sqrt(stats.punti))))
                     }
                 });
