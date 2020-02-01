@@ -156,7 +156,7 @@ app.get("/dubito", middleware.controllaAccesso, function(req, res){
     res.render("partita");
 });
 
-app.put("/profilo/:id", middleware.controllaAccesso, function(req, res){
+app.put("/profilo/:id/cambiaNickname", middleware.controllaAccesso, function(req, res){
     // Trova e aggiorna nickname, se valido
     if(req.body.nickname.length >= 5 && req.body.nickname.length <= 15 && /^\w+$/.test(req.body.nickname)){
         User.find({}, function(err, allUsers){
@@ -195,6 +195,71 @@ app.put("/profilo/:id", middleware.controllaAccesso, function(req, res){
         req.flash("error", "Nickname invalido. Deve avere da 5 a 15 caratteri e può contenere solo lettere, numeri e trattini bassi!");
         res.redirect("/profilo");
     }
+});
+
+app.put("/profilo/:id/cambiaImmagine", middleware.controllaAccesso, function(req, res){
+    request(req.body.immagine, function(error, response, body){
+        if(!error && response.statusCode == 200){
+            try {
+                if(((response.headers['content-type']).match(/(image)+\//g)).length != 0){
+                    User.findByIdAndUpdate(req.params.id, {
+                        thumbnail: req.body.immagine
+                    }, function(err, newImg){
+                        if(err){
+                            req.flash("error", "Si è verificato un errore di sistema :(");
+                            res.redirect("/profilo");
+                        } else {
+                            req.flash("success", "Hai cambiato l'immagine di profilo!");
+                            res.redirect("/profilo");
+                        }
+                    })
+                }
+            } catch(e){
+                req.flash("error", "Immagine non valida. Assicurati che l'indirizzo sia corretto.");
+                res.redirect("/profilo");
+            }
+        } else {
+            req.flash("error", "Indirizzo non valido. Assicurati che l'indirizzo sia corretto.");
+            res.redirect("/profilo");
+        }
+    });
+    // if(req.body.immagine.length >= 3 && req.body.nickname.length <= 15 && /^\w+$/.test(req.body.nickname)){
+    //     User.find({}, function(err, allUsers){
+    //         if(err){
+    //             log.error(err.toString());
+    //             req.flash("error", err);
+    //             res.redirect("/profilo");
+    //         } else {
+    //             var sameNick = false;
+    //             for(var i = 0; i < allUsers.length; i++){
+    //                 if(allUsers[i].nickname == req.body.nickname){
+    //                     req.flash("error", "Il nickname " + req.body.nickname + " è già in uso");
+    //                     res.redirect("/profilo");
+    //                     sameNick = true;
+    //                     break;
+    //                 }
+    //             }
+    //             if(!sameNick){
+    //                 User.findOneAndUpdate({_id: req.params.id}, {
+    //                     nickname: req.body.nickname
+    //                 }, function(err, updatedNick){
+    //                    if(err){
+    //                        log.error(err.toString());
+    //                        req.flash("error", err);
+    //                        res.redirect("/profilo");
+    //                    } else {
+    //                        // REDIRECT TO PROFILE
+    //                        req.flash("success", "Salve, " + req.body.nickname + "!");
+    //                        res.redirect("/profilo");
+    //                    }
+    //                 });
+    //             }
+    //         }
+        // });
+    // } else {
+    //     req.flash("error", "Nickname invalido. Deve avere da 5 a 15 caratteri e può contenere solo lettere, numeri e trattini bassi!");
+    //     res.redirect("/profilo");
+    // }
 });
 
 app.get("*", function(req, res){
