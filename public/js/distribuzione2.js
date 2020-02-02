@@ -42,14 +42,16 @@ socket.on("avversari", function(data){
 //     $(this).text("Partita <strong>" + partita_uuid.split("-")[0] + "</strong>");
 // });
 
+var totali = 0;
 socket.on("id", function (data) {
     if(!inGame) {
-        $("#infoMazzo").html("Sei il giocatore <strong>" + data.giocatori + "</strong> / 4, totale: <strong>" + data.giocatori + "</strong> / 4");
+        totali = data.totali;
+        $("#infoMazzo").html("Sei il giocatore <strong>" + data.giocatori + "</strong> / " + totali + ", totale: <strong>" + data.giocatori + "</strong> /" + totali);
         $("#infoMazzo2").html("In attesa: <strong>" + data.usernames.join("</strong>, <strong>") + "</strong>");
     }
 });
 
-setInterval(function(){
+var checkConnection = setInterval(function(){
     if(!socket.connected){connessionePersa("socket.connected == false");}
 }, 5000);
 
@@ -69,8 +71,13 @@ socket.on("reconnect", connessioneTornata);
 function connessionePersa(msg){
     socket.emit("connessione-persa", msg);
     disconnesso = true;
+    clearInterval(checkConnection);
+    turnoAnimation = false;
+    $("#btn-invia").prop('disabled', true);
+    $("#btn-bluffa").prop('disabled', true);
+    $("#btn-dubito").prop('disabled', true);
     $(".mazzo").remove();
-    $("#debug").html("<p style='font-size: 2rem; font-weight: 700;'>Connessione persa</p><p>" + msg + "</p><button style='font-size: 1.2rem;' id='btn-reconnect' class='tasto-rosa'>Prova a riconnetterti</button>");
+    $("#debug").html("<p style='font-size: 2rem; font-weight: 700;'>Connessione persa</p><p>Causa: <strong>" + msg + "</strong></p><button style='font-size: 1.2rem;' id='btn-reconnect' class='tasto-rosa'>Prova a riconnetterti</button>");
     socket.close();
 }
 
@@ -88,7 +95,7 @@ $(document).on("click", ".tasto-rosa", function(){
 
 socket.on("aggiornaConnessioni", function(data){
     if(!inGame){
-        $("#infoMazzo").html("Sei il giocatore <strong>" + data.index + "</strong> / 4, totale: <strong>" + data.connessioni + "</strong> / 4");
+        $("#infoMazzo").html("Sei il giocatore <strong>" + data.index + "</strong> / " + totali + ", totale: <strong>" + data.connessioni + "</strong> / " + totali);
         $("#infoMazzo2").html("In attesa: <strong>" + data.usernames.join("</strong>, <strong>") + "</strong>");
     }
 });
@@ -404,3 +411,7 @@ socket.on("vittoriaTimer", function(){
     $("#btn-bluffa").prop('disabled', true);
     $("#btn-dubito").prop('disabled', true);
 })
+
+socket.on("timer_turno", function(){
+    connessionePersa("AFK");
+});

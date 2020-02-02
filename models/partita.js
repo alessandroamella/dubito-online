@@ -6,6 +6,7 @@ class Partita {
         this.turno = 0;
         this.carteInMezzo = [];
         this.primoPlayer = false;
+        this.giocate = 0;
     }
 }
 module.exports = Partita;

@@ -19,9 +19,9 @@ var userSchema = new Schema({
             players: [{
                 username: { type: String, default: 'default' },
                 thumbnail: { type: String, default: 'default' },
-                nickname: { type: String, default: 'default' },
                 rank: { type: String, default: 'default' },
                 punti: { type: Number, default: 0 },
+                dataCreazione: { type: Date, default: Date.now }
             }],
             giocate: { type: Number, default: 0 },
             vincitore_num: { type: Number, default: 0 }
@@ -37,7 +37,6 @@ var userSchema = new Schema({
             nome: { type: String, default: '/imgs/favicon.png' },
             punti: { type: Number, default: 0 }
         }],
-        // medaglie: Array
         medaglie: [{
             nome: { type: String, default: 'default' },
             img: { type: String, default: 'default' }

@@ -391,13 +391,7 @@ io.on("connection", function(socket){
             var newPlayer = emitNewConnection(socket, new Player(socket));
             emitInfo(socket);
 
-            // DEBUG
-            console.log("Nuovo player: ");
-            console.log(newPlayer);
-
             await User.findById(newPlayer.user_id, function(err, foundUser){});
-
-            // printPlayers();
             
             console.log("\n******************");
             console.log(playerList.length + " player totali");
@@ -426,11 +420,7 @@ io.on("connection", function(socket){
         // } else {
         //     foundPlayer.socket.id = socket.id;
         //     console.log("Giocatore riconnesso, lista players aggiornata");
-        //     // printPlayers();
         // }
-
-        // DEBUG
-        // emitList();
     }
 
     wasPlayerHere(socket);
@@ -446,7 +436,9 @@ io.on("connection", function(socket){
             // id: socket.id,
             giocatori: playerList.length,
             // username: username,
-            usernames: getUsernames(playerList)
+            usernames: getUsernames(playerList),
+
+            totali: numPlayers
         });
     }
 
@@ -467,53 +459,50 @@ io.on("connection", function(socket){
         playerList.push(newPlayer);
 
         for(var i = 0; i < playerList.length; i++){
-            playerList[i].socket.emit("aggiornaConnessioni", {usernames: getUsernames(playerList), index: i + 1, connessioni: playerList.length + 1});
+            playerList[i].socket.emit("aggiornaConnessioni", {usernames: getUsernames(playerList), index: i + 1, connessioni: playerList.length});
         }
-
-        // io.to("waiting-room").emit("aggiornaConnessioni", {usernames: getUsernames(playerList), connessioni: playerList.length + 1});
-
         return newPlayer;
 
     }
     
-    function printPlayers(){
-        console.log("\n/========================\\\n  STAMPA LISTA GIOCATORI");
-        for(var i = 0; i < playerList.length; i++){
-            console.log("\n******************\nGIOCATORE " + (i + 1));
-            console.log("Socket ID: " + playerList[i].socket.id);
-            console.log("User ID: " + playerList[i].user_id);
-            console.log("In Game: " + playerList[i].inGame);
-            console.log("Username: " + playerList[i].username);
-            console.log("******************");
-        }
-        console.log("\n FINE DELLA STAMPA PLAYER\n\\========================/\n\n");
-    }
+    // function printPlayers(){
+    //     console.log("\n/========================\\\n  STAMPA LISTA GIOCATORI");
+    //     for(var i = 0; i < playerList.length; i++){
+    //         console.log("\n******************\nGIOCATORE " + (i + 1));
+    //         console.log("Socket ID: " + playerList[i].socket.id);
+    //         console.log("User ID: " + playerList[i].user_id);
+    //         console.log("In Game: " + playerList[i].inGame);
+    //         console.log("Username: " + playerList[i].username);
+    //         console.log("******************");
+    //     }
+    //     console.log("\n FINE DELLA STAMPA PLAYER\n\\========================/\n\n");
+    // }
 
     // Questa funzione ASYNC serve per stampare la lista dei giocatori CERCANDO LO USERNAME
-    async function printPlayersFindUsername(){
-        for(var i = 0; i < playerList.length; i++){
-            await User.findById(playerList[i].user_id, function(err, foundPlayer){
-                if(err){
-                    Promise.resolve("Errore di mongoose nella ricerca del player:" + err);
-                } else {
-                    Promise.resolve(foundPlayer);
-                }
-            })
-            .then(function(foundPlayer){
-                console.log("\nGIOCATORE " + (i + 1) + ":");
-                if(foundPlayer.nickname == ""){
-                    console.log("Username: " + foundPlayer.username);
-                } else {
-                    console.log("Nickname: " + foundPlayer.nickname);
-                };
-                console.log("Socket ID: " + playerList[i].socket.id);
-                console.log("User ID: " + playerList[i].user_id);
-                console.log("inGame: " + playerList[i].inGame);
-            }).catch(function(e){
-                log.error("Errore nella ricerca username: " + e);
-            });
-        }
-    }
+    // async function printPlayersFindUsername(){
+    //     for(var i = 0; i < playerList.length; i++){
+    //         await User.findById(playerList[i].user_id, function(err, foundPlayer){
+    //             if(err){
+    //                 Promise.resolve("Errore di mongoose nella ricerca del player:" + err);
+    //             } else {
+    //                 Promise.resolve(foundPlayer);
+    //             }
+    //         })
+    //         .then(function(foundPlayer){
+    //             console.log("\nGIOCATORE " + (i + 1) + ":");
+    //             if(foundPlayer.nickname == ""){
+    //                 console.log("Username: " + foundPlayer.username);
+    //             } else {
+    //                 console.log("Nickname: " + foundPlayer.nickname);
+    //             };
+    //             console.log("Socket ID: " + playerList[i].socket.id);
+    //             console.log("User ID: " + playerList[i].user_id);
+    //             console.log("inGame: " + playerList[i].inGame);
+    //         }).catch(function(e){
+    //             log.error("Errore nella ricerca username: " + e);
+    //         });
+    //     }
+    // }
 
     function trovaPlayerInPartita(socket){
         for(var i = 0; i < partite.length; i++){
@@ -544,7 +533,6 @@ io.on("connection", function(socket){
                 for(var i = 0; i < playerList.length; i++){
                     playerList[i].socket.emit("aggiornaConnessioni", {usernames: getUsernames(playerList), index: i + 1, connessioni: playerList.length});
                 }
-                // printPlayers();
                 return true;
             }
             // DEBUG
@@ -767,7 +755,8 @@ io.on("connection", function(socket){
                         console.log("Riga 629, giocatore rimosso.")
                         removePlayer(partita.players[playerIndex].socket);
                     }
-                    var turnoBefore = partita.turno - 1;
+                    partita.players[partita.turno].giocate++;
+                    let turnoBefore = partita.turno - 1;
                     if(turnoBefore < 0){turnoBefore = partita.players.length - 1;}
                     if(partita.players[turnoBefore].mazzo.length <= 0){
                         vittoria(partita, partita.turno);
@@ -775,8 +764,15 @@ io.on("connection", function(socket){
                     // Aumenta il turno di uno, se il turno è pari al numero del giocatori totali, allora il giro ricomincia
                     aumentaTurno(partita);
                     partita.players[partita.turno].socket.emit("turno");
-                    io.to(partita.players[partita.turno]).emit("turno", partita.turno);
+                    // clearTimeout(tempoTurno);
+                    // var tempoTurno = setTimeout(function(){
+                    //     if(partita.players[partita.turno]){
+                    //         partita.players[partita.turno].socket.emit("timer_turno");
+                    //         partita.players[partita.turno].socket.disconnect();
+                    //     }
+                    // }, 20000)
                     io.to(partita.partita_uuid).emit("aggiornaTurno", partita.turno);
+                    partita.giocate++;
 
                 } else {
                     // Se non è il turno del socket che emette la carta, allora emetti "noturno"
@@ -824,6 +820,7 @@ io.on("connection", function(socket){
                         partita.players[indexEmit].socket.emit("carte", partita.players[indexEmit].mazzo);
                         partita.carteInMezzo = [];
                         io.to(partita.partita_uuid).emit("aggiornaTurno", partita.turno);
+                        partita.giocate++;
                         socket.emit("primoPlayer");
                     } else {
                         console.log("Il giocatore ha dubitato errato!");
@@ -838,6 +835,7 @@ io.on("connection", function(socket){
                         aumentaTurno(partita);
                         partita.primoPlayer = partita.turno;
                         io.to(partita.partita_uuid).emit("aggiornaTurno", partita.turno);
+                        partita.giocate++;
                         partita.players[partita.turno].socket.emit("primoPlayer");
                     };
                     if(partita.players[indexEmit].mazzo.length <= 0){
@@ -867,33 +865,98 @@ io.on("connection", function(socket){
 
     async function vittoria(partita, playerIndex){
         io.to(partita.partita_uuid).emit("vittoriaTimer");
-        // setTimeout(function(){
+        setTimeout(async function(){
             // !! Aumenta stats vincitore!!
             var podio = [];
             for(var i = 0; i < partita.players.length; i++){
                 var stats = false;
-                await User.findById(partita.players[i].user_id, function(err, foundUser){
-                    if(err){
-                        console.log(err);
-                    } else {
-                        // stats.push(foundUser);
-                        // SOLO AL VINCITORE! RISOLVI!!
-                        stats = foundUser.stats;
-                        stats.punti += Math.round(100 / Math.sqrt(Math.sqrt(Math.sqrt(stats.punti))))
-                    }
-                });
+                // await User.findById(partita.players[i].user_id, function(err, foundUser){
+                //     if(err){
+                //         console.log(err);
+                //     } else {
+                //         stats.push(foundUser);
+                //         // SOLO AL VINCITORE! RISOLVI!!
+                //         stats = foundUser.stats;
+                //         stats.punti += Math.round(100 / Math.sqrt(Math.sqrt(Math.sqrt(stats.punti))))
+                //     }
+                // });
                 podio.push({
                     username: partita.players[i].username,
                     carteRimanenti: partita.players[i].mazzo.length
                 });
             }
             podio.sort((a, b) => (a.carteRimanenti > b.carteRimanenti) ? 1 : -1);
+            try {
+                for(var i = 0; i < partita.players.length; i++){
+                    await User.findById(partita.players[i].user_id, function(err, foundUser){
+                        if(err){
+                            console.log("Errore nella ricerca stats in vittoria");
+                            log.error(err);
+                        } else {
+                            // Aggiunta carte giocate
+                            foundUser.stats.giocate += partita.players[i].giocate;
+                            // Aggiunta punti
+                            let aggiungiPunti;
+                            if(i == playerIndex){
+                                // Se ultima partita vinta, aumenta vittorieConsecutive!!
+                                foundUser.stats.vittorie++;
+                                if(foundUser.stats.punti <= 6000){
+                                    aggiungiPunti = Math.floor(-0.1 * foundUser.stats.punti + 900);
+                                } else {
+                                    aggiungiPunti = 300
+                                }
+                            } else {
+                                foundUser.stats.sconfitte++;
+                                if(foundUser.stats.punti <= 5000){
+                                    aggiungiPunti = -Math.floor(0.02 * foundUser.stats.punti + 900);
+                                } else {
+                                    aggiungiPunti = -300
+                                }
+                                if(foundUser.stats.punti < 0){
+                                    foundUser.stats.punti = 0;
+                                }
+                                if(foundUser.stats.punti < -aggiungiPunti){
+                                    aggiungiPunti = -foundUser.stats.punti;
+                                }
+                            }
+                            foundUser.stats.punti += aggiungiPunti;
+                            // Aggiunta partita giocata
+                            foundUser.stats.partiteGiocate.push({
+                                // nome: "INSERISCIMI QUALCOSA QUA DIO GATTO",
+                                partita_uuid: partita.partita_uuid,
+                                players: [],
+                                giocate: partita.giocate,
+                                vincitore_num: playerIndex
+                            })
+                            // DEBUG RICORDA!!!! FOR LOOP IN VITTORIA CON J, MOSTRA IL RANK[0]!
+                            for(var j = 0; j < partita.players.length; j++){
+                                foundUser.stats.partiteGiocate[foundUser.stats.partiteGiocate.length - 1].players.push({
+                                    username: partita.players[j].username,
+                                    thumbnail: partita.players[j].thumbnail,
+                                    rank: partita.players[j].rank[0].nome,
+                                    punti: partita.players[j].punti,
+                                    dataCreazione: partita.players[j].dataCreazione
+                                });
+                            }
+                            foundUser.save(function(err, savedUser){
+                                if(err){
+                                    console.log("Errore nel salvataggio stats in vittoria");
+                                    log.error(err);
+                                }
+                            });
+                        }
+                    });
+                    partita.players[i].socket.emit("vittoria", {
+                        username: partita.players[playerIndex].username,
+                        podio: podio
+                        // stats: stats[i]
+                    });
+                }
+            } catch(e) {
+                console.log("\nERRORE NEL FOR RIGA 889:");
+                console.log(e);
+            }
             for(var i = 0; i < partita.players.length; i++){
-                partita.players[i].socket.emit("vittoria", {
-                    username: partita.players[playerIndex].username,
-                    podio: podio
-                    // stats: stats[i]
-                });
                 partita.players[i].socket.leave(partita.partita_uuid);
             }
             for(var i = 0; i < partite.length; i++){
@@ -903,7 +966,7 @@ io.on("connection", function(socket){
                 }
             }
             return false;
-        // }, 2500)
+        }, 2500)
     };
 
     // Tasto di debug per impostare a 0 il numero di socket connessi
@@ -917,7 +980,7 @@ io.on("connection", function(socket){
 
     socket.on("disconnect", function(){
         console.log("\nSocket " + socket.id + " disconnesso");
-        console.log("Riga 706, giocatore rimosso.")
+        console.log("Riga 982, giocatore rimosso.")
         removePlayer(socket);
     });
 
